@@ -3,7 +3,9 @@
 """"""""""""""""""""""""""""""
 "colorscheme desert
 colorscheme molokai
-
+"FIXME:
+"本来は$TERMに256色設定をすべき。https://codeyarns.com/2015/03/18/how-to-set-term-to-xterm-256color/"
+set t_Co=256
 """"""""""""""""""""""""""""""
 " カレントウィンドウ以外の罫線非表示
 """"""""""""""""""""""""""""""
