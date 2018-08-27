@@ -29,11 +29,11 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 """"""""""""""""""""""""""""""
 " insert mode
 """"""""""""""""""""""""""""""
-""imap <C-j> <Down>
-""imap <C-k> <Up>
-""imap <C-h> <Left>
-""imap <C-l> <Right>
-""imap <C-x> <Delete>
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-h> <Left>
+imap <C-l> <Right>
+imap <C-x> <Delete>
 
 """"""""""""""""""""""""""""""
 " 検索
@@ -54,7 +54,7 @@ set expandtab     " タブをスペースに
 set autoindent    " オートインデント
 set smartindent   " 賢いオートインデント
 set backspace=1   " 改行後に BS を押すと上の行末に移動する
-"autocmd BufWritePre * :%s/\s\+$//ge    " 保存時に行末の空白を除去する
+autocmd BufWritePre * :%s/\s\+$//ge    " 保存時に行末の空白を除去する
 set backspace=start,eol,indent
 
 """"""""""""""""""""""""""""""
@@ -76,17 +76,17 @@ highlight Visual ctermbg=gray  " 選択モードで選択された部分の背�
 
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
 " 空白ハイライト
 """"""""""""""""""""""""""""""
-""highlight WhitespaceEOL ctermfg=BLUE ctermbg=BLUE guibg=BLUE
-""au BufWinEnter,VimEnter,WinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
-""
-""highlight WhitespaceBOL ctermfg=BLUE ctermbg=BLUE guibg=BLUE
-""au BufWinEnter,VimEnter,WinEnter * let w:m2 = matchadd("WhitespaceBOL", '^\s\+')
-""
-""highlight ZenkakuSpace ctermfg=BLUE ctermbg=BLUE guibg=BLUE
-""au BufWinEnter,VimEnter,WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
+"highlight WhitespaceEOL ctermfg=BLUE ctermbg=BLUE guibg=BLUE
+"au BufWinEnter,VimEnter,WinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
+"
+"highlight WhitespaceBOL ctermfg=BLUE ctermbg=BLUE guibg=BLUE
+"au BufWinEnter,VimEnter,WinEnter * let w:m2 = matchadd("WhitespaceBOL", '^\s\+')
+"
+"highlight ZenkakuSpace ctermfg=BLUE ctermbg=BLUE guibg=BLUE
+"au BufWinEnter,VimEnter,WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
 """"""""""""""""""""""""""""""
 "挿入モード時、ステータスラインの色を変更
@@ -132,13 +132,13 @@ set clipboard^=unnamedplus
 """"""""""""""""""""""""""""""
 " svn diffを出力
 """"""""""""""""""""""""""""""
-nmap ,d :call SVNDiff()<CR>
-function! SVNDiff()
-  edit diff
-  silent! setlocal ft=diff nobackup noswf buftype=nofile
-  execute "normal :r!LANG=ja_JP.UTF8 svn diff\n"
-  goto 1
-endfunction
+"nmap ,d :call SVNDiff()<CR>
+"function! SVNDiff()
+"  edit diff
+"  silent! setlocal ft=diff nobackup noswf buftype=nofile
+"  execute "normal :r!LANG=ja_JP.UTF8 svn diff\n"
+"  goto 1
+"endfunction
 
 
 """"""""""""""""""""""""""""""
@@ -155,9 +155,31 @@ let g:rails_default_database="mysql"
 """"""""""""""""""""""""""""""
 " neocomplcache
 """"""""""""""""""""""""""""""
-""let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
-""imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" :pumvisible() ?  "\<C-n>" : "\<TAB>"
+let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
+imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" :pumvisible() ?  "\<C-n>" : "\<TAB>"
 
-""let g:rails_level = 4
+let g:rails_level = 4
 
 
+""""""""""""""""""""""""""""""
+" Vundleによるプラグイン管理
+""""""""""""""""""""""""""""""
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+""""""""""""""""""""""""""""""
+" rails.vim
+""""""""""""""""""""""""""""""
+Plugin 'tpope/vim-rails'
+
+""""""""""""""""""""""""""""""
+" RSpec用のsyntax hilighting
+""""""""""""""""""""""""""""""
+Plugin 'Keithbsmiley/rspec.vim'
+
+call vundle#end()
+filetype plugin indent on
