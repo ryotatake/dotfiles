@@ -19,13 +19,13 @@ highlight CursorLine ctermbg=white guibg=white
 """"""""""""""""""""""""""""""
 " 改行系
 """"""""""""""""""""""""""""""
-set whichwrap=b,s,h,l,>,[,]       " 行移動がスムーズになる
-set ai                            " 改行後の自動インデント
+set whichwrap=b,s,h,l,<,>,[,],~   " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
 set nu                            " 行数を表示
 set cursorline                    " カーソル行下線 色設定は「hi CursolLine 〜」部で行ってる。
 set cursorcolumn                  " カーソル列を強調表示
 hi NonText guibg=NONE guifg=DarkGreen    "改行記号
 set notextmode                    " 改行コードを LF (UNIX 風)にする
+
 ""set matchpairs=(:),{:},[:],<:>
 
 """"""""""""""""""""""""""""""
@@ -41,11 +41,14 @@ imap <C-x> <Delete>
 " 検索
 """"""""""""""""""""""""""""""
 set hlsearch                      " 検索語をハイライト
-set ignorecase                    " 大/小を区別しない
-set smartcase                     " 大文字を含んでいたら大/小を区別
+set ignorecase                    " 検索時に大/小文字を区別しない
+set smartcase                     " 検索パターンに大文字を含んでいたら大/小を区別
 
 set wildmenu                      " コマンド補完を強化
 set incsearch                     " インクリメンタルサーチ
+
+" ESCキー2度押しでハイライトの切り替え
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 """"""""""""""""""""""""""""""
 " スペース系
@@ -53,8 +56,8 @@ set incsearch                     " インクリメンタルサーチ
 set tabstop=2     " <Tab> での空白数
 set shiftwidth=2  " 自動インデントでの空白数
 set expandtab     " タブをスペースに
-set autoindent    " オートインデント
-set smartindent   " 賢いオートインデント
+set autoindent    " 改行時に前の行のインデントを継続する
+set smartindent   " 改行時に前の行の構文をチェックし次の行のインデントを増減する
 set backspace=1   " 改行後に BS を押すと上の行末に移動する
 autocmd BufWritePre * :%s/\s\+$//ge    " 保存時に行末の空白を除去する
 set backspace=start,eol,indent
@@ -89,40 +92,6 @@ autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 "
 "highlight ZenkakuSpace ctermfg=BLUE ctermbg=BLUE guibg=BLUE
 "au BufWinEnter,VimEnter,WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
-
-""""""""""""""""""""""""""""""
-"挿入モード時、ステータスラインの色を変更
-""""""""""""""""""""""""""""""
-let g:hi_insert = 'highlight StatusLine guifg=skelton guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
-
-if has('syntax')
-  augroup InsertHook
-    autocmd!
-    autocmd InsertEnter * call s:StatusLine('Enter')
-    autocmd InsertLeave * call s:StatusLine('Leave')
-  augroup END
-endif
-
-let s:slhlcmd = ''
-function! s:StatusLine(mode)
-  if a:mode == 'Enter'
-    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-    silent exec g:hi_insert
-  else
-    highlight clear StatusLine
-    silent exec s:slhlcmd
-  endif
-endfunction
-
-function! s:GetHighlight(hi)
-  redir => hl
-  exec 'highlight '.a:hi
-  redir END
-  let hl = substitute(hl, '[\r\n]', '', 'g')
-  let hl = substitute(hl, 'xxx', '', '')
-  return hl
-endfunction
-
 
 """"""""""""""""""""""""""""""
 " クリップボード
@@ -173,15 +142,38 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-""""""""""""""""""""""""""""""
-" rails.vim
-""""""""""""""""""""""""""""""
 Plugin 'tpope/vim-rails'
-
-""""""""""""""""""""""""""""""
-" RSpec用のsyntax hilighting
-""""""""""""""""""""""""""""""
 Plugin 'Keithbsmiley/rspec.vim'
+
+if has('lua') " lua機能が有効になっている場合・・・・・・①
+    " コードの自動補完
+    Plugin 'Shougo/neocomplete.vim'
+    " スニペットの補完機能
+    Plugin 'Shougo/neosnippet'
+    " スニペット集
+    Plugin 'Shougo/neosnippet-snippets'
+endif
+
+"----------------------------------------------------------
+" neocomplete・neosnippetの設定 (luaが有効で無いと使えません)
+"----------------------------------------------------------
+" Vim起動時にneocompleteを有効にする
+let g:neocomplete#enable_at_startup = 1
+" smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
+let g:neocomplete#enable_smart_case = 1
+" 3文字以上の単語に対して補完を有効にする
+let g:neocomplete#min_keyword_length = 3
+" 区切り文字まで補完する
+let g:neocomplete#enable_auto_delimiter = 1
+" 1文字目の入力から補完のポップアップを表示
+let g:neocomplete#auto_completion_start_length = 1
+" バックスペースで補完のポップアップを閉じる
+inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+
+" エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定・・・・・・②
+imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+" タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
+imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 
 call vundle#end()
 filetype plugin indent on
