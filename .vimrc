@@ -1,3 +1,6 @@
+""""""""""""""""""""""""""""""
+" ファイル
+""""""""""""""""""""""""""""""
 " バックアップファイルを作らない
 set nobackup
 " スワップファイルを作らない
@@ -99,17 +102,6 @@ highlight Visual ctermbg=gray  " 選択モードで選択された部分の背�
 
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
-"""""""""""""""""""""""""""""""
-" 空白ハイライト
-""""""""""""""""""""""""""""""
-"highlight WhitespaceEOL ctermfg=BLUE ctermbg=BLUE guibg=BLUE
-"au BufWinEnter,VimEnter,WinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
-"
-"highlight WhitespaceBOL ctermfg=BLUE ctermbg=BLUE guibg=BLUE
-"au BufWinEnter,VimEnter,WinEnter * let w:m2 = matchadd("WhitespaceBOL", '^\s\+')
-"
-"highlight ZenkakuSpace ctermfg=BLUE ctermbg=BLUE guibg=BLUE
-"au BufWinEnter,VimEnter,WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
 """"""""""""""""""""""""""""""
 " クリップボード
@@ -122,18 +114,6 @@ set clipboard^=unnamedplus
 " tagsの作成
 """"""""""""""""""""""""""""""
 au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
-
-
-""""""""""""""""""""""""""""""
-" svn diffを出力
-""""""""""""""""""""""""""""""
-"nmap ,d :call SVNDiff()<CR>
-"function! SVNDiff()
-"  edit diff
-"  silent! setlocal ft=diff nobackup noswf buftype=nofile
-"  execute "normal :r!LANG=ja_JP.UTF8 svn diff\n"
-"  goto 1
-"endfunction
 
 
 """"""""""""""""""""""""""""""
