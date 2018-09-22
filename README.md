@@ -1,10 +1,10 @@
-### 使い方
+# 使い方
 
-1. git clone https://github.com/ryotatake/dotfiles.git
+1. ``` git clone https://github.com/ryotatake/dotfiles.git ```
 
 2. シンボリックリンクの作成
 
- * sh dotfiles/dotfilesLink.sh
+ * sh dotfiles/dotfilesSetup.sh
 
    * (~/.vimディレクトリがない場合は事前に`mkdir ~/.vim`でディレクトリを作成しておく)
 
