@@ -135,6 +135,11 @@ imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>
 
 let g:rails_level = 4
 
+""""""""""""""""""""""""""""""
+" RSpec.vim mappings
+""""""""""""""""""""""""""""""
+map <Leader>t :call RunCurrentSpecFile()<CR>
+
 
 """"""""""""""""""""""""""""""
 " Vundleによるプラグイン管理
@@ -149,6 +154,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'szw/vim-tags'
+Plugin 'thoughtbot/vim-rspec'
+" 古いバージョンのRSpecを動かすためのコマンド
+let g:rspec_command = "!spec -c {spec}"
 
 if has('lua') " lua機能が有効になっている場合・・・・・・①
     " コードの自動補完
