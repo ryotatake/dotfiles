@@ -57,6 +57,8 @@ imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
 imap <C-x> <Delete>
+" :terminalモードでnormalモードへ
+tnoremap <Esc> <C-w><S-n>
 
 """"""""""""""""""""""""""""""
 " 検索
