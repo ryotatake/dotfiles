@@ -117,6 +117,8 @@ set clipboard^=unnamedplus
 """"""""""""""""""""""""""""""
 au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
 
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
 
 """"""""""""""""""""""""""""""
 " ,rで.vimrcを再読み込み
@@ -142,6 +144,10 @@ let g:rails_level = 4
 """"""""""""""""""""""""""""""
 map <Leader>t :call RunCurrentSpecFile()<CR>
 
+""""""""""""""""""""""""""""""
+" auto_ctags.vim settings
+""""""""""""""""""""""""""""""
+let g:auto_ctags = 1
 
 """"""""""""""""""""""""""""""
 " Vundleによるプラグイン管理
@@ -155,10 +161,11 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-rails'
 Plugin 'Keithbsmiley/rspec.vim'
-Plugin 'szw/vim-tags'
+Plugin 'soramugi/auto-ctags.vim'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-fugitive'
 " 古いバージョンのRSpecを動かすためのコマンド
-let g:rspec_command = "!spec -c {spec}"
+let g:rspec_command = "!spec {spec}"
 
 if has('lua') " lua機能が有効になっている場合・・・・・・①
     " コードの自動補完
