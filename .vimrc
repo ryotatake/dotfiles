@@ -57,6 +57,8 @@ imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
 imap <C-x> <Delete>
+inoremap kj <Esc>
+inoremap jk <Esc>
 " :terminalモードでnormalモードへ
 tnoremap <Esc> <C-w><S-n>
 
