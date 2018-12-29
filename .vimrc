@@ -52,11 +52,6 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 """"""""""""""""""""""""""""""
 " insert mode
 """"""""""""""""""""""""""""""
-imap <C-j> <Down>
-imap <C-k> <Up>
-imap <C-h> <Left>
-imap <C-l> <Right>
-imap <C-x> <Delete>
 inoremap kj <Esc>
 inoremap jk <Esc>
 " :terminalモードでnormalモードへ
@@ -102,9 +97,9 @@ set showmode                   " モードを表示
 set showcmd                    " 打ったキーを表示
 set title                      " タイトルをウィンドウ枠に表示
 set ruler                      " ルーラーを表示
-highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
+highlight visual ctermbg=yellow  " 選択モードで選択された部分の背景色を指定
 
-autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+autocmd bufread,bufnewfile *.erb set filetype=eruby.html
 
 
 """"""""""""""""""""""""""""""
@@ -117,15 +112,15 @@ set clipboard^=unnamedplus
 """"""""""""""""""""""""""""""
 " tagsの作成
 """"""""""""""""""""""""""""""
-au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
+au bufnewfile,bufread *.rb set tags+=$home/apps/lrms/current/tags
 
 " tagsジャンプの時に複数ある時は一覧表示
-nnoremap <C-]> g<C-]>
+nnoremap <c-]> g<c-]>
 
 """"""""""""""""""""""""""""""
 " ,rで.vimrcを再読み込み
 """"""""""""""""""""""""""""""
-nnoremap ,r :source ~/.vimrc<CR>
+nnoremap ,r :source ~/.vimrc<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -137,14 +132,14 @@ let g:rails_default_database="mysql"
 " neocomplcache
 """"""""""""""""""""""""""""""
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
-imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" :pumvisible() ?  "\<C-n>" : "\<TAB>"
+imap <expr><tab> neocomplcache#sources#snippets_complete#expandable() ? "\<plug>(neocomplcache_snippets_expand)" :pumvisible() ?  "\<c-n>" : "\<tab>"
 
 let g:rails_level = 4
 
 """"""""""""""""""""""""""""""
-" RSpec.vim mappings
+" rspec.vim mappings
 """"""""""""""""""""""""""""""
-map <Leader>t :call RunCurrentSpecFile()<CR>
+map <leader>t :call runcurrentspecfile()<cr>
 
 """"""""""""""""""""""""""""""
 " auto_ctags.vim settings
@@ -152,37 +147,37 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 let g:auto_ctags = 1
 
 """"""""""""""""""""""""""""""
-" Vundleによるプラグイン管理
+" vundleによるプラグイン管理
 """"""""""""""""""""""""""""""
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+plugin 'vundlevim/vundle.vim'
 
-Plugin 'tpope/vim-rails'
-Plugin 'Keithbsmiley/rspec.vim'
-Plugin 'soramugi/auto-ctags.vim'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-fugitive'
-" 古いバージョンのRSpecを動かすためのコマンド
+plugin 'tpope/vim-rails'
+plugin 'keithbsmiley/rspec.vim'
+plugin 'soramugi/auto-ctags.vim'
+plugin 'thoughtbot/vim-rspec'
+plugin 'tpope/vim-fugitive'
+" 古いバージョンのrspecを動かすためのコマンド
 let g:rspec_command = "!spec {spec}"
 
 if has('lua') " lua機能が有効になっている場合・・・・・・①
     " コードの自動補完
-    Plugin 'Shougo/neocomplete.vim'
+    plugin 'shougo/neocomplete.vim'
     " スニペットの補完機能
-    Plugin 'Shougo/neosnippet'
+    plugin 'shougo/neosnippet'
     " スニペット集
-    Plugin 'Shougo/neosnippet-snippets'
+    plugin 'shougo/neosnippet-snippets'
 endif
 
 "----------------------------------------------------------
 " neocomplete・neosnippetの設定 (luaが有効で無いと使えません)
 "----------------------------------------------------------
 if has('lua')
-  " Vim起動時にneocompleteを有効にする
+  " vim起動時にneocompleteを有効にする
   let g:neocomplete#enable_at_startup = 1
   " smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
   let g:neocomplete#enable_smart_case = 1
@@ -193,12 +188,12 @@ if has('lua')
   " 1文字目の入力から補完のポップアップを表示
   let g:neocomplete#auto_completion_start_length = 1
   " バックスペースで補完のポップアップを閉じる
-  inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+  inoremap <expr><bs> neocomplete#smart_close_popup()."<c-h>"
 
   " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定・・・・・・②
-  imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+  imap <expr><cr> neosnippet#expandable() ? "<plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<c-y>" : "<cr>"
   " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
-  imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+  imap <expr><tab> pumvisible() ? "<c-n>" : neosnippet#jumpable() ? "<plug>(neosnippet_expand_or_jump)" : "<tab>"
 endif
 
 call vundle#end()
