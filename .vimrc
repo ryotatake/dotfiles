@@ -105,7 +105,11 @@ autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 """"""""""""""""""""""""""""""
 " クリップボード
 """"""""""""""""""""""""""""""
+"https://pocke.hatenablog.com/entry/2014/10/26/145646
 set clipboard&
+"Linux以外
+set clipboard+=unnamed
+"Linux用
 set clipboard^=unnamedplus
 
 
