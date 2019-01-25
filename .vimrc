@@ -147,11 +147,6 @@ let g:rails_level = 4
 map <Leader>t :call RunCurrentSpecFile()<CR>
 
 """"""""""""""""""""""""""""""
-" auto_ctags.vim settings
-""""""""""""""""""""""""""""""
-let g:auto_ctags = 1
-
-""""""""""""""""""""""""""""""
 " Vundleによるプラグイン管理
 """"""""""""""""""""""""""""""
 set nocompatible
