@@ -84,7 +84,6 @@ set expandtab     " タブをスペースに
 set autoindent    " 改行時に前の行のインデントを継続する
 set smartindent   " 改行時に前の行の構文をチェックし次の行のインデントを増減する
 set backspace=1   " 改行後に BS を押すと上の行末に移動する
-autocmd BufWritePre * :%s/\s\+$//ge    " 保存時に行末の空白を除去する
 set backspace=start,eol,indent
 
 """"""""""""""""""""""""""""""
