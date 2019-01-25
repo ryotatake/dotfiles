@@ -52,11 +52,6 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 """"""""""""""""""""""""""""""
 " insert mode
 """"""""""""""""""""""""""""""
-imap <C-j> <Down>
-imap <C-k> <Up>
-imap <C-h> <Left>
-imap <C-l> <Right>
-imap <C-x> <Delete>
 inoremap kj <Esc>
 inoremap jk <Esc>
 " :terminalモードでnormalモードへ
@@ -109,7 +104,11 @@ autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 """"""""""""""""""""""""""""""
 " クリップボード
 """"""""""""""""""""""""""""""
+"https://pocke.hatenablog.com/entry/2014/10/26/145646
 set clipboard&
+"Linux以外
+set clipboard+=unnamed
+"Linux用
 set clipboard^=unnamedplus
 
 
