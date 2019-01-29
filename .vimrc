@@ -90,12 +90,11 @@ set listchars=tab:>\ ,eol:\ ,trail:_
 """"""""""""""""""""""""""""""
 " その他見た目
 """"""""""""""""""""""""""""""
-syntax on                      " 強調表示オン
+syntax enable                  " 強調表示オン
 set showmatch                  " 括弧の対応の表示
 set showmode                   " モードを表示
 set showcmd                    " 打ったキーを表示
 set title                      " タイトルをウィンドウ枠に表示
-set ruler                      " ルーラーを表示
 highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
 
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
@@ -158,7 +157,6 @@ Plugin 'tpope/vim-rails'
 Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'soramugi/auto-ctags.vim'
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-fugitive'
 " 古いバージョンのRSpecを動かすためのコマンド
 let g:rspec_command = "!spec {spec}"
 
