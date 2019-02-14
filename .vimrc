@@ -157,6 +157,10 @@ Plugin 'tpope/vim-rails'
 Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'soramugi/auto-ctags.vim'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'itchyny/lightline.vim'
+"for lightline.vim
+set laststatus=2
+set noshowmode
 " 古いバージョンのRSpecを動かすためのコマンド
 let g:rspec_command = "!spec {spec}"
 
