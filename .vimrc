@@ -1,4 +1,19 @@
 """"""""""""""""""""""""""""""
+" テンプレート
+""""""""""""""""""""""""""""""
+function! CplusTemplate()
+  return setline('.', ['#include <iostream>', '', 'using namespace std;', '', 'int main() {', '', '  return 0;', '}'])
+endfunction
+command CplusTemplate :call CplusTemplate()
+
+function! CplusTemplateHeader()
+  let filename = expand("%:r")
+  let filenameConst = '_' . toupper(filename) . '_H_'
+  return setline('.', ['#ifndef '. filenameConst, '#define ' . filenameConst, '', '#endif //' . filenameConst])
+endfunction
+command CplusTemplateHeader :call CplusTemplateHeader()
+
+""""""""""""""""""""""""""""""
 " ファイル
 """"""""""""""""""""""""""""""
 " バックアップファイルを作らない
