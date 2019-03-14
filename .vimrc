@@ -173,6 +173,7 @@ Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'soramugi/auto-ctags.vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'itchyny/lightline.vim'   "vimにpowerlineを表示
+Plugin 'joker1007/vim-ruby-heredoc-syntax'
 Plugin 'othree/yajs.vim'
 "for lightline.vim
 set laststatus=2
