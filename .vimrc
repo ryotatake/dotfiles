@@ -65,6 +65,12 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 ""set matchpairs=(:),{:},[:],<:>
 
 """"""""""""""""""""""""""""""
+" normal mode
+""""""""""""""""""""""""""""""
+nnoremap nn :<C-u>set nonumber<CR>
+nnoremap nm :<C-u>set number<CR>
+
+""""""""""""""""""""""""""""""
 " insert mode
 """"""""""""""""""""""""""""""
 inoremap kj <Esc>
