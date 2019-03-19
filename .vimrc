@@ -67,8 +67,8 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 """"""""""""""""""""""""""""""
 " normal mode
 """"""""""""""""""""""""""""""
-nnoremap nn :<C-u>set nonumber<CR>
-nnoremap nm :<C-u>set number<CR>
+nnoremap mm :<C-u>set nonumber<CR>
+nnoremap MM :<C-u>set number<CR>
 
 """"""""""""""""""""""""""""""
 " insert mode
