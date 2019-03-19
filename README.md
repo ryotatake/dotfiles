@@ -6,8 +6,6 @@
 
  * sh dotfiles/dotfilesSetup.sh
 
-   * (~/.vimディレクトリがない場合は事前に`mkdir ~/.vim`でディレクトリを作成しておく)
-
 3. Vundleによるプラグインの反映
 
  * vimを開いて `:PluginInstall`
