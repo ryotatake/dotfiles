@@ -1,17 +1,17 @@
 """"""""""""""""""""""""""""""
 " テンプレート
 """"""""""""""""""""""""""""""
-function! CplusTemplate()
-  return setline('.', ['#include <iostream>', '', 'using namespace std;', '', 'int main() {', '', '  return 0;', '}'])
+function! CppTemplate()
+  return setline('.', ['#include <bits/stdc++.h>', '', 'using namespace std;', '', 'int main() {', '', '  return 0;', '}'])
 endfunction
-command! CplusTemplate :call CplusTemplate()
+command! CppTemplate :call CppTemplate()
 
-function! CplusTemplateHeader()
+function! CppTemplateHeader()
   let filename = expand("%:r")
   let filenameConst = '_' . toupper(filename) . '_H_'
   return setline('.', ['#ifndef '. filenameConst, '#define ' . filenameConst, '', '#endif //' . filenameConst])
 endfunction
-command! CplusTemplateHeader :call CplusTemplateHeader()
+command! CppTemplateHeader :call CppTemplateHeader()
 
 """"""""""""""""""""""""""""""
 " ファイル
