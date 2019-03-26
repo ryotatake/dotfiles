@@ -117,6 +117,8 @@ set showmode                   " モードを表示
 set showcmd                    " 打ったキーを表示
 set title                      " タイトルをウィンドウ枠に表示
 highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
+hi Comment ctermfg=darkcyan    " コメントになっている部分の色を指定。
+                               " :so $VIMRUNTIME/syntax/colortest.vim で色のリストを確認できる。
 
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
