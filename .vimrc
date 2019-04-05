@@ -52,6 +52,19 @@ augroup cch
 augroup END
 
 highlight CursorLine ctermbg=white guibg=white
+
+""""""""""""""""""""""""""""""
+"Leader系
+""""""""""""""""""""""""""""""
+let mapleader = "\<Space>"
+nnoremap <Leader>w :<C-u>w<CR>    " leader + w で保存
+nnoremap <Leader>v <C-w>v         " leader + v,s でwindow分割
+nnoremap <Leader>s <C-w>s
+nnoremap <Leader>h <C-w>h         " leader + h,j,k,lでwindowの移動
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+
 """"""""""""""""""""""""""""""
 " 改行系
 """"""""""""""""""""""""""""""
@@ -69,6 +82,7 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 """"""""""""""""""""""""""""""
 nnoremap mm :<C-u>set nonumber<CR>
 nnoremap MM :<C-u>set number<CR>
+nnoremap gV `[v`]
 
 """"""""""""""""""""""""""""""
 " insert mode
