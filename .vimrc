@@ -1,4 +1,19 @@
 """"""""""""""""""""""""""""""
+" テンプレート
+""""""""""""""""""""""""""""""
+function! CplusTemplate()
+  return setline('.', ['#include <iostream>', '', 'using namespace std;', '', 'int main() {', '', '  return 0;', '}'])
+endfunction
+command! CplusTemplate :call CplusTemplate()
+
+function! CplusTemplateHeader()
+  let filename = expand("%:r")
+  let filenameConst = '_' . toupper(filename) . '_H_'
+  return setline('.', ['#ifndef '. filenameConst, '#define ' . filenameConst, '', '#endif //' . filenameConst])
+endfunction
+command! CplusTemplateHeader :call CplusTemplateHeader()
+
+""""""""""""""""""""""""""""""
 " ファイル
 """"""""""""""""""""""""""""""
 " バックアップファイルを作らない
@@ -157,10 +172,15 @@ Plugin 'tpope/vim-rails'
 Plugin 'Keithbsmiley/rspec.vim'
 Plugin 'soramugi/auto-ctags.vim'
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/lightline.vim'   "vimにpowerlineを表示
+Plugin 'joker1007/vim-ruby-heredoc-syntax'
+Plugin 'othree/yajs.vim'
 "for lightline.vim
 set laststatus=2
 set noshowmode
+Plugin 'yegappan/mru'            "ファイル編集履歴リスト
+"for mru
+nnoremap <space><space> :<C-u>MRU<CR>
 " 古いバージョンのRSpecを動かすためのコマンド
 let g:rspec_command = "!spec {spec}"
 
