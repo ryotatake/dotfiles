@@ -1,17 +1,17 @@
 """"""""""""""""""""""""""""""
 " テンプレート
 """"""""""""""""""""""""""""""
-function! CplusTemplate()
-  return setline('.', ['#include <iostream>', '', 'using namespace std;', '', 'int main() {', '', '  return 0;', '}'])
+function! CppTemplate()
+  return setline('.', ['#include <bits/stdc++.h>', '', 'using namespace std;', '', 'int main() {', '', '  return 0;', '}'])
 endfunction
-command! CplusTemplate :call CplusTemplate()
+command! CppTemplate :call CppTemplate()
 
-function! CplusTemplateHeader()
+function! CppTemplateHeader()
   let filename = expand("%:r")
   let filenameConst = '_' . toupper(filename) . '_H_'
   return setline('.', ['#ifndef '. filenameConst, '#define ' . filenameConst, '', '#endif //' . filenameConst])
 endfunction
-command! CplusTemplateHeader :call CplusTemplateHeader()
+command! CppTemplateHeader :call CppTemplateHeader()
 
 """"""""""""""""""""""""""""""
 " ファイル
@@ -26,12 +26,19 @@ set noswapfile
 """"""""""""""""""""""""""""""
 
 if has('vim_starting')
+  if exists('$TMUX')
+    " tmux使用時は追加のエスケープが必要
+    let &t_SI .= "\<Esc>Ptmux;\<Esc>\e[6 q\<Esc>\\"
+    let &t_EI .= "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+    let &t_SR .= "\<Esc>Ptmux;\<Esc>\e[4 q\<Esc>\\"
+  else
     " 挿入モード時に非点滅の縦棒タイプのカーソル
     let &t_SI .= "\e[6 q"
     " ノーマルモード時に非点滅のブロックタイプのカーソル
     let &t_EI .= "\e[2 q"
     " 置換モード時に非点滅の下線タイプのカーソル
     let &t_SR .= "\e[4 q"
+  endif
 endif
 
 """"""""""""""""""""""""""""""
@@ -52,6 +59,19 @@ augroup cch
 augroup END
 
 highlight CursorLine ctermbg=white guibg=white
+
+""""""""""""""""""""""""""""""
+"Leader系
+""""""""""""""""""""""""""""""
+let mapleader = "\<Space>"
+nnoremap <Leader>w :<C-u>w<CR>    " leader + w で保存
+nnoremap <Leader>v <C-w>v         " leader + v,s でwindow分割
+nnoremap <Leader>s <C-w>s
+nnoremap <Leader>h <C-w>h         " leader + h,j,k,lでwindowの移動
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+
 """"""""""""""""""""""""""""""
 " 改行系
 """"""""""""""""""""""""""""""
@@ -63,6 +83,13 @@ hi NonText guibg=NONE guifg=DarkGreen    "改行記号
 set notextmode                    " 改行コードを LF (UNIX 風)にする
 
 ""set matchpairs=(:),{:},[:],<:>
+
+""""""""""""""""""""""""""""""
+" normal mode
+""""""""""""""""""""""""""""""
+nnoremap mm :<C-u>set nonumber<CR>
+nnoremap MM :<C-u>set number<CR>
+nnoremap gV `[v`]
 
 """"""""""""""""""""""""""""""
 " insert mode
@@ -111,6 +138,8 @@ set showmode                   " モードを表示
 set showcmd                    " 打ったキーを表示
 set title                      " タイトルをウィンドウ枠に表示
 highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
+hi Comment ctermfg=darkcyan    " コメントになっている部分の色を指定。
+                               " :so $VIMRUNTIME/syntax/colortest.vim で色のリストを確認できる。
 
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
