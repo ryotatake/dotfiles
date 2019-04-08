@@ -204,6 +204,10 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'itchyny/lightline.vim'   "vimにpowerlineを表示
 Plugin 'joker1007/vim-ruby-heredoc-syntax'
 Plugin 'othree/yajs.vim'
+" leader + sh で上にterminalを開く
+Plugin 'Shougo/deol.nvim'
+nnoremap <Leader>sh :<C-u>Deol -split="horizontal"<CR>
+
 "for lightline.vim
 set laststatus=2
 set noshowmode
