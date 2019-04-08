@@ -71,6 +71,10 @@ nnoremap <Leader>h <C-w>h         " leader + h,j,k,lでwindowの移動
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
+nnoremap <Leader>H <C-w>H         " leader + H,J,K,Lでwindowの位置を変える
+nnoremap <Leader>J <C-w>J
+nnoremap <Leader>K <C-w>K
+nnoremap <Leader>L <C-w>L
 
 """"""""""""""""""""""""""""""
 " 改行系
