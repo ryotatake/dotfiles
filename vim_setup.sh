@@ -18,7 +18,7 @@ make distclean
 sudo ./configure \
   --with-features=huge \
   --enable-multibyte \
-  --enable-luainterp=dynamic \
+  --enable-luainterp=dynamic \  # If not installed lua, run `$ sudo yum install lua-devel ncurses-devel`
   --enable-gpm \
   --enable-cscope \
   --enable-fontset \
