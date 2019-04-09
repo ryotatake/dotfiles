@@ -94,6 +94,12 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 nnoremap mm :<C-u>set nonumber<CR>
 nnoremap MM :<C-u>set number<CR>
 nnoremap gV `[v`]
+" move line
+nnoremap <C-a> 0
+nnoremap <C-e> $
+" increment & decrement number
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 """"""""""""""""""""""""""""""
 " insert mode
@@ -105,6 +111,10 @@ inoremap <C-h> <C-o>h
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
+" move line
+inoremap <C-a> <C-o>0
+inoremap <C-e> <C-o>$
+
 " :terminalモードでnormalモードへ
 tnoremap <Esc> <C-w><S-n>
 
