@@ -100,6 +100,11 @@ nnoremap gV `[v`]
 """"""""""""""""""""""""""""""
 inoremap kj <Esc>
 inoremap jk <Esc>
+" 移動
+inoremap <C-h> <C-o>h
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-l> <C-o>l
 " :terminalモードでnormalモードへ
 tnoremap <Esc> <C-w><S-n>
 
