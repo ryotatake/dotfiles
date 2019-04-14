@@ -269,5 +269,7 @@ if has('lua')
   imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
 
+Plugin 'w0rp/ale'
+
 call vundle#end()
 filetype plugin indent on
