@@ -217,9 +217,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-rails'
-Plugin 'Keithbsmiley/rspec.vim'
+Plugin 'Keithbsmiley/rspec.vim'  "rspec用シンタックスハイライト
 Plugin 'soramugi/auto-ctags.vim'
-Plugin 'thoughtbot/vim-rspec'
+Plugin 'thoughtbot/vim-rspec'    "テストの実行を楽に
 Plugin 'itchyny/lightline.vim'   "vimにpowerlineを表示
 Plugin 'joker1007/vim-ruby-heredoc-syntax'
 Plugin 'othree/yajs.vim'
@@ -235,7 +235,7 @@ Plugin 'yegappan/mru'            "ファイル編集履歴リスト
 "for mru
 nnoremap <space><space> :<C-u>MRU<CR>
 " 古いバージョンのRSpecを動かすためのコマンド
-let g:rspec_command = "!spec {spec}"
+let g:rspec_command = ":terminal spec {spec}"
 
 if has('lua') " lua機能が有効になっている場合・・・・・・①
     " コードの自動補完
