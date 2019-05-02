@@ -217,12 +217,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-rails'
-Plugin 'Keithbsmiley/rspec.vim'
+Plugin 'Keithbsmiley/rspec.vim'  "rspec用シンタックスハイライト
 Plugin 'soramugi/auto-ctags.vim'
-Plugin 'thoughtbot/vim-rspec'
+Plugin 'thoughtbot/vim-rspec'    "テストの実行を楽に
 Plugin 'itchyny/lightline.vim'   "vimにpowerlineを表示
 Plugin 'joker1007/vim-ruby-heredoc-syntax'
 Plugin 'othree/yajs.vim'
+Plugin 'vim-jp/vim-cpp'
 " leader + sh で上にterminalを開く
 Plugin 'Shougo/deol.nvim'
 nnoremap <Leader>sh :<C-u>Deol -split="horizontal"<CR>
@@ -235,7 +236,7 @@ Plugin 'yegappan/mru'            "ファイル編集履歴リスト
 nnoremap <space><space> :<C-u>MRU<CR>
 Plugin 'slim-template/vim-slim'
 " 古いバージョンのRSpecを動かすためのコマンド
-let g:rspec_command = "!spec {spec}"
+let g:rspec_command = ":terminal spec {spec}"
 
 if has('lua') " lua機能が有効になっている場合・・・・・・①
     " コードの自動補完
@@ -268,6 +269,8 @@ if has('lua')
   " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
   imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
+
+Plugin 'w0rp/ale'
 
 call vundle#end()
 filetype plugin indent on
