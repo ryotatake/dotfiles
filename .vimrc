@@ -233,6 +233,7 @@ set noshowmode
 Plugin 'yegappan/mru'            "ファイル編集履歴リスト
 "for mru
 nnoremap <space><space> :<C-u>MRU<CR>
+Plugin 'slim-template/vim-slim'
 " 古いバージョンのRSpecを動かすためのコマンド
 let g:rspec_command = "!spec {spec}"
 
