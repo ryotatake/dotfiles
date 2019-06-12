@@ -15,5 +15,6 @@
   co = checkout
   d = diff
   l = log
+  graph = log --graph --decorate --oneline
 [push]
 	default = matching
