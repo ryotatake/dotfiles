@@ -48,6 +48,7 @@ begin
   end
 end
 
+# https://github.com/kg8m/dotfiles/blob/master/.irbrc
 # Log to STDOUT if in Rails
 case
 when defined?(Rails) && Rails.respond_to?(:logger=)
