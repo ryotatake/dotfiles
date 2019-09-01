@@ -8,6 +8,7 @@ ln -sf ~/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/.irbrc ~/.irbrc
 
 #プラグイン管理のためのVundle導入
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
