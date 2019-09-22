@@ -44,7 +44,12 @@ endif
 """"""""""""""""""""""""""""""
 " カラースキーマ
 """"""""""""""""""""""""""""""
-"colorscheme desert
+" https://qiita.com/sff1019/items/3f73856b78d7fa2731c7
+" :so $VIMRUNTIME/syntax/colortest.vim で色のリストを確認できる。
+autocmd ColorScheme * highlight String ctermfg=175
+autocmd ColorScheme * highlight Comment ctermfg=grey
+autocmd ColorScheme * highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
+
 colorscheme molokai
 "FIXME:
 "本来は$TERMに256色設定をすべき。https://codeyarns.com/2015/03/18/how-to-set-term-to-xterm-256color/"
@@ -71,6 +76,14 @@ nnoremap <Leader>h <C-w>h         " leader + h,j,k,lでwindowの移動
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
+nnoremap <Leader>H <C-w>H         " leader + H,J,K,Lでwindowの位置を変える
+nnoremap <Leader>J <C-w>J
+nnoremap <Leader>K <C-w>K
+nnoremap <Leader>L <C-w>L
+nnoremap <Leader>+ <C-w>+         " leader + +,-,<,\>でwindowの大きさを変える
+nnoremap <Leader>- <C-w>-
+nnoremap <Leader>> <C-w>>
+nnoremap <Leader>< <C-w><
 
 """"""""""""""""""""""""""""""
 " 改行系
@@ -90,12 +103,27 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 nnoremap mm :<C-u>set nonumber<CR>
 nnoremap MM :<C-u>set number<CR>
 nnoremap gV `[v`]
+" move line
+nnoremap <C-a> 0
+nnoremap <C-e> $
+" increment & decrement number
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 """"""""""""""""""""""""""""""
 " insert mode
 """"""""""""""""""""""""""""""
 inoremap kj <Esc>
 inoremap jk <Esc>
+" 移動
+inoremap <C-h> <C-o>h
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-l> <C-o>l
+" move line
+inoremap <C-a> <C-o>0
+inoremap <C-e> <C-o>$
+
 " :terminalモードでnormalモードへ
 tnoremap <Esc> <C-w><S-n>
 
@@ -137,9 +165,6 @@ set showmatch                  " 括弧の対応の表示
 set showmode                   " モードを表示
 set showcmd                    " 打ったキーを表示
 set title                      " タイトルをウィンドウ枠に表示
-highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
-hi Comment ctermfg=darkcyan    " コメントになっている部分の色を指定。
-                               " :so $VIMRUNTIME/syntax/colortest.vim で色のリストを確認できる。
 
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
@@ -186,6 +211,7 @@ let g:rails_level = 4
 " RSpec.vim mappings
 """"""""""""""""""""""""""""""
 map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>n :call RunNearestSpec()<CR>
 
 """"""""""""""""""""""""""""""
 " Vundleによるプラグイン管理
@@ -198,21 +224,16 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-rails'
-Plugin 'Keithbsmiley/rspec.vim'
+Plugin 'Keithbsmiley/rspec.vim'  "rspec用シンタックスハイライト
 Plugin 'soramugi/auto-ctags.vim'
-Plugin 'thoughtbot/vim-rspec'
+Plugin 'thoughtbot/vim-rspec'    "テストの実行を楽に
 Plugin 'itchyny/lightline.vim'   "vimにpowerlineを表示
-Plugin 'joker1007/vim-ruby-heredoc-syntax'
 Plugin 'othree/yajs.vim'
-"for lightline.vim
-set laststatus=2
-set noshowmode
+Plugin 'vim-jp/vim-cpp'
+Plugin 'Shougo/deol.nvim'
+Plugin 'w0rp/ale'
 Plugin 'yegappan/mru'            "ファイル編集履歴リスト
-"for mru
-nnoremap <space><space> :<C-u>MRU<CR>
-" 古いバージョンのRSpecを動かすためのコマンド
-let g:rspec_command = "!spec {spec}"
-
+Plugin 'slim-template/vim-slim'
 if has('lua') " lua機能が有効になっている場合・・・・・・①
     " コードの自動補完
     Plugin 'Shougo/neocomplete.vim'
@@ -222,9 +243,88 @@ if has('lua') " lua機能が有効になっている場合・・・・・・①
     Plugin 'Shougo/neosnippet-snippets'
 endif
 
+call vundle#end()
+filetype plugin indent on
+
 "----------------------------------------------------------
+" Pluginのための設定
+"----------------------------------------------------------
+
+"for lightline.vim
+set laststatus=2
+set noshowmode
+
+"for mru
+nnoremap <space><space> :<C-u>MRU<CR>
+
+" 古いバージョンのRSpecを動かすためのコマンド
+let g:rspec_command = ":terminal spec {spec}"
+
+" for deol.nvim
+" leader + sh で上にterminalを開く
+nnoremap <Leader>sh :<C-u>Deol -split="horizontal"<CR>
+
+" https://itchyny.hatenablog.com/entry/20130828/1377653592
+let g:lightline = {
+        \ 'colorscheme': 'wombat',
+        \ 'mode_map': {'c': 'NORMAL'},
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+        \ },
+        \ 'component_function': {
+        \   'modified': 'LightlineModified',
+        \   'readonly': 'LightlineReadonly',
+        \   'fugitive': 'LightlineFugitive',
+        \   'filename': 'LightlineFilename',
+        \   'fileformat': 'LightlineFileformat',
+        \   'filetype': 'LightlineFiletype',
+        \   'fileencoding': 'LightlineFileencoding',
+        \   'mode': 'LightlineMode'
+        \ }
+        \ }
+
+function! LightlineModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightlineReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+endfunction
+
+function! LightlineFilename()
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+    return fugitive#head()
+  else
+    return ''
+  endif
+endfunction
+
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightlineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightlineMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
 " neocomplete・neosnippetの設定 (luaが有効で無いと使えません)
-"----------------------------------------------------------
 if has('lua')
   " Vim起動時にneocompleteを有効にする
   let g:neocomplete#enable_at_startup = 1
@@ -244,6 +344,3 @@ if has('lua')
   " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
   imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
-
-call vundle#end()
-filetype plugin indent on

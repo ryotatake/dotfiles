@@ -15,3 +15,14 @@
   co = checkout
   d = diff
   l = log
+  graph = log --graph --decorate --oneline
+[push]
+	default = matching
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
