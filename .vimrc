@@ -66,6 +66,17 @@ augroup END
 highlight CursorLine ctermbg=white guibg=white
 
 """"""""""""""""""""""""""""""
+" 操作中はcursorline, cursorcolumnを非表示にする
+""""""""""""""""""""""""""""""
+
+" https://thinca.hatenablog.com/entry/20090530/1243615055
+augroup vimrc-auto-cursorline
+  autocmd!
+  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorline nocursorcolumn
+  autocmd CursorHold,CursorHoldI * setlocal cursorline cursorcolumn
+augroup END
+
+""""""""""""""""""""""""""""""
 "Leader系
 """"""""""""""""""""""""""""""
 let mapleader = "\<Space>"
@@ -102,6 +113,8 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 """"""""""""""""""""""""""""""
 nnoremap mm :<C-u>set nonumber<CR>
 nnoremap MM :<C-u>set number<CR>
+nnoremap pp :<C-u>set paste<CR>
+nnoremap PP :<C-u>set nopaste<CR>
 nnoremap gV `[v`]
 " move line
 nnoremap <C-a> 0
