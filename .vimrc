@@ -227,39 +227,46 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>n :call RunNearestSpec()<CR>
 
 """"""""""""""""""""""""""""""
-" Vundleによるプラグイン管理
+" dein.vimによるプラグイン管理
 """"""""""""""""""""""""""""""
-set nocompatible
-filetype off
+if &compatible
+  set nocompatible
+endif
+" Add the dein installation directory into runtimepath
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
-Plugin 'tpope/vim-rails'
-Plugin 'Keithbsmiley/rspec.vim'  "rspec用シンタックスハイライト
-Plugin 'soramugi/auto-ctags.vim'
-Plugin 'thoughtbot/vim-rspec'    "テストの実行を楽に
-Plugin 'tpope/vim-dispatch'
-Plugin 'itchyny/lightline.vim'   "vimにpowerlineを表示
-Plugin 'othree/yajs.vim'
-Plugin 'vim-jp/vim-cpp'
-Plugin 'Shougo/deol.nvim'
-Plugin 'w0rp/ale'
-Plugin 'yegappan/mru'            "ファイル編集履歴リスト
-Plugin 'slim-template/vim-slim'
-if has('lua') " lua機能が有効になっている場合・・・・・・①
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('tpope/vim-rails')
+  call dein#add('Keithbsmiley/rspec.vim')  "rspec用シンタックスハイライト
+  call dein#add('soramugi/auto-ctags.vim')
+  call dein#add('thoughtbot/vim-rspec')  "テストの実行を楽に
+  call dein#add('tpope/vim-dispatch')
+  call dein#add('itchyny/lightline.vim')  "vimにpowerlineを表示
+  call dein#add('othree/yajs.vim')
+  call dein#add('vim-jp/vim-cpp')
+  call dein#add('Shougo/deol.nvim')
+  call dein#add('w0rp/ale')
+  call dein#add('yegappan/mru')  "ファイル編集履歴リスト
+  call dein#add('slim-template/vim-slim')
+
+  if has('lua') " lua機能が有効になっている場合・・・・・・①
     " コードの自動補完
-    Plugin 'Shougo/neocomplete.vim'
+    call dein#add('Shougo/neocomplete.vim')
     " スニペットの補完機能
-    Plugin 'Shougo/neosnippet'
+    call dein#add('Shougo/neosnippet')
     " スニペット集
-    Plugin 'Shougo/neosnippet-snippets'
+    call dein#add('Shougo/neosnippet-snippets')
+  endif
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-call vundle#end()
 filetype plugin indent on
-
+syntax enable
 "----------------------------------------------------------
 " Pluginのための設定
 "----------------------------------------------------------
