@@ -95,6 +95,10 @@ nnoremap <Leader>+ <C-w>+         " leader + +,-,<,\>でwindowの大きさを変
 nnoremap <Leader>- <C-w>-
 nnoremap <Leader>> <C-w>>
 nnoremap <Leader>< <C-w><
+nnoremap <Leader>mm :<C-u>set nonumber<CR>
+nnoremap <Leader>MM :<C-u>set number<CR>
+nnoremap <Leader>pp :<C-u>set paste<CR>
+nnoremap <Leader>PP :<C-u>set nopaste<CR>
 
 """"""""""""""""""""""""""""""
 " 改行系
@@ -111,10 +115,6 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 """"""""""""""""""""""""""""""
 " normal mode
 """"""""""""""""""""""""""""""
-nnoremap mm :<C-u>set nonumber<CR>
-nnoremap MM :<C-u>set number<CR>
-nnoremap pp :<C-u>set paste<CR>
-nnoremap PP :<C-u>set nopaste<CR>
 nnoremap gV `[v`]
 " move line
 nnoremap <C-a> 0
@@ -240,6 +240,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'Keithbsmiley/rspec.vim'  "rspec用シンタックスハイライト
 Plugin 'soramugi/auto-ctags.vim'
 Plugin 'thoughtbot/vim-rspec'    "テストの実行を楽に
+Plugin 'tpope/vim-dispatch'
 Plugin 'itchyny/lightline.vim'   "vimにpowerlineを表示
 Plugin 'othree/yajs.vim'
 Plugin 'vim-jp/vim-cpp'
@@ -271,7 +272,7 @@ set noshowmode
 nnoremap <space><space> :<C-u>MRU<CR>
 
 " 古いバージョンのRSpecを動かすためのコマンド
-let g:rspec_command = ":terminal spec {spec}"
+let g:rspec_command = "Dispatch spec {spec}"
 
 " for deol.nvim
 " leader + sh で上にterminalを開く
