@@ -95,6 +95,10 @@ nnoremap <Leader>+ <C-w>+         " leader + +,-,<,\>でwindowの大きさを変
 nnoremap <Leader>- <C-w>-
 nnoremap <Leader>> <C-w>>
 nnoremap <Leader>< <C-w><
+nnoremap <Leader>mm :<C-u>set nonumber<CR>
+nnoremap <Leader>MM :<C-u>set number<CR>
+nnoremap <Leader>pp :<C-u>set paste<CR>
+nnoremap <Leader>PP :<C-u>set nopaste<CR>
 
 """"""""""""""""""""""""""""""
 " 改行系
@@ -111,10 +115,6 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 """"""""""""""""""""""""""""""
 " normal mode
 """"""""""""""""""""""""""""""
-nnoremap mm :<C-u>set nonumber<CR>
-nnoremap MM :<C-u>set number<CR>
-nnoremap pp :<C-u>set paste<CR>
-nnoremap PP :<C-u>set nopaste<CR>
 nnoremap gV `[v`]
 " move line
 nnoremap <C-a> 0
@@ -221,44 +221,46 @@ imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>
 let g:rails_level = 4
 
 """"""""""""""""""""""""""""""
-" RSpec.vim mappings
+" dein.vimによるプラグイン管理
 """"""""""""""""""""""""""""""
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>n :call RunNearestSpec()<CR>
+if &compatible
+  set nocompatible
+endif
+" Add the dein installation directory into runtimepath
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-""""""""""""""""""""""""""""""
-" Vundleによるプラグイン管理
-""""""""""""""""""""""""""""""
-set nocompatible
-filetype off
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('tpope/vim-rails')
+  call dein#add('Keithbsmiley/rspec.vim')  "rspec用シンタックスハイライト
+  call dein#add('soramugi/auto-ctags.vim')
+  call dein#add('janko/vim-test')
+  call dein#add('tpope/vim-dispatch')
+  call dein#add('itchyny/lightline.vim')  "vimにpowerlineを表示
+  call dein#add('othree/yajs.vim')
+  call dein#add('vim-jp/vim-cpp')
+  call dein#add('Shougo/deol.nvim')
+  call dein#add('w0rp/ale')
+  call dein#add('yegappan/mru')  "ファイル編集履歴リスト
+  call dein#add('slim-template/vim-slim')
 
-Plugin 'tpope/vim-rails'
-Plugin 'Keithbsmiley/rspec.vim'  "rspec用シンタックスハイライト
-Plugin 'soramugi/auto-ctags.vim'
-Plugin 'thoughtbot/vim-rspec'    "テストの実行を楽に
-Plugin 'itchyny/lightline.vim'   "vimにpowerlineを表示
-Plugin 'othree/yajs.vim'
-Plugin 'vim-jp/vim-cpp'
-Plugin 'Shougo/deol.nvim'
-Plugin 'w0rp/ale'
-Plugin 'yegappan/mru'            "ファイル編集履歴リスト
-Plugin 'slim-template/vim-slim'
-if has('lua') " lua機能が有効になっている場合・・・・・・①
+  if has('lua') " lua機能が有効になっている場合・・・・・・①
     " コードの自動補完
-    Plugin 'Shougo/neocomplete.vim'
+    call dein#add('Shougo/neocomplete.vim')
     " スニペットの補完機能
-    Plugin 'Shougo/neosnippet'
+    call dein#add('Shougo/neosnippet')
     " スニペット集
-    Plugin 'Shougo/neosnippet-snippets'
+    call dein#add('Shougo/neosnippet-snippets')
+  endif
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-call vundle#end()
 filetype plugin indent on
-
+syntax enable
 "----------------------------------------------------------
 " Pluginのための設定
 "----------------------------------------------------------
@@ -270,8 +272,11 @@ set noshowmode
 "for mru
 nnoremap <space><space> :<C-u>MRU<CR>
 
-" 古いバージョンのRSpecを動かすためのコマンド
-let g:rspec_command = ":terminal spec {spec}"
+" for test-vim mappings
+let test#ruby#rspec#executable = 'spec'
+let test#strategy = "dispatch"
+map <Leader>t :TestFile<CR>
+map <Leader>n :TestNearest<CR>
 
 " for deol.nvim
 " leader + sh で上にterminalを開く
