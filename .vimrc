@@ -221,12 +221,6 @@ imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>
 let g:rails_level = 4
 
 """"""""""""""""""""""""""""""
-" RSpec.vim mappings
-""""""""""""""""""""""""""""""
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>n :call RunNearestSpec()<CR>
-
-""""""""""""""""""""""""""""""
 " dein.vimによるプラグイン管理
 """"""""""""""""""""""""""""""
 if &compatible
@@ -242,7 +236,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('tpope/vim-rails')
   call dein#add('Keithbsmiley/rspec.vim')  "rspec用シンタックスハイライト
   call dein#add('soramugi/auto-ctags.vim')
-  call dein#add('thoughtbot/vim-rspec')  "テストの実行を楽に
+  call dein#add('janko/vim-test')
   call dein#add('tpope/vim-dispatch')
   call dein#add('itchyny/lightline.vim')  "vimにpowerlineを表示
   call dein#add('othree/yajs.vim')
@@ -278,8 +272,11 @@ set noshowmode
 "for mru
 nnoremap <space><space> :<C-u>MRU<CR>
 
-" 古いバージョンのRSpecを動かすためのコマンド
-let g:rspec_command = "Dispatch spec {spec}"
+" for test-vim mappings
+let test#ruby#rspec#executable = 'spec'
+let test#strategy = "dispatch"
+map <Leader>t :TestFile<CR>
+map <Leader>n :TestNearest<CR>
 
 " for deol.nvim
 " leader + sh で上にterminalを開く
