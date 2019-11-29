@@ -245,6 +245,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('w0rp/ale')
   call dein#add('yegappan/mru')  "ファイル編集履歴リスト
   call dein#add('slim-template/vim-slim')
+  call dein#add('kana/vim-operator-user') "required to use vim-operator-replace
+  call dein#add('kana/vim-operator-replace')
 
   if has('lua') " lua機能が有効になっている場合・・・・・・①
     " コードの自動補完
@@ -362,3 +364,6 @@ if has('lua')
   " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
   imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 endif
+
+" for vim-operator-replace
+map _ <Plug>(operator-replace)
