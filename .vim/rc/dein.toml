@@ -1,0 +1,59 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'Keithbsmiley/rspec.vim'
+
+[[plugins]]
+repo = 'soramugi/auto_ctags.vim'
+
+[[plugins]]
+repo = 'janko/vim-test'
+
+[[plugins]]
+repo = 'tpope/vim-dispatch'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+
+[[plugins]]
+repo = 'vim-jp/vim-cpp'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+
+[[plugins]]
+repo = 'w0rp/ale'
+
+[[plugins]]
+repo = 'yegappan/mru'
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+if   = '''has('lua')'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+if   = '''has('lua')'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+if   = '''has('lua')'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'

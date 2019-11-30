@@ -1,3 +1,42 @@
+" https://qiita.com/delphinus/items/00ff2c0ba972c6e41542
+if &compatible
+  set nocompatible
+endif
+
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" dein.vimがなければgithubから取ってくる。
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute 'git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  let g:rc_dir = expand('~/.vim/rc')
+  " 起動時に読み込みさせたいプラグイン
+  let s:toml   = g:rc_dir . '/dein.toml'
+  " 遅延読み込みさせたいプラグイン
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  " TOMLを読み込み、キャッシュさせる
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+" 未インストールのものがあればインストール
+if dein#check_install()
+  call dein#install()
+endif
+
 """"""""""""""""""""""""""""""
 " テンプレート
 """"""""""""""""""""""""""""""
@@ -220,49 +259,6 @@ imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>
 
 let g:rails_level = 4
 
-""""""""""""""""""""""""""""""
-" dein.vimによるプラグイン管理
-""""""""""""""""""""""""""""""
-if &compatible
-  set nocompatible
-endif
-" Add the dein installation directory into runtimepath
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('tpope/vim-rails')
-  call dein#add('Keithbsmiley/rspec.vim')  "rspec用シンタックスハイライト
-  call dein#add('soramugi/auto-ctags.vim')
-  call dein#add('janko/vim-test')
-  call dein#add('tpope/vim-dispatch')
-  call dein#add('itchyny/lightline.vim')  "vimにpowerlineを表示
-  call dein#add('othree/yajs.vim')
-  call dein#add('vim-jp/vim-cpp')
-  call dein#add('Shougo/deol.nvim')
-  call dein#add('w0rp/ale')
-  call dein#add('yegappan/mru')  "ファイル編集履歴リスト
-  call dein#add('slim-template/vim-slim')
-  call dein#add('kana/vim-operator-user') "required to use vim-operator-replace
-  call dein#add('kana/vim-operator-replace')
-
-  if has('lua') " lua機能が有効になっている場合・・・・・・①
-    " コードの自動補完
-    call dein#add('Shougo/neocomplete.vim')
-    " スニペットの補完機能
-    call dein#add('Shougo/neosnippet')
-    " スニペット集
-    call dein#add('Shougo/neosnippet-snippets')
-  endif
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-filetype plugin indent on
-syntax enable
 "----------------------------------------------------------
 " Pluginのための設定
 "----------------------------------------------------------
