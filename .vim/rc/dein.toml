@@ -11,7 +11,7 @@ repo = 'tpope/vim-rails'
 repo = 'Keithbsmiley/rspec.vim'
 
 [[plugins]]
-repo = 'soramugi/auto_ctags.vim'
+repo = 'soramugi/auto-ctags.vim'
 
 [[plugins]]
 repo = 'janko/vim-test'
