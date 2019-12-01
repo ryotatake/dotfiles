@@ -13,3 +13,10 @@ ln -sf ~/dotfiles/.irbrc ~/.irbrc
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+#fzfの導入
+if [ ! -d ~/.fzf ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  # すべての設定をonにしてインストール
+  ~/.fzf/install --all
+fi
