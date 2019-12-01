@@ -18,7 +18,7 @@ make distclean
 sudo ./configure \
   --with-features=huge \
   --enable-multibyte \
-  --enable-luainterp=dynamic \  # If not installed lua, run `$ sudo yum install lua-devel ncurses-devel`
+  --enable-luainterp=dynamic \
   --enable-gpm \
   --enable-cscope \
   --enable-fontset \
@@ -26,6 +26,9 @@ sudo ./configure \
   --prefix=/usr/local \
   --enable-rubyinterp \
   --with-ruby-command=/home/vagrant/.rbenv/shims/ruby # Change this path if you use another path. Check "$ which ruby".
+  # If not installed lua
+  #   @CentOS run `$ sudo yum install lua-devel ncurses-devel`
+  #   @Ubuntu see https://vim-jp.org/docs/build_linux.html
 
 sudo make
 sudo make install
