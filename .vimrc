@@ -276,6 +276,7 @@ let test#ruby#rspec#executable = 'spec'
 let test#strategy = "dispatch"
 map <Leader>t :TestFile<CR>
 map <Leader>n :TestNearest<CR>
+map <Leader>r :TestLast<CR>
 
 " for deol.nvim
 " leader + sh で上にterminalを開く
