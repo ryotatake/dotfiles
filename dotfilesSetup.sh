@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #シンボリックリンクの作成
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
@@ -10,12 +10,12 @@ ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.irbrc ~/.irbrc
 
 #tmuxのプラグイン管理
-if [ ! -d ~/.tmux/plugins/tpm ]; then
+if [[ ! -d ~/.tmux/plugins/tpm ]]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 #fzfの導入
-if [ ! -d ~/.fzf ]; then
+if [[ ! -d ~/.fzf ]]; then
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   # すべての設定をonにしてインストール
   ~/.fzf/install --all
