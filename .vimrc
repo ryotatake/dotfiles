@@ -268,9 +268,6 @@ filetype plugin indent on "ファイル形式別のプラグインのロード�
 set laststatus=2
 set noshowmode
 
-"for mru
-nnoremap <space><space> :<C-u>MRU<CR>
-
 " for test-vim mappings
 let test#ruby#rspec#executable = 'spec'
 let test#strategy = "dispatch"

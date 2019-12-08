@@ -35,9 +35,6 @@ repo = 'Shougo/deol.nvim'
 repo = 'w0rp/ale'
 
 [[plugins]]
-repo = 'yegappan/mru'
-
-[[plugins]]
 repo = 'slim-template/vim-slim'
 
 [[plugins]]
