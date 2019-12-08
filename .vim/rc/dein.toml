@@ -60,3 +60,11 @@ if   = '''has('lua')'''
 
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+# fzfの導入
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
