@@ -65,3 +65,6 @@ build = './install --all'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
+
+[[plugins]]
+repo = 'dag/vim-fish'
