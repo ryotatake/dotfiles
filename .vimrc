@@ -40,11 +40,6 @@ endif
 """"""""""""""""""""""""""""""
 " テンプレート
 """"""""""""""""""""""""""""""
-function! CppTemplate()
-  return setline('.', ['#include <bits/stdc++.h>', '', 'using namespace std;', '', 'int main() {', '', '  return 0;', '}'])
-endfunction
-command! CppTemplate :call CppTemplate()
-
 function! CppTemplateHeader()
   let filename = expand("%:r")
   let filenameConst = '_' . toupper(filename) . '_H_'
@@ -351,6 +346,9 @@ if has('lua')
   let g:neocomplete#enable_auto_delimiter = 1
   " 1文字目の入力から補完のポップアップを表示
   let g:neocomplete#auto_completion_start_length = 1
+  " スニペットファイルのディレクトリを指定
+  let s:snippets_dir = expand('~/.vim/snippets')
+  let g:neosnippet#snippets_directory = s:snippets_dir
   " バックスペースで補完のポップアップを閉じる
   inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
 
