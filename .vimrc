@@ -38,16 +38,6 @@ if dein#check_install()
 endif
 
 """"""""""""""""""""""""""""""
-" テンプレート
-""""""""""""""""""""""""""""""
-function! CppTemplateHeader()
-  let filename = expand("%:r")
-  let filenameConst = '_' . toupper(filename) . '_H_'
-  return setline('.', ['#ifndef '. filenameConst, '#define ' . filenameConst, '', '#endif //' . filenameConst])
-endfunction
-command! CppTemplateHeader :call CppTemplateHeader()
-
-""""""""""""""""""""""""""""""
 " ファイル
 """"""""""""""""""""""""""""""
 " バックアップファイルを作らない
