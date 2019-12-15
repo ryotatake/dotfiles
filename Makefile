@@ -19,6 +19,9 @@ deploy: parents backup
 	@$(foreach val, $(DOTFILES), mv $(HOME)/$(val) $(BACKUP_DIR);)
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
+update:
+	git pull origin master
+
 clean:
 	@echo '==> Remove the dot files and this repo'
 	@-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/$(val);)
