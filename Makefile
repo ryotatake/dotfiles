@@ -13,10 +13,10 @@ parents:
 backup:
 	@echo '==> Start to back up old dotfiles to home/.back directory'
 	mkdir -p $(BACKUP_DIR)
+	@$(foreach val, $(DOTFILES), mv $(HOME)/$(val) $(BACKUP_DIR);)
 
 deploy: parents backup
 	@echo '==> Start to deploy dotfiles to home directory.'
-	@$(foreach val, $(DOTFILES), mv $(HOME)/$(val) $(BACKUP_DIR);)
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
 update:
