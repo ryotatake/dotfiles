@@ -1,19 +1,24 @@
-#!/bin/sh
-
-# Put this file to under vim/.
-
-# Use this script after cloning vim.
-# $ git clone https://github.com/vim/vim.git
-# $ cd vim
+#!/bin/bash
 
 set -eux
 # -e : stop when errors occurred
 # -u : make it error when using undefined variables
 # -x : output logs to stdout
 
+SRC_DIR=${HOME}/src
+VIM_DIR=${SRC_DIR}/vim
+
+# clone vim to ${HOME}/src
+if [[ ! -d "$VIM_DIR" ]]; then
+  mkdir -p "$SRC_DIR"
+  git clone https://github.com/vim/vim.git "$VIM_DIR"
+fi
+
+cd "$VIM_DIR"
+
 git pull
 
-make distclean
+sudo make distclean
 
 sudo ./configure \
   --with-features=huge \
@@ -25,7 +30,7 @@ sudo ./configure \
   --enable-fail-if-missing \
   --prefix=/usr/local \
   --enable-rubyinterp \
-  --with-ruby-command=${HOME}/.rbenv/shims/ruby # Change this path if you use another path. Check "$ which ruby".
+  --with-ruby-command="${HOME}/.rbenv/shims/ruby" # Change this path if you use another path. Check "$ which ruby".
   # If not installed lua
   #   @CentOS run `$ sudo yum install lua-devel ncurses-devel`
   #   @Ubuntu see https://vim-jp.org/docs/build_linux.html
