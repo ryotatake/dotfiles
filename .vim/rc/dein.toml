@@ -68,3 +68,6 @@ repo = 'junegunn/fzf.vim'
 
 [[plugins]]
 repo = 'dag/vim-fish'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
