@@ -5,7 +5,10 @@ set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 
 set -x PATH /usr/local/bin $HOME/bin /sbin /usr/sbin /usr/bin $PATH
 
-set -x PATH $HOME/.rbenv/bin $PATH
+if test -d $HOME/.rbenv/bin
+  set -x PATH $HOME/.rbenv/bin $PATH
+end
+
 if which rbenv > /dev/null
   status --is-interactive; and source (rbenv init -|psub)
 end
