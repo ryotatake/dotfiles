@@ -6,6 +6,13 @@ DOTFILES_TARGET    := $(wildcard .??*)
 DOTFILES           := $(filter-out $(DOTFILES_EXCLUDES) $(DOTDIRECTORIES), $(DOTFILES_TARGET))
 BACKUP_DIR         := $(HOME)/.backup
 
+.DEFAULT_GOAL = help
+
+help:
+	@echo "deploy : add symlinks"
+	@echo "update : update dotfiles"
+	@echo "clean  : delete all dotfiles and this repository"
+
 parents:
 	@echo '==> Start to make parent directories'
 	@$(foreach val, $(dir $(DOTDIRECTORIES)), mkdir -vp $(HOME)/$(val);)
