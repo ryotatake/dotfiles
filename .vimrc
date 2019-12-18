@@ -180,7 +180,7 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 """"""""""""""""""""""""""""""
 " スペース系
 """"""""""""""""""""""""""""""
-set tabstop=2     " <Tab> での空白数
+set tabstop=8     " <Tab> での空白数
 set shiftwidth=2  " 自動インデントでの空白数
 set expandtab     " タブをスペースに
 set autoindent    " 改行時に前の行のインデントを継続する
