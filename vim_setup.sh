@@ -30,7 +30,7 @@ sudo ./configure \
   --enable-fail-if-missing \
   --prefix=/usr/local \
   --enable-rubyinterp \
-  --with-ruby-command="${HOME}/.rbenv/shims/ruby" # Change this path if you use another path. Check "$ which ruby".
+  --with-ruby-command="$(which ruby)"
   # If not installed lua
   #   @CentOS run `$ sudo yum install lua-devel ncurses-devel`
   #   @Ubuntu see https://vim-jp.org/docs/build_linux.html
