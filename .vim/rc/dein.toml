@@ -74,3 +74,6 @@ repo = 'tpope/vim-commentary'
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
+
+[[plugins]]
+repo = 'previm/previm'

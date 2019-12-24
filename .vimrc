@@ -350,3 +350,6 @@ endif
 
 " for vim-operator-replace
 map _ <Plug>(operator-replace)
+
+" for previm
+let g:previm_open_cmd = 'open -a Google\ Chrome'
