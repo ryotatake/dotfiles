@@ -77,3 +77,6 @@ repo = 'plasticboy/vim-markdown'
 
 [[plugins]]
 repo = 'previm/previm'
+
+[[plugins]]
+repo = 'pandysong/ghost-text.vim'
