@@ -18,7 +18,8 @@ if which memo > /dev/null
     if [ ! -z "$argv" ]
       vim (memo grep "$argv" | fzf)
     else
-      vim (memo list | fzf)
+      vim (memo list --fullpath | fzf)
     end
   end
 end
+alias memos="memosearch"
