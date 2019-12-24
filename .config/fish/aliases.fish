@@ -12,3 +12,13 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 alias g="git"
+
+if which memo > /dev/null
+  function memosearch
+    if [ ! -z "$argv" ]
+      vim (memo grep "$argv" | fzf)
+    else
+      vim (memo list | fzf)
+    end
+  end
+end
