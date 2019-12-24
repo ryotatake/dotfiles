@@ -13,7 +13,7 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias g="git"
 
-if which memo > /dev/null ^&1
+if which memo > /dev/null 2>&1
   function memosearch
     if [ ! -z "$argv" ]
       vim (memo grep "$argv" | fzf)
