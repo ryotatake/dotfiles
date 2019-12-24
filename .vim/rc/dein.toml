@@ -71,3 +71,6 @@ repo = 'dag/vim-fish'
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
