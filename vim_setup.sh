@@ -28,9 +28,13 @@ sudo ./configure \
   --enable-cscope \
   --enable-fontset \
   --enable-fail-if-missing \
-  --prefix=/usr/local \
   --enable-rubyinterp \
-  --with-ruby-command="$(which ruby)"
+  --with-ruby-command="$(which ruby)" \
+  --enable-python3interp=dynamic
+
+  # if ubuntu
+  # --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu
+
   # If not installed lua
   #   @CentOS run `$ sudo yum install lua-devel ncurses-devel`
   #   @Ubuntu see https://vim-jp.org/docs/build_linux.html
