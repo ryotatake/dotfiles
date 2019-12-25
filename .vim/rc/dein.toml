@@ -83,3 +83,6 @@ repo = 'pandysong/ghost-text.vim'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'markonm/traces.vim'
