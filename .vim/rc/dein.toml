@@ -80,3 +80,6 @@ repo = 'previm/previm'
 
 [[plugins]]
 repo = 'pandysong/ghost-text.vim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
