@@ -30,7 +30,7 @@ sudo ./configure \
   --enable-fail-if-missing \
   --enable-rubyinterp \
   --with-ruby-command="$(which ruby)" \
-  --enable-python3interp=dynamic
+  --enable-python3interp
 
   # if ubuntu
   # --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu
