@@ -150,16 +150,13 @@ nnoremap - <C-x>
 """"""""""""""""""""""""""""""
 " insert mode
 """"""""""""""""""""""""""""""
-inoremap kj <Esc>
-inoremap jk <Esc>
-" Escした時に英数モードにする
+" jkでEscした時とノーマルモードでEscした時に英数モードにする
 " https://rcmdnk.com/blog/2017/03/10/computer-mac-vim/
 if has('mac')
   set ttimeoutlen=1
   let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
   augroup MyIMEGroup
-    autocmd!
-    autocmd InsertLeave * :call system(g:imeoff)
+    inoremap <silent> jk <Esc>:call system(g:imeoff)<CR>
   augroup END
   noremap <silent> <ESC> <ESC>:call system(g:imeoff)<CR>
 endif
