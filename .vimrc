@@ -159,6 +159,8 @@ if has('mac')
     inoremap <silent> jk <Esc>:call system(g:imeoff)<CR>
   augroup END
   noremap <silent> <ESC> <ESC>:call system(g:imeoff)<CR>
+else
+  inoremap <silent> jk <Esc>
 endif
 " 移動
 inoremap <C-h> <C-o>h
