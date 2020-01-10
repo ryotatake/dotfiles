@@ -87,3 +87,6 @@ repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
 repo = 'markonm/traces.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
