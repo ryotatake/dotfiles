@@ -76,7 +76,9 @@ repo = 'tpope/vim-commentary'
 repo = 'plasticboy/vim-markdown'
 
 [[plugins]]
-repo = 'previm/previm'
+# https://github.com/previm/previm/pull/140がマージされたらprevim/previmの方を使う
+#repo = 'previm/previm'
+repo = '~/.vim/plugins/previm'
 
 [[plugins]]
 repo = 'pandysong/ghost-text.vim'
