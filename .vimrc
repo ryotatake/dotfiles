@@ -176,6 +176,13 @@ inoremap <C-e> <C-o>$
 tnoremap <Esc> <C-w><S-n>
 
 """"""""""""""""""""""""""""""
+" visual mode
+""""""""""""""""""""""""""""""
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+""""""""""""""""""""""""""""""
 " command
 """"""""""""""""""""""""""""""
 command! Memos :Files ~/.config/memo/
