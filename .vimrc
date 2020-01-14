@@ -158,10 +158,12 @@ if has('mac')
   let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
   augroup MyIMEGroup
     inoremap <silent> jk <Esc>:call system(g:imeoff)<CR>
+    inoremap <silent> kj <Esc>:call system(g:imeoff)<CR>
   augroup END
   noremap <silent> <ESC> <ESC>:call system(g:imeoff)<CR>
 else
   inoremap <silent> jk <Esc>
+  inoremap <silent> kj <Esc>
 endif
 " 移動
 inoremap <C-h> <C-o>h

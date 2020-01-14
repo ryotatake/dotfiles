@@ -91,6 +91,9 @@ repo = 'vim-jp/vimdoc-ja'
 repo = 'markonm/traces.vim'
 
 [[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
 repo = 'terryma/vim-expand-region'
 
 [[plugins]]
