@@ -6,6 +6,10 @@ set -x GOPATH $HOME/go
 
 set -x PATH /usr/local/bin $HOME/bin /sbin /usr/sbin /usr/bin $PATH
 
+if test -d $HOME/.local/bin
+  set -x PATH $HOME/.local/bin $PATH
+end
+
 if test -d $GOPATH
   set -x PATH $GOPATH/bin $PATH
 end
