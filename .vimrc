@@ -140,6 +140,7 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 " normal mode
 """"""""""""""""""""""""""""""
 nnoremap gV `[v`]
+nnoremap q: :<C-u>q<CR>
 " move line
 nnoremap <C-a> 0
 nnoremap <C-e> $
@@ -173,6 +174,13 @@ inoremap <C-e> <C-o>$
 
 " :terminalモードでnormalモードへ
 tnoremap <Esc> <C-w><S-n>
+
+""""""""""""""""""""""""""""""
+" visual mode
+""""""""""""""""""""""""""""""
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 """"""""""""""""""""""""""""""
 " command
@@ -370,7 +378,12 @@ map _ <Plug>(operator-replace)
 let g:vim_markdown_folding_disabled = 1
 
 " for previm
-let g:previm_open_cmd = 'open -a Google\ Chrome'
+if has('mac')
+  let g:previm_open_cmd = 'open -a Google\ Chrome'
+elseif system("uname -r") =~# 'Microsoft' " WSLを使っている場合
+  let g:previm_open_cmd = '/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
+  let g:previm_wsl_mode = 1
+endif
 
 " for vimdoc-ja
 set helplang=ja

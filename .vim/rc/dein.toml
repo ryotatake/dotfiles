@@ -76,7 +76,9 @@ repo = 'tpope/vim-commentary'
 repo = 'plasticboy/vim-markdown'
 
 [[plugins]]
-repo = 'previm/previm'
+# https://github.com/previm/previm/pull/140がマージされたらprevim/previmの方を使う
+#repo = 'previm/previm'
+repo = '~/.vim/plugins/previm'
 
 [[plugins]]
 repo = 'pandysong/ghost-text.vim'
@@ -90,3 +92,15 @@ repo = 'markonm/traces.vim'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
