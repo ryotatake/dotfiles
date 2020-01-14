@@ -2,3 +2,5 @@
 .config/fish/fishd*
 .config/fish/functions/fzf_key_bindings.fish
 .config/fish/fish_variables
+.config/atcoder-cli-nodejs/config.json
+.config/atcoder-cli-nodejs/session.json
