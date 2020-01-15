@@ -1,3 +1,0 @@
-[submodule ".vim/plugins/previm"]
-	path = .vim/plugins/previm
-	url = git@github.com:ryotatake/previm.git
