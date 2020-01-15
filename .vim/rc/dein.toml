@@ -104,3 +104,6 @@ repo = 'kana/vim-textobj-line'
 
 [[plugins]]
 repo = 'kana/vim-textobj-entire'
+
+[[plugins]]
+repo = 'simeji/winresizer'
