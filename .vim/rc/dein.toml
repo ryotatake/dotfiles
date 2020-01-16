@@ -105,3 +105,6 @@ repo = 'kana/vim-textobj-entire'
 
 [[plugins]]
 repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
