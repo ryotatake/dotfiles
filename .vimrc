@@ -120,6 +120,10 @@ nnoremap <Leader>MM :<C-u>set number<CR>
 nnoremap <Leader>pp :<C-u>set paste<CR>
 nnoremap <Leader>PP :<C-u>set nopaste<CR>
 
+nnoremap <Leader>f :<C-u>Files<CR>   " fzf.vim
+nnoremap <Leader>b :<C-u>Buffers<CR>
+nnoremap <Leader>a :<C-u>Ag<CR>
+
 """"""""""""""""""""""""""""""
 " 改行系
 """"""""""""""""""""""""""""""
