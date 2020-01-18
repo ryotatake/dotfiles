@@ -141,9 +141,6 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 """"""""""""""""""""""""""""""
 nnoremap gV `[v`]
 nnoremap q: :<C-u>q<CR>
-" move line
-nnoremap <C-a> 0
-nnoremap <C-e> $
 " increment & decrement number
 nnoremap + <C-a>
 nnoremap - <C-x>
