@@ -397,7 +397,7 @@ endfunction
 let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list'),
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
+  \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
 let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}' --bind ctrl-a:select-all"
