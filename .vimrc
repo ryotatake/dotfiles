@@ -387,5 +387,21 @@ elseif system("uname -r") =~# 'Microsoft' " WSLを使っている場合
   let g:previm_wsl_mode = 1
 endif
 
+" for fzf
+" C-a: select-all, C-q: open files in quickfix
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}' --bind ctrl-a:select-all"
+
 " for vimdoc-ja
 set helplang=ja
