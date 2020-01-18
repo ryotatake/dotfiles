@@ -276,7 +276,9 @@ set laststatus=2
 set noshowmode
 
 " for test-vim mappings
-let test#ruby#rspec#executable = 'spec'
+if executable('spec')
+  let test#ruby#rspec#executable = 'spec'
+endif
 let test#strategy = "dispatch"
 map <Leader>t :TestFile<CR>
 map <Leader>n :TestNearest<CR>
