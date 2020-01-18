@@ -115,10 +115,6 @@ nnoremap <Leader>H <C-w>H         " leader + H,J,K,Lでwindowの位置を変え�
 nnoremap <Leader>J <C-w>J
 nnoremap <Leader>K <C-w>K
 nnoremap <Leader>L <C-w>L
-nnoremap <Leader>+ <C-w>+         " leader + +,-,<,\>でwindowの大きさを変える
-nnoremap <Leader>- <C-w>-
-nnoremap <Leader>> <C-w>>
-nnoremap <Leader>< <C-w><
 nnoremap <Leader>mm :<C-u>set nonumber<CR>
 nnoremap <Leader>MM :<C-u>set number<CR>
 nnoremap <Leader>pp :<C-u>set paste<CR>
