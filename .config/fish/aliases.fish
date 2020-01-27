@@ -12,6 +12,7 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 alias g="git"
+alias agl='ag --pager="less -R"'
 
 if which memo > /dev/null 2>&1
   function memosearch
