@@ -124,6 +124,8 @@ nnoremap <Leader>f :<C-u>Files<CR>   " fzf.vim
 nnoremap <Leader>b :<C-u>Buffers<CR>
 nnoremap <Leader>* :<C-u>AgCursorWord<CR>
 
+nnoremap <Leader><Leader>m :<C-u>Memos<CR>
+
 """"""""""""""""""""""""""""""
 " 改行系
 """"""""""""""""""""""""""""""
