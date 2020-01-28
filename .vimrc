@@ -402,10 +402,7 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-function! s:ag_cursor_word()
-  call fzf#vim#ag(expand("<cword>"))
-endfunction
-command! AgCursorWord call s:ag_cursor_word()
+command! AgCursorWord call fzf#vim#ag(expand("<cword>"))
 
 let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}' --bind ctrl-a:select-all"
 
