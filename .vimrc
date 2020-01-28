@@ -123,6 +123,7 @@ nnoremap <Leader>PP :<C-u>set nopaste<CR>
 nnoremap <Leader>f :<C-u>Files<CR>   " fzf.vim
 nnoremap <Leader>b :<C-u>Buffers<CR>
 nnoremap <Leader>* :<C-u>AgCursorWord<CR>
+nnoremap <Leader>d :<C-u>DotFiles<CR>
 
 nnoremap <Leader><Leader>m :<C-u>Memos<CR>
 
@@ -403,6 +404,7 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 command! AgCursorWord call fzf#vim#ag(expand("<cword>"))
+command! DotFiles call fzf#vim#files('~/dotfiles')
 
 let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}' --bind ctrl-a:select-all"
 
