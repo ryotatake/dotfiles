@@ -18,6 +18,10 @@ if test -d $HOME/.rbenv/bin
   set -x PATH $HOME/.rbenv/bin $PATH
 end
 
+if test -d $HOME/.cargo/bin
+  set -x PATH $HOME/.cargo/bin $PATH
+end
+
 if which rbenv > /dev/null
   status --is-interactive; and source (rbenv init -|psub)
 end
