@@ -122,7 +122,7 @@ nnoremap <Leader>PP :<C-u>set nopaste<CR>
 
 nnoremap <Leader>f :<C-u>Files<CR>   " fzf.vim
 nnoremap <Leader>b :<C-u>Buffers<CR>
-nnoremap <Leader>a :<C-u>Ag<CR>
+nnoremap <Leader>* :<C-u>AgCursorWord<CR>
 
 """"""""""""""""""""""""""""""
 " 改行系
@@ -399,6 +399,11 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+function! s:ag_cursor_word()
+  call fzf#vim#ag(expand("<cword>"))
+endfunction
+command! AgCursorWord call s:ag_cursor_word()
 
 let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}' --bind ctrl-a:select-all"
 
