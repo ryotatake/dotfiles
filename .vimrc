@@ -185,11 +185,6 @@ vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
 """"""""""""""""""""""""""""""
-" command
-""""""""""""""""""""""""""""""
-command! Memos :Files ~/.config/memo/
-
-""""""""""""""""""""""""""""""
 " 検索
 """"""""""""""""""""""""""""""
 set hlsearch                      " 検索語をハイライト
@@ -405,6 +400,7 @@ let g:fzf_action = {
 
 command! AgCursorWord call fzf#vim#ag(expand("<cword>"))
 command! DotFiles call fzf#vim#files('~/dotfiles')
+command! Memos call fzf#vim#files('~/.config/memo/_posts')
 
 let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}' --bind ctrl-a:select-all"
 
