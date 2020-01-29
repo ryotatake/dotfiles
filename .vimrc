@@ -120,12 +120,12 @@ nnoremap <Leader>MM :<C-u>set number<CR>
 nnoremap <Leader>pp :<C-u>set paste<CR>
 nnoremap <Leader>PP :<C-u>set nopaste<CR>
 
-nnoremap <Leader>f :<C-u>Files<CR>   " fzf.vim
+" fzf.vim mappings
+nnoremap <Leader>f :<C-u>Files<CR>
 nnoremap <Leader>b :<C-u>Buffers<CR>
-nnoremap <Leader>* :<C-u>AgCursorWord<CR>
-nnoremap <Leader>d :<C-u>DotFiles<CR>
-
-nnoremap <Leader><Leader>m :<C-u>Memos<CR>
+nnoremap <Leader>* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
+nnoremap <Leader>d :<C-u>Files ~/dotfiles<CR>
+nnoremap <Leader><Leader>m :<C-u>Files ~/.config/memo/_posts<CR>
 
 """"""""""""""""""""""""""""""
 " 改行系
@@ -397,10 +397,6 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
-
-command! AgCursorWord call fzf#vim#ag(expand("<cword>"))
-command! DotFiles call fzf#vim#files('~/dotfiles')
-command! Memos call fzf#vim#files('~/.config/memo/_posts')
 
 let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}' --bind ctrl-a:select-all"
 
