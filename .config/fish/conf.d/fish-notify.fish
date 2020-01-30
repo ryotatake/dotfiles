@@ -4,12 +4,11 @@ function fish_notify --on-event fish_prompt
   set _display_status $status
   if test $CMD_DURATION
     set secs (math "$CMD_DURATION / 1000")
-    # 3秒以上掛かったら通知する
-    if test $secs -ge 3
-      if which osascript > /dev/null ^&1
-        echo "display notification \"Returned $status, took $secs seconds\" with title \"$history[1]\"" | osascript
-      else
-        echo "LONGRUN COMMAND: $history[1], took $secs secs"
+    # 5秒以上掛かったら通知する
+    if test $secs -ge 5
+      if test $SLACK_NOTIFICATION_URL
+        set notify "curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"Command: $history[1], took $secs second\"}' $SLACK_NOTIFICATION_URL"
+        eval $notify
       end
     end
   end
