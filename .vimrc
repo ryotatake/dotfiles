@@ -212,7 +212,7 @@ set backspace=start,eol,indent
 " タブ文字、行末スペースの可視化
 """"""""""""""""""""""""""""""
 set list
-set listchars=tab:>\ ,eol:\ ,trail:_
+set listchars=tab:>-,eol:$,trail:_
 
 """"""""""""""""""""""""""""""
 " その他見た目
