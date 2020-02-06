@@ -13,6 +13,7 @@
   a = add
   c = commit -v
   co = checkout
+  cof = !git branch | fzf | xargs git checkout
   d = diff
   l = log
   graph = log --graph --decorate --oneline
