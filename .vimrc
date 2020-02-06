@@ -401,3 +401,6 @@ let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --
 
 " for vimdoc-ja
 set helplang=ja
+
+" for vim-auto-save
+let g:auto_save = 1

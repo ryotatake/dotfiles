@@ -130,3 +130,6 @@ merged = 0
 
 [[plugins]]
 repo =  'thinca/vim-zenspace'
+
+[[plugins]]
+repo =  '907th/vim-auto-save'
