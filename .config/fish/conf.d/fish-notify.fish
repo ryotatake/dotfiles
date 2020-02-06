@@ -2,7 +2,7 @@
 # https://qiita.com/na-o-ys/items/5f56fc96a9a07f0f0f08
 function fish_notify --on-event fish_prompt
   set _display_status $status
-  set ignore_commands vim less git g
+  set ignore_commands vim less git g fg
   set processing_command (echo $history[1] | awk '{ print $1 }')
 
   for ignore_command in $ignore_commands
