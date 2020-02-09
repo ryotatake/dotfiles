@@ -133,3 +133,6 @@ repo =  'thinca/vim-zenspace'
 
 [[plugins]]
 repo =  '907th/vim-auto-save'
+
+[[plugins]]
+repo =  'LeafCage/vimhelpgenerator'
