@@ -124,6 +124,8 @@ nnoremap <Leader>PP :<C-u>set nopaste<CR>
 nnoremap <Leader>f :<C-u>Files<CR>
 nnoremap <Leader>b :<C-u>Buffers<CR>
 nnoremap <Leader>* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
+vnoremap <Leader>* :<C-u>Ag <C-r>=SelectedWords()<CR><CR>
+vnoremap <Leader>e :<C-u>echo <C-r>=SelectedWords()<CR><CR>
 nnoremap <Leader>d :<C-u>Files ~/dotfiles<CR>
 nnoremap <Leader><Leader>m :<C-u>Files ~/.config/memo/_posts<CR>
 
@@ -398,6 +400,14 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}' --bind ctrl-a:select-all"
+
+function! SelectedWords() abort
+  let tmp = @@
+  silent normal gvy
+  let selected = @@
+  let @@ = tmp
+  return selected
+endfunction
 
 " for vimdoc-ja
 set helplang=ja
