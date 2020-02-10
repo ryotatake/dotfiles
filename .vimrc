@@ -124,7 +124,7 @@ nnoremap <Leader>PP :<C-u>set nopaste<CR>
 nnoremap <Leader>f :<C-u>Files<CR>
 nnoremap <Leader>b :<C-u>Buffers<CR>
 nnoremap <Leader>* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
-vnoremap <Leader>* :<C-u>Ag <C-r>=SelectedWords()<CR><CR>
+vnoremap <Leader>* :<C-u>Ag <C-r>=SelectedWords()->escape('()')<CR><CR>
 vnoremap <Leader>e :<C-u>echo <C-r>=SelectedWords()<CR><CR>
 nnoremap <Leader>d :<C-u>Files ~/dotfiles<CR>
 nnoremap <Leader><Leader>m :<C-u>Files ~/.config/memo/_posts<CR>
