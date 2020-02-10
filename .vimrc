@@ -224,7 +224,10 @@ set showmode                   " モードを表示
 set showcmd                    " 打ったキーを表示
 set title                      " タイトルをウィンドウ枠に表示
 
-autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+augroup vimrc-erb
+  autocmd!
+  autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+augroup END
 
 
 """"""""""""""""""""""""""""""
@@ -241,7 +244,10 @@ set clipboard^=unnamedplus
 """"""""""""""""""""""""""""""
 " tagsの作成
 """"""""""""""""""""""""""""""
-au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
+augroup vimrc-tag
+  autocmd!
+  au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
+augroup END
 
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
