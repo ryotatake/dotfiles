@@ -228,6 +228,7 @@ augroup vimrc-erb
   autocmd!
   autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 augroup END
+autocmd BufEnter * echo expand("<afile>:p")
 
 
 """"""""""""""""""""""""""""""
