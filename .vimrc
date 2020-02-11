@@ -1,3 +1,6 @@
+"----------------------------------------------------------
+" Pluginの準備
+"----------------------------------------------------------
 " https://qiita.com/delphinus/items/00ff2c0ba972c6e41542
 if &compatible
   set nocompatible
@@ -37,16 +40,16 @@ if dein#check_install()
   call dein#install()
 endif
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " ファイル
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 set nobackup   " バックアップファイルを作らない
 set noswapfile " スワップファイルを作らない
 
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " カーソル変更
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 
 if has('vim_starting')
   if exists('$TMUX')
@@ -64,50 +67,21 @@ if has('vim_starting')
   endif
 endif
 
-""""""""""""""""""""""""""""""
-" カラースキーマ
-""""""""""""""""""""""""""""""
-" https://qiita.com/sff1019/items/3f73856b78d7fa2731c7
-" :so $VIMRUNTIME/syntax/colortest.vim で色のリストを確認できる。
-autocmd ColorScheme * highlight String ctermfg=175
-autocmd ColorScheme * highlight Comment ctermfg=grey
-autocmd ColorScheme * highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
+"----------------------------------------------------------
+" カラースキーム
+"----------------------------------------------------------
 
 colorscheme molokai
 "FIXME:
 "本来は$TERMに256色設定をすべき。https://codeyarns.com/2015/03/18/how-to-set-term-to-xterm-256color/"
 set t_Co=256
-""""""""""""""""""""""""""""""
-" カレントウィンドウ以外の罫線非表示
-""""""""""""""""""""""""""""""
-augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorline nocursorcolumn
-  autocmd WinEnter,BufRead * set cursorline cursorcolumn
-augroup END
-
-augroup vimrc-number
-  autocmd!
-  autocmd WinLeave,BufLeave * set nonumber
-  autocmd WinEnter,BufEnter * set number
-augroup END
 
 highlight CursorLine ctermbg=white guibg=white
 
-""""""""""""""""""""""""""""""
-" 操作中はcursorline, cursorcolumnを非表示にする
-""""""""""""""""""""""""""""""
 
-" https://thinca.hatenablog.com/entry/20090530/1243615055
-augroup vimrc-auto-cursorline
-  autocmd!
-  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorline nocursorcolumn
-  autocmd CursorHold,CursorHoldI * setlocal cursorline cursorcolumn
-augroup END
-
-""""""""""""""""""""""""""""""
-"Leader系
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
+" Leader系
+"----------------------------------------------------------
 let mapleader = "\<Space>"
 nnoremap <Leader>w :<C-u>w<CR>    " leader + w で保存
 nnoremap <Leader>v <C-w>v         " leader + v,s でwindow分割
@@ -134,9 +108,9 @@ vnoremap <Leader>e :<C-u>echo <C-r>=SelectedWords()<CR><CR>
 nnoremap <Leader>d :<C-u>Files ~/dotfiles<CR>
 nnoremap <Leader><Leader>m :<C-u>Files ~/.config/memo/_posts<CR>
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " 改行系
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 set whichwrap=b,s,h,l,<,>,[,],~   " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
 set nu                            " 行数を表示
 set cursorline                    " カーソル行下線 色設定は「hi CursolLine 〜」部で行ってる。
@@ -146,9 +120,9 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 
 ""set matchpairs=(:),{:},[:],<:>
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " normal mode
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 nnoremap gV `[v`]
 nnoremap q: :<C-u>q<CR>
 nnoremap + <C-a>                                      " increment & decrement number
@@ -158,9 +132,9 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR> " ESCキー2度押しで�
 nnoremap <C-]> g<C-]>                                 " tagsジャンプの時に複数ある時は一覧表示
 
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " insert mode
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " jkでEscした時とノーマルモードでEscした時に英数モードにする
 " https://rcmdnk.com/blog/2017/03/10/computer-mac-vim/
 if has('mac')
@@ -188,16 +162,16 @@ inoremap <C-e> <C-o>$
 tnoremap <Esc> <C-w><S-n>
 
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " visual mode
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " 検索
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 set hlsearch                      " 検索語をハイライト
 set ignorecase                    " 検索時に大/小文字を区別しない
 set smartcase                     " 検索パターンに大文字を含んでいたら大/小を区別
@@ -206,9 +180,9 @@ set wildmenu                      " コマンド補完を強化
 set incsearch                     " インクリメンタルサーチ
 
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " スペース系
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 set tabstop=8     " <Tab> での空白数
 set shiftwidth=2  " 自動インデントでの空白数
 set expandtab     " タブをスペースに
@@ -218,32 +192,26 @@ set backspace=1   " 改行後に BS を押すと上の行末に移動する
 set backspace=start,eol,indent
 
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " タブ文字、行末スペースの可視化
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 set list
 set listchars=tab:>-,trail:_
 
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " その他見た目
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 syntax enable                  " 強調表示オン
 set showmatch                  " 括弧の対応の表示
 set showmode                   " モードを表示
 set showcmd                    " 打ったキーを表示
 set title                      " タイトルをウィンドウ枠に表示
 
-augroup vimrc-filetype
-  autocmd!
-  autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
-augroup END
-autocmd BufEnter * echo expand("<afile>:p")
 
-
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " クリップボード
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 "https://pocke.hatenablog.com/entry/2014/10/26/145646
 set clipboard&
 "Linux以外
@@ -252,28 +220,68 @@ set clipboard+=unnamed
 set clipboard^=unnamedplus
 
 
-""""""""""""""""""""""""""""""
-" tagsの作成
-""""""""""""""""""""""""""""""
-augroup vimrc-tag
-  autocmd!
-  au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
-augroup END
-
-
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " 新しいアプリケーションで使うデータベース
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 let g:rails_default_database="mysql"
 
 
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 " neocomplcache
-""""""""""""""""""""""""""""""
+"----------------------------------------------------------
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
 imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" :pumvisible() ?  "\<C-n>" : "\<TAB>"
 
 let g:rails_level = 4
+
+
+"----------------------------------------------------------
+" auto commands
+"----------------------------------------------------------
+" https://qiita.com/sff1019/items/3f73856b78d7fa2731c7
+" :so $VIMRUNTIME/syntax/colortest.vim で色のリストを確認できる。
+augroup vimrc-colorscheme
+  autocmd!
+  autocmd ColorScheme * highlight String ctermfg=175
+  autocmd ColorScheme * highlight Comment ctermfg=grey
+  autocmd ColorScheme * highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
+augroup END
+
+" カレントウィンドウ以外の罫線非表示
+augroup cch
+  autocmd!
+  autocmd WinLeave * set nocursorline nocursorcolumn
+  autocmd WinEnter,BufRead * set cursorline cursorcolumn
+augroup END
+
+augroup vimrc-number
+  autocmd!
+  autocmd WinLeave,BufLeave * set nonumber
+  autocmd WinEnter,BufEnter * set number
+augroup END
+
+" 操作中はcursorline, cursorcolumnを非表示にする
+" https://thinca.hatenablog.com/entry/20090530/1243615055
+augroup vimrc-auto-cursorline
+  autocmd!
+  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorline nocursorcolumn
+  autocmd CursorHold,CursorHoldI * setlocal cursorline cursorcolumn
+augroup END
+
+augroup vimrc-filetype
+  autocmd!
+  autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+augroup END
+
+augroup vimrc-echo-filename
+  autocmd!
+  autocmd WinEnter,BufEnter * echo expand("<afile>:p")
+augroup END
+
+augroup vimrc-tag
+  autocmd!
+  au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
+augroup END
 
 
 "----------------------------------------------------------
