@@ -86,6 +86,12 @@ augroup cch
   autocmd WinEnter,BufRead * set cursorline cursorcolumn
 augroup END
 
+augroup vimrc-number
+  autocmd!
+  autocmd WinLeave,BufLeave * set nonumber
+  autocmd WinEnter,BufEnter * set number
+augroup END
+
 highlight CursorLine ctermbg=white guibg=white
 
 """"""""""""""""""""""""""""""
