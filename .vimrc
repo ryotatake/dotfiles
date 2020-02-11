@@ -40,10 +40,9 @@ endif
 """"""""""""""""""""""""""""""
 " ファイル
 """"""""""""""""""""""""""""""
-" バックアップファイルを作らない
-set nobackup
-" スワップファイルを作らない
-set noswapfile
+set nobackup   " バックアップファイルを作らない
+set noswapfile " スワップファイルを作らない
+
 
 """"""""""""""""""""""""""""""
 " カーソル変更
@@ -146,9 +145,12 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 """"""""""""""""""""""""""""""
 nnoremap gV `[v`]
 nnoremap q: :<C-u>q<CR>
-" increment & decrement number
-nnoremap + <C-a>
+nnoremap + <C-a>                                      " increment & decrement number
 nnoremap - <C-x>
+nnoremap ,r :source ~/.vimrc<CR>                      " ,rで.vimrcを再読み込み
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR> " ESCキー2度押しでハイライトの切り替え
+nnoremap <C-]> g<C-]>                                 " tagsジャンプの時に複数ある時は一覧表示
+
 
 """"""""""""""""""""""""""""""
 " insert mode
@@ -179,12 +181,13 @@ inoremap <C-e> <C-o>$
 " :terminalモードでnormalモードへ
 tnoremap <Esc> <C-w><S-n>
 
+
 """"""""""""""""""""""""""""""
 " visual mode
 """"""""""""""""""""""""""""""
-
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
 
 """"""""""""""""""""""""""""""
 " 検索
@@ -196,8 +199,6 @@ set smartcase                     " 検索パターンに大文字を含んで�
 set wildmenu                      " コマンド補完を強化
 set incsearch                     " インクリメンタルサーチ
 
-" ESCキー2度押しでハイライトの切り替え
-nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 """"""""""""""""""""""""""""""
 " スペース系
@@ -210,11 +211,14 @@ set smartindent   " 改行時に前の行の構文をチェックし次の行の
 set backspace=1   " 改行後に BS を押すと上の行末に移動する
 set backspace=start,eol,indent
 
+
 """"""""""""""""""""""""""""""
 " タブ文字、行末スペースの可視化
 """"""""""""""""""""""""""""""
 set list
 set listchars=tab:>-,trail:_
+
+
 """"""""""""""""""""""""""""""
 " その他見た目
 """"""""""""""""""""""""""""""
@@ -224,7 +228,7 @@ set showmode                   " モードを表示
 set showcmd                    " 打ったキーを表示
 set title                      " タイトルをウィンドウ枠に表示
 
-augroup vimrc-erb
+augroup vimrc-filetype
   autocmd!
   autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 augroup END
@@ -250,19 +254,12 @@ augroup vimrc-tag
   au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
 augroup END
 
-" tagsジャンプの時に複数ある時は一覧表示
-nnoremap <C-]> g<C-]>
-
-""""""""""""""""""""""""""""""
-" ,rで.vimrcを再読み込み
-""""""""""""""""""""""""""""""
-nnoremap ,r :source ~/.vimrc<CR>
-
 
 """"""""""""""""""""""""""""""
 " 新しいアプリケーションで使うデータベース
 """"""""""""""""""""""""""""""
 let g:rails_default_database="mysql"
+
 
 """"""""""""""""""""""""""""""
 " neocomplcache
@@ -271,6 +268,7 @@ let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
 imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" :pumvisible() ?  "\<C-n>" : "\<TAB>"
 
 let g:rails_level = 4
+
 
 "----------------------------------------------------------
 " Pluginのための設定
