@@ -275,7 +275,7 @@ augroup END
 
 augroup vimrc-echo-filename
   autocmd!
-  autocmd WinEnter,BufEnter * echo expand("<afile>:p")
+  autocmd WinEnter,BufRead * echo expand("<afile>:p")
 augroup END
 
 augroup vimrc-tag
