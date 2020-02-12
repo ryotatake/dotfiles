@@ -272,11 +272,6 @@ augroup vimrc-filetype
   autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 augroup END
 
-augroup vimrc-echo-filename
-  autocmd!
-  autocmd WinEnter,BufRead * echo expand("<afile>:p")
-augroup END
-
 augroup vimrc-tag
   autocmd!
   au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
