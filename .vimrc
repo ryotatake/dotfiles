@@ -70,6 +70,14 @@ endif
 "----------------------------------------------------------
 " カラースキーム
 "----------------------------------------------------------
+" https://qiita.com/sff1019/items/3f73856b78d7fa2731c7
+" :so $VIMRUNTIME/syntax/colortest.vim で色のリストを確認できる。
+augroup vimrc-colorscheme
+  autocmd!
+  autocmd ColorScheme * highlight String ctermfg=175
+  autocmd ColorScheme * highlight Comment ctermfg=grey
+  autocmd ColorScheme * highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
+augroup END
 
 colorscheme molokai
 "FIXME:
@@ -238,15 +246,6 @@ let g:rails_level = 4
 "----------------------------------------------------------
 " auto commands
 "----------------------------------------------------------
-" https://qiita.com/sff1019/items/3f73856b78d7fa2731c7
-" :so $VIMRUNTIME/syntax/colortest.vim で色のリストを確認できる。
-augroup vimrc-colorscheme
-  autocmd!
-  autocmd ColorScheme * highlight String ctermfg=175
-  autocmd ColorScheme * highlight Comment ctermfg=grey
-  autocmd ColorScheme * highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
-augroup END
-
 " カレントウィンドウ以外の罫線非表示
 augroup cch
   autocmd!
