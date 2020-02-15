@@ -79,7 +79,8 @@ augroup vimrc-colorscheme
   autocmd ColorScheme * highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
 augroup END
 
-colorscheme molokai
+"colorscheme molokai
+colorscheme iceberg
 "FIXME:
 "本来は$TERMに256色設定をすべき。https://codeyarns.com/2015/03/18/how-to-set-term-to-xterm-256color/"
 set t_Co=256

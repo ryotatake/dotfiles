@@ -5,6 +5,9 @@ repo = 'Shougo/dein.vim'
 repo = 'tomasr/molokai'
 
 [[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
 repo = 'tpope/vim-rails'
 
 [[plugins]]
