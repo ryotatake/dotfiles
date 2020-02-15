@@ -425,6 +425,8 @@ endfunction
 
 " for vimdoc-ja
 set helplang=ja
+" for help Open vim help by K command
+set keywordprg=:help
 
 " for vim-auto-save
 let g:auto_save = 1
