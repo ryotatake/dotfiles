@@ -430,3 +430,6 @@ set keywordprg=:help
 
 " for vim-auto-save
 let g:auto_save = 1
+
+" for vim-lsp
+let g:lsp_diagnostics_float_cursor = 1
