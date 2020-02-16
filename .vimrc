@@ -136,7 +136,7 @@ nnoremap gV `[v`]
 nnoremap q: :<C-u>q<CR>
 nnoremap + <C-a>                                      " increment & decrement number
 nnoremap - <C-x>
-nnoremap ,r :source ~/.vimrc<CR>                      " ,rで.vimrcを再読み込み
+nnoremap ,r :source $MYVIMRC<CR>                      " ,rで.vimrcを再読み込み
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR> " ESCキー2度押しでハイライトの切り替え
 nnoremap <C-]> g<C-]>                                 " tagsジャンプの時に複数ある時は一覧表示
 
