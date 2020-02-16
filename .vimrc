@@ -113,7 +113,6 @@ nnoremap <silent> <Leader>f :<C-u>Files<CR>
 nnoremap <silent> <Leader>b :<C-u>Buffers<CR>
 nnoremap <silent> <Leader>* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
 vnoremap <silent> <Leader>* :<C-u>Ag <C-r>=SelectedWords()->escape('()')<CR><CR>
-vnoremap <silent> <Leader>e :<C-u>echo <C-r>=SelectedWords()<CR><CR>
 nnoremap <silent> <Leader>d :<C-u>Files ~/dotfiles<CR>
 nnoremap <silent> <Leader><Leader>m :<C-u>Files ~/.config/memo/_posts<CR>
 
