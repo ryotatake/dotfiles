@@ -414,6 +414,9 @@ let g:fzf_action = {
 
 let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}' --bind ctrl-a:select-all"
 
+" Ag with preview
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 function! SelectedWords() abort
   let tmp = @@
   silent normal gvy
