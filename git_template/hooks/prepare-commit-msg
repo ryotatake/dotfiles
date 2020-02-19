@@ -39,10 +39,17 @@ function _myenv() {
   echo "#   Commit: `_committer_name` <`_committer_email`>"
 }
 
+function _show_last_commit_msg() {
+  echo "# Last commit message"
+  echo "#   `git log -1 --oneline`"
+}
+
 if [ "$2" = "" ]; then
   mv $1 $1.tmp
   echo "" >> $1
   echo "`_myenv`" >> $1
+  echo "" >> $1
+  echo "`_show_last_commit_msg`" >> $1
   cat $1.tmp >> $1
   rm -f $1.tmp
 fi
