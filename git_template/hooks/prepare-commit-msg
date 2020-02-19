@@ -34,13 +34,13 @@ function _committer_email() {
 }
 
 function _myenv() {
-  echo "# Commit with following user."
+  echo "# Commit with following user:"
   echo "#   Author: `_author_name` <`_author_email`>"
   echo "#   Commit: `_committer_name` <`_committer_email`>"
 }
 
 function _show_last_commit_msg() {
-  echo "# Last commit message"
+  echo "# Last commit message:"
   echo "#   `git log -1 --oneline`"
 }
 
