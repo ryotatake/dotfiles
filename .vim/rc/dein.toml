@@ -139,3 +139,6 @@ repo =  '907th/vim-auto-save'
 
 [[plugins]]
 repo =  'LeafCage/vimhelpgenerator'
+
+[[plugins]]
+repo = 'ryotatake/vim-md-checkbox'
