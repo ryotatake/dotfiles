@@ -438,3 +438,90 @@ let g:auto_save = 1
 
 " for vim-lsp
 let g:lsp_diagnostics_float_cursor = 1
+
+function! CheckboxCreate() abort
+  let lnum = line(".")
+  let tmp = getline(lnum)
+
+  if s:checkbox_exists(tmp)
+    call s:checkbox_create(lnum, tmp)
+  endif
+endfunction
+
+function! s:checkbox_exists(line) abort
+  return match(a:line, '\v^\s*(\*|-) [( |x)\]') != -1
+endfunction
+
+function! s:checkbox_checked(line) abort
+  return match(a:line, '\v(^\s*)(\*|-) [x\]') != -1
+endfunction
+
+function! s:ul_exists(line) abort
+  return match(a:line, '\v(^\s*)(\*|-) ') != -1
+endfunction
+
+function! s:checkbox_create(lnum, line) abort
+  if s:ul_exists(a:line)
+    call s:checkbox_create_for_ul(a:lnum, a:line)
+  else
+    call setline(a:lnum, " * [ ] " . a:line)
+  endif
+endfunction
+
+function! s:checkbox_create_for_ul(lnum, line) abort
+  let str = substitute(a:line, '\v(^\s*)(\*|-) ', '\1\2 [ \] ', "")
+  call setline(a:lnum, str)
+endfunction
+
+function! CheckboxToggle() abort
+  let lnum = line(".")
+  let tmp = getline(lnum)
+
+  if s:checkbox_exists(tmp)
+    if s:checkbox_checked(tmp)
+      call s:checkbox_uncheck(lnum, tmp)
+    else
+      call s:checkbox_check(lnum, tmp)
+    endif
+  endif
+endfunction
+
+function! CheckboxToggleOrCreate() abort
+  let lnum = line(".")
+  let tmp = getline(lnum)
+
+  if s:checkbox_exists(tmp)
+    if s:checkbox_checked(tmp)
+      call s:checkbox_uncheck(lnum, tmp)
+    else
+      call s:checkbox_check(lnum, tmp)
+    endif
+  else
+    call s:checkbox_create(lnum, tmp)
+  endif
+endfunction
+
+function! s:checkbox_check(lnum, line) abort
+  let new_line = substitute(a:line, '\v(^\s*)(\*|-) [ \]', '\1\2 [x\]', "")
+  call setline(a:lnum, new_line)
+endfunction
+
+function! s:checkbox_uncheck(lnum, line) abort
+  let new_line = substitute(a:line, '\v(^\s*)(\*|-) [x\]', '\1\2 [ \]', "")
+  call setline(a:lnum, new_line)
+endfunction
+
+function! CheckboxCheck() abort
+  let lnum = line(".")
+  let tmp = getline(lnum)
+  call s:checkbox_check(lnum, tmp)
+endfunction
+
+function! CheckboxUnCheck() abort
+  let lnum = line(".")
+  let tmp = getline(lnum)
+  call s:checkbox_uncheck(lnum, tmp)
+endfunction
+
+nnoremap <silent> <C-c> :call CheckboxToggleOrCreate()<CR>
+vnoremap <silent> <C-c> :call CheckboxToggleOrCreate()<CR>
