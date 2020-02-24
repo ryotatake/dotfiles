@@ -15,6 +15,7 @@ GO_TOOLS := github.com/x-motemen/ghq
 help:
 	@echo "deploy       : add symlinks"
 	@echo "update       : update dotfiles"
+	@echo "tools        : install tools"
 	@echo "tools-update : update tools"
 	@echo "clean        : delete all dotfiles and this repository"
 
@@ -34,6 +35,10 @@ clean:
 	@echo '==> Remove the dot files and this repo'
 	@-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/$(val);)
 	-rm -rf $(DOTPATH)
+
+# -------------------------------------------------------------------
+#  Private
+# -------------------------------------------------------------------
 
 rbenv-update:
 	@echo '==> Start to update rbenv'
