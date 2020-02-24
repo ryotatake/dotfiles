@@ -14,6 +14,12 @@ if test -d $GOPATH
   set -x PATH $GOPATH/bin $PATH
 end
 
+if test -d $HOME/.goenv
+  set -x GOENV_ROOT $HOME/.goenv
+  set -x PATH $GOENV_ROOT/bin $PATH
+  status --is-interactive; and source (goenv init -|psub)
+end
+
 if test -d $HOME/.rbenv/bin
   set -x PATH $HOME/.rbenv/bin $PATH
 end

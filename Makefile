@@ -5,6 +5,7 @@ DOTDIRECTORIES     := .config/fish .config/atcoder-cli-nodejs/cpp .vim
 DOTFILES_TARGET    := $(wildcard .??*)
 DOTFILES           := $(filter-out $(DOTFILES_EXCLUDES) $(DOTDIRECTORIES), $(DOTFILES_TARGET))
 BACKUP_DIR         := $(HOME)/.backup
+SOURCE_DIR         := $(HOME)/src
 DETECTOS           := $(shell $(DOTPATH)/bin/get_os_info.sh)
 
 .DEFAULT_GOAL = help
@@ -35,6 +36,20 @@ rbenv-update:
 	@if [ -d ${HOME}/.rbenv ]; then \
 		cd ${HOME}/.rbenv && git pull; \
 		cd ${HOME}/.rbenv/plugins/ruby-build && git pull; \
+	fi
+
+goenv:
+	@echo '==> Start to install goenv'
+	@if [ ! -d ${HOME}/.goenv ]; then \
+		git clone https://github.com/syndbg/goenv.git ${HOME}/.goenv; \
+	else \
+		echo 'already installed!'; \
+	fi
+
+goenv-update:
+	@echo '==> Start to update goenv'
+	@if [ -d ${HOME}/.goenv ]; then \
+		cd ${HOME}/.goenv && git pull; \
 	fi
 
 parents:
