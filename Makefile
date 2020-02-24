@@ -15,6 +15,7 @@ GO_TOOLS := github.com/x-motemen/ghq
 help:
 	@echo "deploy       : add symlinks"
 	@echo "update       : update dotfiles"
+	@echo "tools-setup  : setup tools"
 	@echo "tools        : install tools"
 	@echo "tools-update : update tools"
 	@echo "clean        : delete all dotfiles and this repository"
@@ -27,9 +28,11 @@ deploy: parents backup
 update:
 	git pull origin master
 
-tools: goenv
+tools-setup: goenv
 
-tools-update: rbenv-update goenv-update
+tools: go-tools
+
+tools-update: rbenv-update goenv-update go-tools-update
 
 clean:
 	@echo '==> Remove the dot files and this repo'
@@ -51,6 +54,7 @@ goenv:
 	@echo '==> Start to install goenv'
 	@if [ ! -d ${HOME}/.goenv ]; then \
 		git clone https://github.com/syndbg/goenv.git ${HOME}/.goenv; \
+		echo "==== Please install go and set go version. ex) `goenv install {VERSION}` and `goenv global {VERSION}` ===="; \
 	else \
 		echo 'already installed!'; \
 	fi
