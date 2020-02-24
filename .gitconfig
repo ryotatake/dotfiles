@@ -33,3 +33,5 @@
   diff = diff-highlight | less
 [init]
   templatedir = ~/dotfiles/git_template
+[ghq]
+  root = ~/dev/src

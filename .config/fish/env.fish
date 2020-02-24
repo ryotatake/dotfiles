@@ -2,7 +2,6 @@ set -x EDITOR vim
 
 set -x FZF_DEFAULT_OPTS "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}'"
 set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
-set -x GOPATH $HOME/go
 
 set -x PATH /usr/local/bin $HOME/bin /sbin /usr/sbin /usr/bin $PATH
 
@@ -10,13 +9,10 @@ if test -d $HOME/.local/bin
   set -x PATH $HOME/.local/bin $PATH
 end
 
-if test -d $GOPATH
-  set -x PATH $GOPATH/bin $PATH
-end
-
 if test -d $HOME/.goenv
   set -x GOENV_ROOT $HOME/.goenv
-  set -x PATH $GOENV_ROOT/bin $PATH
+  set -x GOPATH $HOME/go
+  set -x PATH $GOENV_ROOT/bin $GOPATH/bin $PATH
   status --is-interactive; and source (goenv init -|psub)
 end
 

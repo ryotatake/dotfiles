@@ -8,6 +8,8 @@ BACKUP_DIR         := $(HOME)/.backup
 SOURCE_DIR         := $(HOME)/src
 DETECTOS           := $(shell $(DOTPATH)/bin/get_os_info.sh)
 
+GO_TOOLS := github.com/x-motemen/ghq
+
 .DEFAULT_GOAL = help
 
 help:
@@ -53,6 +55,12 @@ goenv-update:
 	@if [ -d ${HOME}/.goenv ]; then \
 		cd ${HOME}/.goenv && git pull; \
 	fi
+
+go-tools:
+	@echo '==> Start to install or update go tools'
+	$(foreach go, $(GO_TOOLS), go get -u $(go))
+
+go-tools-update: go-tools
 
 parents:
 	@echo '==> Start to make parent directories'
