@@ -9,6 +9,7 @@ SOURCE_DIR         := $(HOME)/src
 DETECTOS           := $(shell $(DOTPATH)/bin/get_os_info.sh)
 
 GO_TOOLS := github.com/x-motemen/ghq
+APT      := postgresql-common postgresql-10 libpq-dev
 
 .DEFAULT_GOAL = help
 
@@ -30,9 +31,9 @@ update:
 
 tools-setup: goenv
 
-tools: go-tools
+tools: package go-tools
 
-tools-update: rbenv-update goenv-update go-tools-update
+tools-update: package-update rbenv-update goenv-update go-tools-update
 
 clean:
 	@echo '==> Remove the dot files and this repo'
@@ -42,6 +43,19 @@ clean:
 # -------------------------------------------------------------------
 #  Private
 # -------------------------------------------------------------------
+
+package:
+	@echo '==> Start to install packages'
+ifeq ($(DETECTOS), ubuntu)
+	sudo apt install $(APT)
+endif
+
+package-update:
+	@echo '==> Start to update packages'
+ifeq ($(DETECTOS), ubuntu)
+	sudo apt update
+	sudo apt upgrade
+endif
 
 rbenv-update:
 	@echo '==> Start to update rbenv'
