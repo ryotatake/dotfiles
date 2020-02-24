@@ -24,7 +24,9 @@ deploy: parents backup
 update:
 	git pull origin master
 
-tools-update: rbenv-update
+tools: goenv
+
+tools-update: rbenv-update goenv-update
 
 clean:
 	@echo '==> Remove the dot files and this repo'
