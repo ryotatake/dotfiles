@@ -5,6 +5,7 @@ DOTDIRECTORIES     := .config/fish .config/atcoder-cli-nodejs/cpp .vim
 DOTFILES_TARGET    := $(wildcard .??*)
 DOTFILES           := $(filter-out $(DOTFILES_EXCLUDES) $(DOTDIRECTORIES), $(DOTFILES_TARGET))
 BACKUP_DIR         := $(HOME)/.backup
+DETECTOS           := $(shell $(DOTPATH)/bin/get_os_info.sh)
 
 .DEFAULT_GOAL = help
 

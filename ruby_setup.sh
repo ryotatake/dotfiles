@@ -17,7 +17,7 @@ exec $SHELL -l
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 # install tools for ruby
-if [ -e /etc/debian-version ]; then
+if [ -e /etc/debian_version ]; then
   sudo apt-get update
   sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
 elif [ -e /etc/redhat-release ]; then
