@@ -11,7 +11,6 @@ end
 
 if test -d $HOME/.goenv
   set -x GOENV_ROOT $HOME/.goenv
-  set -x GOPATH $HOME/go
   set -x PATH $GOENV_ROOT/bin $GOPATH/bin $PATH
   status --is-interactive; and source (goenv init -|psub)
 end
