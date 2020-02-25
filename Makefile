@@ -68,7 +68,7 @@ goenv:
 	@echo '==> Start to install goenv'
 	@if [ ! -d ${HOME}/.goenv ]; then \
 		git clone https://github.com/syndbg/goenv.git ${HOME}/.goenv; \
-		echo "==== Please install go and set go version. ex) `goenv install {VERSION}` and `goenv global {VERSION}` ===="; \
+		echo "==== Please install go and set go version. ex) 'goenv install {VERSION}' and 'goenv global {VERSION}' ===="; \
 	else \
 		echo 'already installed!'; \
 	fi
