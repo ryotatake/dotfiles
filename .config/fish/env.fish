@@ -16,12 +16,16 @@ if test -d $HOME/.goenv
   set -x PATH $GOPATH/bin $PATH
 end
 
+if test -d $HOME/.cargo/bin
+  set -x PATH $HOME/.cargo/bin $PATH
+end
+
 if test -d $HOME/.rbenv/bin
   set -x PATH $HOME/.rbenv/bin $PATH
 end
 
-if test -d $HOME/.cargo/bin
-  set -x PATH $HOME/.cargo/bin $PATH
+if test -d /usr/local/lib/rbenv
+  set -x PATH /usr/local/lib/rbenv/bin $PATH
 end
 
 if which rbenv > /dev/null
