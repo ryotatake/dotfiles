@@ -81,7 +81,7 @@ goenv-update:
 
 go-tools:
 	@echo '==> Start to install or update go tools'
-	$(foreach go, $(GO_TOOLS), go get -u $(go))
+	$(foreach go, $(GO_TOOLS), go get -u $(go);)
 
 go-tools-update: go-tools
 
