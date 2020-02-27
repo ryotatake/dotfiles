@@ -26,6 +26,7 @@ end
 
 if test -d /usr/local/lib/rbenv
   set -x PATH /usr/local/lib/rbenv/bin $PATH
+  set -x RBENV_ROOT /usr/local/lib/rbenv
 end
 
 if which rbenv > /dev/null
