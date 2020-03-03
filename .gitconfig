@@ -1,6 +1,6 @@
 [user]
-	name  = "Ryota Takeuchi"
-	email = ryouta.takeuti@gmail.com
+  name  = "Ryota Takeuchi"
+  email = ryouta.takeuti@gmail.com
 
 [core]
   editor = vim
