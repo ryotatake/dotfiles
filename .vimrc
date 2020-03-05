@@ -227,6 +227,13 @@ set clipboard+=unnamed
 "Linux用
 set clipboard^=unnamedplus
 
+" 選択範囲をpiknik -copyで送る
+" 取得するターミナルで piknik -paste を実行すると受け取れる
+" macであれば、piknik -paste | pbcopyでクリップボードにコピーできる
+" 事前に piknik -server をサーバーで行っておく必要がある
+if executable('piknik')
+  command! -range PiknikCopy :<line1>,<line2>w !piknik -copy
+endif
 
 "----------------------------------------------------------
 " 新しいアプリケーションで使うデータベース
