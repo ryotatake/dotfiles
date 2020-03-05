@@ -8,7 +8,7 @@ BACKUP_DIR         := $(HOME)/.backup
 SOURCE_DIR         := $(HOME)/src
 DETECTOS           := $(shell $(DOTPATH)/bin/get_os_info.sh)
 
-GO_TOOLS := github.com/x-motemen/ghq github.com/mattn/memo
+GO_TOOLS := github.com/x-motemen/ghq github.com/mattn/memo github.com/jedisct1/piknik
 APT      := postgresql-common postgresql-10 libpq-dev
 
 .DEFAULT_GOAL = help
