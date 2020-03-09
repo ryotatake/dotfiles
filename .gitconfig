@@ -19,6 +19,8 @@
   graph = log --graph --decorate --oneline
 [push]
   default = matching
+[fetch]
+  prune = true
 [diff]
   tool = vimdiff
 [difftool]
