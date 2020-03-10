@@ -1,6 +1,6 @@
 set -x EDITOR vim
 
-set -x FZF_DEFAULT_OPTS "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}'"
+set -x FZF_DEFAULT_OPTS "--height 40% --layout=reverse --border --inline-info --preview 'bat --style=numbers --color=always {} | head -100'"
 set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 
 set -x PATH /usr/local/bin $HOME/bin /sbin /usr/sbin /usr/bin $PATH
