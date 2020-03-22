@@ -166,9 +166,6 @@ inoremap <C-l> <C-o>l
 inoremap <C-a> <C-o>0
 inoremap <C-e> <C-o>$
 
-" :terminalモードでnormalモードへ
-tnoremap <Esc> <C-w><S-n>
-
 
 "----------------------------------------------------------
 " visual mode
