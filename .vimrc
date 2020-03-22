@@ -420,6 +420,8 @@ let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --
 
 " Ag with preview
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
+" Files with preview
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 function! SelectedWords() abort
   let tmp = @@

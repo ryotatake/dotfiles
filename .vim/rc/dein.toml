@@ -142,3 +142,6 @@ repo =  'LeafCage/vimhelpgenerator'
 
 [[plugins]]
 repo = 'ryotatake/vim-md-checkbox'
+
+[[plugins]]
+repo = 'thinca/vim-qfreplace'
