@@ -14,6 +14,8 @@
   c = commit -v
   co = checkout
   cof = !git branch | fzf | xargs git checkout
+  sw = switch
+  swf = !git branch | fzf | xargs git switch
   d = diff
   l = log
   graph = log --graph --decorate --oneline
