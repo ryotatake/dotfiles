@@ -51,7 +51,7 @@ repo = 'Shougo/neocomplete.vim'
 if   = '''has('lua')'''
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
+repo = 'Shougo/neosnippet.vim'
 if   = '''has('lua')'''
 
 [[plugins]]
@@ -134,8 +134,9 @@ merged = 0
 [[plugins]]
 repo =  'thinca/vim-zenspace'
 
-[[plugins]]
-repo =  '907th/vim-auto-save'
+# neosnippetと相性が悪い。ジャンプできなくなる
+# [[plugins]]
+# repo =  '907th/vim-auto-save'
 
 [[plugins]]
 repo =  'LeafCage/vimhelpgenerator'
