@@ -93,6 +93,7 @@ highlight CursorLine ctermbg=white guibg=white
 "----------------------------------------------------------
 let mapleader = "\<Space>"
 nnoremap <Leader>w :<C-u>w<CR>    " leader + w で保存
+nnoremap <Leader>q :<C-u>q<CR>    " leader + q でファイルを閉じる
 nnoremap <Leader>v <C-w>v         " leader + v,s でwindow分割
 nnoremap <Leader>s <C-w>s
 nnoremap <Leader>h <C-w>h         " leader + h,j,k,lでwindowの移動
