@@ -158,14 +158,6 @@ else
   inoremap <silent> jk <Esc>
   inoremap <silent> kj <Esc>
 endif
-" 移動
-inoremap <C-h> <C-o>h
-inoremap <C-j> <C-o>j
-inoremap <C-k> <C-o>k
-inoremap <C-l> <C-o>l
-" move line
-inoremap <C-a> <C-o>0
-inoremap <C-e> <C-o>$
 
 
 "----------------------------------------------------------
