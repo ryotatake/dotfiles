@@ -438,6 +438,8 @@ endif
 
 " for vim-auto-save
 let g:auto_save = 1
+" InsertLeaveを登録すると、neosnippetのジャンプが使えなくなる
+let g:auto_save_events = ["QuitPre", "BufLeave", "CursorHold"]
 
 " for vim-lsp
 let g:lsp_diagnostics_float_cursor = 1

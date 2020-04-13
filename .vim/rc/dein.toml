@@ -135,8 +135,8 @@ merged = 0
 repo =  'thinca/vim-zenspace'
 
 # neosnippetと相性が悪い。ジャンプできなくなる
-# [[plugins]]
-# repo =  '907th/vim-auto-save'
+[[plugins]]
+repo =  '907th/vim-auto-save'
 
 [[plugins]]
 repo =  'LeafCage/vimhelpgenerator'
