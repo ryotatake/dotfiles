@@ -1,3 +1,6 @@
 snippet debug
 	Rails.logger.debug('${1} ============================================')
 	Rails.logger.debug($1)
+
+snippet stub
+	${1:#:receiver}.stub(:${2:#:method}).and_return($2)
