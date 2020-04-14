@@ -275,6 +275,11 @@ augroup vimrc-tag
   au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
 augroup END
 
+augroup vimrc-auto-save
+  autocmd!
+  au InsertLeave,TextChanged * w
+augroup END
+
 
 "----------------------------------------------------------
 " Pluginのための設定
@@ -436,11 +441,6 @@ set helplang=ja
 if &filetype ==# "vim"
   setlocal keywordprg=:help
 endif
-
-" for vim-auto-save
-let g:auto_save = 1
-" InsertLeaveを登録すると、neosnippetのジャンプが使えなくなる
-let g:auto_save_events = ["QuitPre", "BufLeave", "CursorHold"]
 
 " for vim-lsp
 let g:lsp_diagnostics_float_cursor = 1
