@@ -277,9 +277,21 @@ augroup END
 
 augroup vimrc-auto-save
   autocmd!
-  au InsertLeave,TextChanged * w
+  au InsertLeave,TextChanged * call s:auto_save()
 augroup END
 
+" ref. https://github.com/907th/vim-auto-save/blob/master/plugin/AutoSave.vim#L72-L80
+" Preserve marks that are used to remember start and
+" end position of the last changed or yanked text (`:h '[`).
+function! s:auto_save() abort
+  let first_char_pos = getpos("'[")
+  let last_char_pos = getpos("']")
+
+  write
+
+  call setpos("'[", first_char_pos)
+  call setpos("']", last_char_pos)
+endfunction
 
 "----------------------------------------------------------
 " Pluginのための設定
