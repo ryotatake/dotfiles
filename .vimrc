@@ -287,7 +287,11 @@ function! s:auto_save() abort
   let first_char_pos = getpos("'[")
   let last_char_pos = getpos("']")
 
-  write
+  try
+    write
+  catch
+    echo "not saved"
+  endtry
 
   call setpos("'[", first_char_pos)
   call setpos("']", last_char_pos)
