@@ -39,3 +39,5 @@
   templatedir = ~/dotfiles/git_template
 [ghq]
   root = ~/dev/src
+[pull]
+  rebase = true
