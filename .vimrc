@@ -460,3 +460,7 @@ endif
 
 " for vim-lsp
 let g:lsp_diagnostics_float_cursor = 1
+
+" for vim-easy-align
+xmap ea <Plug>(EasyAlign)
+nmap ea <Plug>(EasyAlign)

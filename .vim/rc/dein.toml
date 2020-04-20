@@ -142,3 +142,6 @@ repo = 'ryotatake/vim-md-checkbox'
 
 [[plugins]]
 repo = 'thinca/vim-qfreplace'
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
