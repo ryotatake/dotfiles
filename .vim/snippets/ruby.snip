@@ -4,3 +4,6 @@ snippet debug
 
 snippet stub
 	${1:#:receiver}.stub(:${2:#:method}).and_return($2)
+
+snippet time_on_date
+	TimeUtility.time_on_date(${1:date}, ${2:time})
