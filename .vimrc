@@ -299,6 +299,11 @@ function! s:auto_save() abort
   call setpos("']", last_char_pos)
 endfunction
 
+augroup vimrc-html-auto-close
+  autocmd!
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+augroup END
+
 "----------------------------------------------------------
 " Pluginのための設定
 "----------------------------------------------------------
