@@ -145,3 +145,6 @@ repo = 'thinca/vim-qfreplace'
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
