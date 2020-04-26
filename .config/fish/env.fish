@@ -32,3 +32,7 @@ end
 if which rbenv > /dev/null
   status --is-interactive; and source (rbenv init -|psub)
 end
+
+if test -d (yarn global bin) > /dev/null
+  set -x PATH (yarn global bin) $PATH
+end
