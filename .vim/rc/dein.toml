@@ -11,9 +11,6 @@ repo = 'cocopon/iceberg.vim'
 repo = 'tpope/vim-rails'
 
 [[plugins]]
-repo = 'Keithbsmiley/rspec.vim'
-
-[[plugins]]
 repo = 'soramugi/auto-ctags.vim'
 
 [[plugins]]
@@ -24,12 +21,6 @@ repo = 'tpope/vim-dispatch'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-
-[[plugins]]
-repo = 'othree/yajs.vim'
-
-[[plugins]]
-repo = 'vim-jp/vim-cpp'
 
 [[plugins]]
 repo = 'Shougo/deol.nvim'
@@ -57,9 +48,6 @@ if   = '''has('lua')'''
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 if   = '''has('lua')'''
-
-[[plugins]]
-repo = 'cespare/vim-toml'
 
 # fzfの導入
 [[plugins]]
@@ -148,3 +136,6 @@ repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
