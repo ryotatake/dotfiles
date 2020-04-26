@@ -72,6 +72,8 @@ endif
 "----------------------------------------------------------
 " https://qiita.com/sff1019/items/3f73856b78d7fa2731c7
 " :so $VIMRUNTIME/syntax/colortest.vim で色のリストを確認できる。
+command! Colorlist :source $VIMRUNTIME/syntax/colortest.vim
+
 augroup vimrc-colorscheme
   autocmd!
   autocmd ColorScheme * highlight String ctermfg=175
