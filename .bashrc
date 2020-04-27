@@ -46,3 +46,4 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --inline-info --
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
+alias sudo="sudo env PATH=$PATH"
