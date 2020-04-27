@@ -32,6 +32,8 @@
 [mergetool]
   prompt = false
 [pager]
+  ; 使えない場合、次のコマンドでパスのある場所にシンボリックリンクを貼る
+  ; sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
   log = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less
