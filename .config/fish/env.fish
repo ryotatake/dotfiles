@@ -29,10 +29,10 @@ if test -d /usr/local/lib/rbenv
   set -x RBENV_ROOT /usr/local/lib/rbenv
 end
 
-if which rbenv > /dev/null
+if which rbenv > /dev/null 2>&1
   status --is-interactive; and source (rbenv init -|psub)
 end
 
-if which yarn > /dev/null
+if which yarn > /dev/null 2>&1
   set -x PATH (yarn global bin) $PATH
 end
