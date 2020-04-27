@@ -6,8 +6,8 @@ fish_vi_key_bindings
 #  alias ls="ls --color=auto"
 #end
 
-alias la="ls -lah"
-alias ll="ls -lh"
+alias ll="ls -lh --time-style=long-iso"
+alias la="ll -a"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
