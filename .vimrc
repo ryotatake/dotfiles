@@ -220,13 +220,19 @@ set clipboard+=unnamed
 "Linux用
 set clipboard^=unnamedplus
 
-" 選択範囲をpiknik -copyで送る
-" 取得するターミナルで piknik -paste を実行すると受け取れる
-" macであれば、piknik -paste | pbcopyでクリップボードにコピーできる
-" 事前に piknik -server をサーバーで行っておく必要がある
-if executable('piknik')
-  command! -range PiknikCopy :<line1>,<line2>w !piknik -copy
-endif
+" https://github.com/kg8m/dotfiles/blob/7148aa65b0a892a98c3776c10fd0a22bb3e38e18/.vimrc#L288
+function! RemoteCopy(text) abort
+  let text = a:text
+  let text = substitute(text, '\n$', "", "")
+  let text = substitute(text, '%', "%%", "g")
+  let text = shellescape(escape(text, '\'))
+
+  call system("printf " . text . " | ssh main -t 'pbcopy'")
+  echomsg "Copied"
+endfunction
+
+" 無名レジスタ \"にコピーした上で、@"で取り出す。
+vnoremap <Leader>y "yy:call RemoteCopy(@")<Cr>
 
 "----------------------------------------------------------
 " 新しいアプリケーションで使うデータベース
