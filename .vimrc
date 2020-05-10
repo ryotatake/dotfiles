@@ -228,7 +228,11 @@ function! RemoteCopy(text) abort
   let text = shellescape(escape(text, '\'))
 
   call system("printf " . text . " | ssh main -t 'pbcopy'")
-  echomsg "Copied"
+  if v:shell_error != 0
+    echomsg "Not Copied"
+  else
+    echomsg "Copied"
+  endif
 endfunction
 
 " 無名レジスタ \"にコピーした上で、@"で取り出す。
