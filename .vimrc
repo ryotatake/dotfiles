@@ -236,7 +236,7 @@ function! RemoteCopy(text) abort
 endfunction
 
 " 無名レジスタ \"にコピーした上で、@"で取り出す。
-vnoremap <Leader>y "yy:call RemoteCopy(@")<Cr>
+vnoremap <silent> <Leader>y "yy:call RemoteCopy(@")<Cr>
 
 "----------------------------------------------------------
 " 新しいアプリケーションで使うデータベース
