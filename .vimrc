@@ -493,3 +493,6 @@ nmap <silent> <Leader>ig <Plug>IndentGuidesToggle
 " もっと複雑な管理をしたくなったら kg8m/vim-parallel-auto-ctags を検討
 let g:auto_ctags = 1
 let g:auto_ctags_directory_list = ['.git']
+
+" for nerdtree
+nnoremap <C-n> :NERDTreeToggle<CR>
