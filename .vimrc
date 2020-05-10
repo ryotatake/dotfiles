@@ -227,9 +227,10 @@ function! RemoteCopy(text) abort
   let text = substitute(text, '%', "%%", "g")
   let text = shellescape(escape(text, '\'))
 
-  call system("printf " . text . " | ssh main -t 'pbcopy'")
+  let executed = system("printf " . text . " | ssh main -t 'pbcopy'")
+
   if v:shell_error != 0
-    echomsg "Not Copied"
+    echomsg "Not Copied: Because " . executed
   else
     echomsg "Copied"
   endif
