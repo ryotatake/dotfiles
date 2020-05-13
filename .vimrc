@@ -134,7 +134,8 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 "----------------------------------------------------------
 " normal mode
 "----------------------------------------------------------
-nnoremap gV `[v`]                                     " 直前に選択していた範囲を選択
+" 直前に選択していた範囲を選択
+nnoremap gV `[v`]
 nnoremap q: :<C-u>q<CR>
 nnoremap + <C-a>                                      " increment & decrement number
 nnoremap - <C-x>
