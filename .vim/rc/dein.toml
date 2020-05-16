@@ -145,3 +145,7 @@ repo = 'sheerun/vim-polyglot'
 
 [[plugins]]
 repo = 'preservim/nerdtree'
+
+[[plugins]]
+repo = 'kg8m/vim-fzf-tjump'
+merged = 0

@@ -490,6 +490,9 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_default_mapping = 0
 nmap <silent> <Leader>ig <Plug>IndentGuidesToggle
 
+" for vim-fzf-tjump
+map g] <Plug>(fzf-tjump)
+
 " for auto-ctags
 " もっと複雑な管理をしたくなったら kg8m/vim-parallel-auto-ctags を検討
 let g:auto_ctags = 1
