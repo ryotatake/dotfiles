@@ -481,8 +481,8 @@ endif
 let g:lsp_diagnostics_float_cursor = 1
 
 " for vim-easy-align
-xmap ea <Plug>(EasyAlign)
-nmap ea <Plug>(EasyAlign)
+xmap <Leader>ea <Plug>(EasyAlign)
+nmap <Leader>ea <Plug>(EasyAlign)
 
 " for vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
