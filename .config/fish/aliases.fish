@@ -1,5 +1,3 @@
-fish_vi_key_bindings
-
 #if [ "(uname)" = 'Darwin' ]
 #  alias ls="ls -G"
 #else
