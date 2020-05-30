@@ -87,8 +87,6 @@ colorscheme iceberg
 "本来は$TERMに256色設定をすべき。https://codeyarns.com/2015/03/18/how-to-set-term-to-xterm-256color/"
 set t_Co=256
 
-highlight CursorLine ctermbg=white guibg=white
-
 
 "----------------------------------------------------------
 " Leader系
@@ -124,8 +122,6 @@ nnoremap <silent> <Leader><Leader>m :<C-u>Files ~/.config/memo/_posts<CR>
 "----------------------------------------------------------
 set whichwrap=b,s,h,l,<,>,[,],~   " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
 set nu                            " 行数を表示
-set cursorline                    " カーソル行下線 色設定は「hi CursolLine 〜」部で行ってる。
-set cursorcolumn                  " カーソル列を強調表示
 hi NonText guibg=NONE guifg=DarkGreen    "改行記号
 set notextmode                    " 改行コードを LF (UNIX 風)にする
 
@@ -258,25 +254,10 @@ let g:rails_level = 4
 "----------------------------------------------------------
 " auto commands
 "----------------------------------------------------------
-" カレントウィンドウ以外の罫線非表示
-augroup cch
-  autocmd!
-  autocmd WinLeave * set nocursorline nocursorcolumn
-  autocmd WinEnter,BufRead * set cursorline cursorcolumn
-augroup END
-
 augroup vimrc-number
   autocmd!
   autocmd WinLeave,BufLeave * set nonumber
   autocmd WinEnter,BufEnter * set number
-augroup END
-
-" 操作中はcursorline, cursorcolumnを非表示にする
-" https://thinca.hatenablog.com/entry/20090530/1243615055
-augroup vimrc-auto-cursorline
-  autocmd!
-  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorline nocursorcolumn
-  autocmd CursorHold,CursorHoldI * setlocal cursorline cursorcolumn
 augroup END
 
 augroup vimrc-filetype
