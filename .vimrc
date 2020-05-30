@@ -481,3 +481,8 @@ let g:auto_ctags_directory_list = ['.git']
 
 " for nerdtree
 nnoremap <C-n> :NERDTreeToggle<CR>
+
+" for ale
+" save時のみチェックする
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
