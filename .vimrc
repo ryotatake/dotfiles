@@ -205,6 +205,7 @@ set showmatch                  " 括弧の対応の表示
 set showmode                   " モードを表示
 set showcmd                    " 打ったキーを表示
 set title                      " タイトルをウィンドウ枠に表示
+set scrolloff=2
 
 
 "----------------------------------------------------------
