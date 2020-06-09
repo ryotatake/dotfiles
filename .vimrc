@@ -206,6 +206,7 @@ set showmode                   " モードを表示
 set showcmd                    " 打ったキーを表示
 set title                      " タイトルをウィンドウ枠に表示
 set scrolloff=2
+set cursorline
 
 
 "----------------------------------------------------------
