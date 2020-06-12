@@ -72,9 +72,6 @@ repo = 'plasticboy/vim-markdown'
 [[plugins]]
 repo = 'previm/previm'
 
-[[plugins]]
-repo = 'pandysong/ghost-text.vim'
-if   = '''has('python3')'''
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
