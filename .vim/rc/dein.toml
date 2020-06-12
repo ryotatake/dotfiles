@@ -67,11 +67,13 @@ repo = 'dag/vim-fish'
 repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
 repo = 'plasticboy/vim-markdown'
 
 [[plugins]]
 repo = 'previm/previm'
-
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
