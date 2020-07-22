@@ -78,7 +78,7 @@ command! Colorlist :source $VIMRUNTIME/syntax/colortest.vim
 augroup vimrc-colorscheme
   autocmd!
   autocmd ColorScheme * highlight String ctermfg=175
-  autocmd ColorScheme * highlight Comment ctermfg=grey
+  autocmd ColorScheme * highlight Comment ctermfg=gray
   autocmd ColorScheme * highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
 augroup END
 
