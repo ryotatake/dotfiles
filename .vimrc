@@ -303,15 +303,6 @@ filetype plugin indent on "ファイル形式別のプラグインのロード�
 set laststatus=2
 set noshowmode
 
-" for test-vim mappings
-if executable('spec')
-  let test#ruby#rspec#executable = 'spec'
-endif
-let test#strategy = "dispatch"
-map <Leader>t :TestFile<CR>
-map <Leader>n :TestNearest<CR>
-map <Leader>r :TestLast<CR>
-
 " https://itchyny.hatenablog.com/entry/20130828/1377653592
 let g:lightline = {
         \ 'colorscheme': 'wombat',
