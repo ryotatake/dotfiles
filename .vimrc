@@ -244,13 +244,6 @@ vnoremap <silent> <Leader>y "yy:call RemoteCopy(@")<Cr>
 "----------------------------------------------------------
 let g:rails_default_database="mysql"
 
-
-"----------------------------------------------------------
-" neocomplcache
-"----------------------------------------------------------
-let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
-imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" :pumvisible() ?  "\<C-n>" : "\<TAB>"
-
 let g:rails_level = 4
 
 
