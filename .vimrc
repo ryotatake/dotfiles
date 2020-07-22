@@ -1,3 +1,5 @@
+let mapleader = "\<Space>"
+
 "----------------------------------------------------------
 " Pluginの準備
 "----------------------------------------------------------
@@ -92,7 +94,6 @@ set t_Co=256
 "----------------------------------------------------------
 " Leader系
 "----------------------------------------------------------
-let mapleader = "\<Space>"
 nnoremap <Leader>w :<C-u>w<CR>    " leader + w で保存
 nnoremap <Leader>q :<C-u>q<CR>    " leader + q でファイルを閉じる
 nnoremap <Leader>v <C-w>v         " leader + v,s でwindow分割
@@ -311,10 +312,6 @@ map <Leader>t :TestFile<CR>
 map <Leader>n :TestNearest<CR>
 map <Leader>r :TestLast<CR>
 
-" for deol.nvim
-" leader + sh で上にterminalを開く
-nnoremap <Leader>sh :<C-u>Deol -split="horizontal"<CR>
-
 " https://itchyny.hatenablog.com/entry/20130828/1377653592
 let g:lightline = {
         \ 'colorscheme': 'wombat',
@@ -375,40 +372,6 @@ function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-" neocomplete・neosnippetの設定 (luaが有効で無いと使えません)
-if has('lua')
-  " Vim起動時にneocompleteを有効にする
-  let g:neocomplete#enable_at_startup = 1
-  " smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
-  let g:neocomplete#enable_smart_case = 1
-  " 3文字以上の単語に対して補完を有効にする
-  let g:neocomplete#min_keyword_length = 3
-  " 区切り文字まで補完する
-  let g:neocomplete#enable_auto_delimiter = 1
-  " 1文字目の入力から補完のポップアップを表示
-  let g:neocomplete#auto_completion_start_length = 1
-  " スニペットファイルのディレクトリを指定
-  let s:snippets_dir = expand('~/.vim/snippets')
-  let g:neosnippet#snippets_directory = s:snippets_dir
-  " バックスペースで補完のポップアップを閉じる
-  inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-
-  " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
-  imap <expr><CR> neosnippet#expandable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-y>" : "\<CR>"
-  " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ
-  imap <expr><TAB> pumvisible() ?
-    \ "<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-endif
-
-" for vim-operator-replace
-map _ <Plug>(operator-replace)
-
-" for vim-markdown
-let g:vim_markdown_folding_disabled = 1
-
 " for previm
 if has('mac')
   let g:previm_open_cmd = 'open -a Google\ Chrome'
@@ -446,39 +409,7 @@ function! SelectedWords() abort
   return selected
 endfunction
 
-" for vimdoc-ja
-set helplang=ja
-
 " for help Open vim help by K command
 if &filetype ==# "vim"
   setlocal keywordprg=:help
 endif
-
-" for vim-lsp
-let g:lsp_diagnostics_float_cursor = 1
-
-" for vim-easy-align
-xmap <Leader>ea <Plug>(EasyAlign)
-nmap <Leader>ea <Plug>(EasyAlign)
-
-" for vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_default_mapping = 0
-nmap <silent> <Leader>ig <Plug>IndentGuidesToggle
-
-" for vim-fzf-tjump
-map g] <Plug>(fzf-tjump)
-
-" for auto-ctags
-" もっと複雑な管理をしたくなったら kg8m/vim-parallel-auto-ctags を検討
-let g:auto_ctags = 1
-let g:auto_ctags_directory_list = ['.git']
-
-" for nerdtree
-nnoremap <C-n> :NERDTreeToggle<CR>
-
-" for ale
-" save時のみチェックする
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_insert_leave = 0

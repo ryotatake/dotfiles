@@ -12,6 +12,11 @@ repo = 'tpope/vim-rails'
 
 [[plugins]]
 repo = 'soramugi/auto-ctags.vim'
+hook_add = '''
+  " もっと複雑な管理をしたくなったら kg8m/vim-parallel-auto-ctags を検討
+  let g:auto_ctags = 1
+  let g:auto_ctags_directory_list = ['.git']
+'''
 
 [[plugins]]
 repo = 'janko/vim-test'
@@ -24,9 +29,18 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'Shougo/deol.nvim'
+hook_add = '''
+  " leader + sh で上にterminalを開く
+  nnoremap <Leader>sh :<C-u>Deol -split="horizontal"<CR>
+'''
 
 [[plugins]]
 repo = 'w0rp/ale'
+hook_add = '''
+  " save時のみチェックする
+  let g:ale_lint_on_text_changed = 0
+  let g:ale_lint_on_insert_leave = 0
+'''
 
 [[plugins]]
 repo = 'slim-template/vim-slim'
@@ -40,14 +54,42 @@ repo = 'kana/vim-operator-replace'
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 if   = '''has('lua')'''
+hook_add = '''
+  " Vim起動時にneocompleteを有効にする
+  let g:neocomplete#enable_at_startup = 1
+  " smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
+  let g:neocomplete#enable_smart_case = 1
+  " 3文字以上の単語に対して補完を有効にする
+  let g:neocomplete#min_keyword_length = 3
+  " 区切り文字まで補完する
+  let g:neocomplete#enable_auto_delimiter = 1
+  " 1文字目の入力から補完のポップアップを表示
+  let g:neocomplete#auto_completion_start_length = 1
+  " バックスペースで補完のポップアップを閉じる
+  inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 if   = '''has('lua')'''
+hook_add = '''
+  " スニペットファイルのディレクトリを指定
+  let s:snippets_dir = expand('~/.vim/snippets')
+  let g:neosnippet#snippets_directory = s:snippets_dir
+  " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
+  imap <expr><CR> neosnippet#expandable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-y>" : "\<CR>"
+  " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ
+  imap <expr><TAB> pumvisible() ?
+    \ "<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 if   = '''has('lua')'''
+depends = ['neosnippet.vim']
 
 # fzfの導入
 [[plugins]]
@@ -71,12 +113,18 @@ repo = 'godlygeek/tabular'
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
+hook_add = '''
+  let g:vim_markdown_folding_disabled = 1
+'''
 
 [[plugins]]
 repo = 'previm/previm'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
+hook_add = '''
+  set helplang=ja
+'''
 
 [[plugins]]
 repo = 'markonm/traces.vim'
@@ -116,6 +164,9 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo =  'prabirshrestha/vim-lsp'
+hook_add = '''
+  let g:lsp_diagnostics_float_cursor = 1
+'''
 
 [[plugins]]
 repo =  'mattn/vim-lsp-settings'
@@ -132,22 +183,41 @@ repo = 'ryotatake/vim-md-checkbox'
 
 [[plugins]]
 repo = 'thinca/vim-qfreplace'
+hook_add = '''
+  map _ <Plug>(operator-replace)
+'''
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
+hook_add = '''
+  xmap <Leader>ea <Plug>(EasyAlign)
+  nmap <Leader>ea <Plug>(EasyAlign)
+'''
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_default_mapping = 0
+  nmap <silent> <Leader>ig <Plug>IndentGuidesToggle
+'''
 
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 
 [[plugins]]
 repo = 'preservim/nerdtree'
+hook_add = '''
+  nnoremap <C-n> :NERDTreeToggle<CR>
+'''
 
 [[plugins]]
 repo = 'kg8m/vim-fzf-tjump'
 merged = 0
+hook_add = '''
+  map g] <Plug>(fzf-tjump)
+'''
 
 [[plugins]]
 repo = 'qpkorr/vim-renamer'
