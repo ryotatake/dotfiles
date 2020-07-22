@@ -148,3 +148,6 @@ repo = 'preservim/nerdtree'
 [[plugins]]
 repo = 'kg8m/vim-fzf-tjump'
 merged = 0
+
+[[plugins]]
+repo = 'qpkorr/vim-renamer'
