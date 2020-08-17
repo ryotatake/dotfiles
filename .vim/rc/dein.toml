@@ -230,3 +230,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'qpkorr/vim-renamer'
+
+[[plugins]]
+repo = 'mileszs/ack.vim'
+hook_add = '''
+  let g:ackprg = 'ag --vimgrep'
+'''
