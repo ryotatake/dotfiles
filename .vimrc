@@ -141,6 +141,7 @@ nnoremap ,r :source $MYVIMRC<CR>                      " ,rで.vimrcを再読み�
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR> " ESCキー2度押しでハイライトの切り替え
 nnoremap <C-]> g<C-]>                                 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap Gf <C-w><C-f>                                " カーソル下のファイルをウィンドウを分割して開く
+nnoremap cie ciw
 
 
 "----------------------------------------------------------
