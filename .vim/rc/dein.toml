@@ -6,6 +6,9 @@ repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
+hook_add = '''
+  set background=dark
+'''
 
 [[plugins]]
 repo = 'tpope/vim-rails'
