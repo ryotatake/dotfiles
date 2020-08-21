@@ -25,6 +25,7 @@
   prune = true
 [diff]
   tool = vimdiff
+  colorMoved = dimmed-zebra
 [difftool]
   prompt = false
 [merge]
