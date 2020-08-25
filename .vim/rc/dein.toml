@@ -1,4 +1,5 @@
 [[plugins]]
+# :call dein#update()のあとは :echo dein#get_updates_log()でupdateされた情報を確認すること
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
