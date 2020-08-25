@@ -12,8 +12,8 @@ if which rbenv > /dev/null; then
   eval "$(rbenv init -)"
 fi
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
-
-export PATH="$HOME/.cargo/bin:$PATH"

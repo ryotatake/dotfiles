@@ -5,13 +5,6 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# https://qiita.com/tak-onda/items/a90b63d9618d6b15c18c
-# If not running interactively, don't do anything
-#case $- in
-#    *i*) exec fish;;
-#      *) return;;
-#esac
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -47,3 +40,10 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 [[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
 alias sudo="sudo env PATH=$PATH"
+
+# https://qiita.com/tak-onda/items/a90b63d9618d6b15c18c
+# If not running interactively, don't do anything
+#case $- in
+#    *i*) exec fish;;
+#      *) return;;
+#esac
