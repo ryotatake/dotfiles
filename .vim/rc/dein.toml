@@ -56,9 +56,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'slim-template/vim-slim'
-
-[[plugins]]
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
