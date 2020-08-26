@@ -134,6 +134,7 @@ hook_add = '''
 '''
 
 [[plugins]]
+# 置換される様子を分かりやすくしてくれる
 repo = 'markonm/traces.vim'
 
 [[plugins]]
@@ -177,6 +178,7 @@ hook_add = '''
 
 [[plugins]]
 repo =  'mattn/vim-lsp-settings'
+depends = ['vim-lsp']
 merged = 0
 
 [[plugins]]
