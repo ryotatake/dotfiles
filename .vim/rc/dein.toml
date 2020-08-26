@@ -112,9 +112,6 @@ repo = 'junegunn/fzf.vim'
 [[plugins]]
 repo = 'dag/vim-fish'
 
-# [[plugins]]
-# repo = 'tpope/vim-commentary'
-
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 
@@ -214,6 +211,7 @@ hook_add = '''
 '''
 
 [[plugins]]
+# 色々な言語のシンタックスハイライト
 repo = 'sheerun/vim-polyglot'
 
 [[plugins]]
