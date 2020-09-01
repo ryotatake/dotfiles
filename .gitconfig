@@ -4,6 +4,7 @@
 
 [core]
   editor = vim
+  pager = delta
 
 [color]
   ui = auto
@@ -32,15 +33,17 @@
   tool = vimdiff
 [mergetool]
   prompt = false
-[pager]
-  ; 使えない場合、次のコマンドでパスのある場所にシンボリックリンクを貼る
-  ; sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
-  log = diff-highlight | less
-  show = diff-highlight | less
-  diff = diff-highlight | less
 [init]
   templatedir = ~/dotfiles/git_template
 [ghq]
   root = ~/dev/src
 [pull]
   rebase = true
+
+; for delta
+[delta]
+  plus-color = "#012800"
+  minus-color = "#340001"
+  syntax-theme = Monokai Extended
+[interactive]
+  diffFilter = delta --color-only
