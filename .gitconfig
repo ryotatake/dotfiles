@@ -43,8 +43,8 @@
 ; for delta
 [delta]
   features = decorations
-  plus-color = "#012800"
-  minus-color = "#340001"
+  plus-style = 'syntax bold auto'
+  minus-style = 'syntax bold auto'
   syntax-theme = Monokai Extended
 [interactive]
   diffFilter = delta --color-only
