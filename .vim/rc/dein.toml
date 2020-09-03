@@ -217,6 +217,13 @@ hook_add = '''
 repo = 'sheerun/vim-polyglot'
 
 [[plugins]]
+repo = 'jonsmithers/vim-html-template-literals'
+depends = ['vim-polyglot']
+hook_add = '''
+  let g:htl_css_templates = 1
+'''
+
+[[plugins]]
 repo = 'preservim/nerdtree'
 hook_add = '''
   nnoremap <C-n> :NERDTreeToggle<CR>
