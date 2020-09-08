@@ -229,6 +229,7 @@ function! RemoteCopy(text) abort
   let text = substitute(text, '%', "%%", "g")
   let text = shellescape(escape(text, '\'))
 
+  " ~/.ssh/config でmainという名前でsshできるように設定しておく。
   let executed = system("printf " . text . " | ssh main -t 'pbcopy'")
 
   if v:shell_error != 0
