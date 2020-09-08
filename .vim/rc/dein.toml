@@ -1,6 +1,9 @@
 [[plugins]]
 # :call dein#update()のあとは :echo dein#get_updates_log()でupdateされた情報を確認すること
 repo = 'Shougo/dein.vim'
+hook_add = '''
+  let g:dein#install_github_api_token = $GITHUB_API_TOKEN_FOR_DEIN_VIM
+'''
 
 [[plugins]]
 repo = 'tomasr/molokai'
