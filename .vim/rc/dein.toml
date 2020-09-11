@@ -116,7 +116,10 @@ repo = 'junegunn/fzf.vim'
 repo = 'dag/vim-fish'
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
+repo = 'tyru/caw.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'godlygeek/tabular'
