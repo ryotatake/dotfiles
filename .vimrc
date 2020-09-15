@@ -147,19 +147,19 @@ nnoremap cie ciw
 "----------------------------------------------------------
 " insert mode
 "----------------------------------------------------------
-" jkでEscした時とノーマルモードでEscした時に英数モードにする
+" dfでEscした時とノーマルモードでEscした時に英数モードにする
 " https://rcmdnk.com/blog/2017/03/10/computer-mac-vim/
 if has('mac')
   set ttimeoutlen=1
   let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
   augroup MyIMEGroup
-    inoremap <silent> jk <Esc>:call system(g:imeoff)<CR>
-    inoremap <silent> kj <Esc>:call system(g:imeoff)<CR>
+    inoremap <silent> df <Esc>:call system(g:imeoff)<CR>
+    inoremap <silent> fd <Esc>:call system(g:imeoff)<CR>
   augroup END
   noremap <silent> <ESC> <ESC>:call system(g:imeoff)<CR>
 else
-  inoremap <silent> jk <Esc>
-  inoremap <silent> kj <Esc>
+  inoremap <silent> df <Esc>
+  inoremap <silent> fd <Esc>
 endif
 
 
