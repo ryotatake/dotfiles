@@ -120,6 +120,23 @@ repo = 'tyru/caw.vim'
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
+hook_add = '''
+" caw.vimでのコメントアウトの挙動に支障が出るので`- `や`=`に続くコードをrubyとして認識させない
+let g:context_filetype#filetypes = {
+\ 'haml': [
+\   {
+\    'start' : '^:javascript$',
+\    'end' : '^\S',
+\    'filetype' : 'javascript',
+\   },
+\   {
+\    'start' : '^:css$',
+\    'end' : '^\S',
+\    'filetype' : 'css',
+\   },
+\ ],
+\}
+'''
 
 [[plugins]]
 repo = 'godlygeek/tabular'
