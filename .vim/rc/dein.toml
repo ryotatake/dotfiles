@@ -135,6 +135,13 @@ let g:context_filetype#filetypes = {
 \    'filetype' : 'css',
 \   },
 \ ],
+\ 'ruby' : [
+\   {
+\     'start' : '<<.*SQL$',
+\     'end' : '^\s*SQL',
+\     'filetype' : 'sql',
+\   }
+\ ],
 \}
 '''
 
