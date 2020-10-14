@@ -5,5 +5,41 @@ options head
 		${0}
 	end
 
+snippet context
+abbr    context "{context}" do\n ...\n end
+options head
+	context "${1:#:context}" do
+		${0}
+	end
+
+snippet subject
+abbr    subject { ... }
+options head
+	subject { ${0} }
+
+snippet let
+abbr    let(...) { ... }
+options head
+	let(:${1:#:name}) { ${0} }
+
+snippet let!
+abbr    let!(...) { ... }
+options head
+	let!(:${1:#:name}) { ${0} }
+
+snippet before
+abbr    before do\n ...\n end
+options head
+	before do
+		${0}
+	end
+
+snippet it
+abbr    it "{description}" do\n ...\n end
+options head
+	it "${1:#:description}" do
+		${0}
+	end
+
 snippet stub
 	${1:#:receiver}.stub(:${2:#:method}).and_return($2)
