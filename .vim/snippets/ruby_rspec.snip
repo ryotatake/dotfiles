@@ -4,3 +4,6 @@ options head
 	describe ${1:`substitute(substitute(expand('%:t'), '_spec.rb$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
 		${0}
 	end
+
+snippet stub
+	${1:#:receiver}.stub(:${2:#:method}).and_return($2)
