@@ -29,7 +29,9 @@ hook_add = '''
 repo = 'janko/vim-test'
 hook_add = '''
   if executable('spec')
-    let g:test#ruby#rspec#executable = 'spec'
+    " テストが完了したら通知でお知らせするためnotifyコマンドを使う
+    " see https://github.com/ryotatake/dotfiles/blob/master/.config/fish/functions/notify.fish
+    let g:test#ruby#rspec#executable = 'notify spec'
   endif
   let g:test#strategy = "dispatch"
   map <Leader>t :TestFile<CR>
