@@ -301,7 +301,7 @@ augroup END
 "----------------------------------------------------------
 " ウィンドウの最大化・元に戻す
 let g:toggle_window_size = 0
-function! ToggleWindowSize()
+function! ToggleWindowSize() abort
   if g:toggle_window_size == 1
     exec "normal \<C-w>="
     let g:toggle_window_size = 0
