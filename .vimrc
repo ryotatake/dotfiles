@@ -306,8 +306,8 @@ function! ToggleWindowSize()
     exec "normal \<C-w>="
     let g:toggle_window_size = 0
   else
-    :resize
-    :vertical resize
+    resize
+    vertical resize
     let g:toggle_window_size = 1
   endif
 endfunction
