@@ -8,7 +8,7 @@ snippet time_on_date
 snippet migration
 abbr    class ... < ActiveRecord::Migration\n ...\n end
 options head
-	class ${1:`substitute(substitute(expand('%:t'), '^\d*_\(.*\).rb$', '\1', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} < ActiveRecord::Migration do
+	class ${1:`substitute(substitute(expand('%:t'), '^\d*_\(.*\).rb$', '\1', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} < ActiveRecord::Migration
 		def self.up
 			${2}
 		end
