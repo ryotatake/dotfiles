@@ -313,6 +313,14 @@ function! ToggleWindowSize() abort
 endfunction
 nnoremap <silent> <Leader>z :call ToggleWindowSize()<CR>
 
+function! CurrentFileName() abort
+  return expand('%:t')
+endfunction
+
+function! CurrentRelativePath() abort
+  return expand('%:~:.')
+endfunction
+
 
 "----------------------------------------------------------
 " Pluginのための設定
