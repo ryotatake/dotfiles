@@ -41,5 +41,15 @@ options head
 		${0}
 	end
 
+snippet it_should
+alias   itshould
+abbr    it { should ... }
+options head
+	it { should ${0} }
+
 snippet stub
 	${1:#:receiver}.stub(:${2:#:method}).and_return($2)
+
+snippet Fabricate!
+abbr    Fabricate!(...)
+	Fabricate!(:${0:#:name})
