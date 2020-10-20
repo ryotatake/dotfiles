@@ -2,3 +2,13 @@ snippet checkbox
 abbr	* [ ]
 options	head
 	* [ ] ${0}
+
+snippet details
+abbr	<details><summary> .. </summary> .. </details>
+options	head
+	<details>
+	<summary>
+	${1:#:summary}
+	</summary>
+	${0:#:details}
+	</details>
