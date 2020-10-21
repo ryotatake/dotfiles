@@ -432,3 +432,12 @@ endfunction
 if &filetype ==# "vim"
   setlocal keywordprg=:help
 endif
+
+
+"----------------------------------------------------------
+" .vimrc以外の読み込み
+"----------------------------------------------------------
+let s:private_vimrc_path = expand("~/private_dotfiles/.vimrc")
+if filereadable(s:private_vimrc_path)
+  execute "source " . s:private_vimrc_path
+endif
