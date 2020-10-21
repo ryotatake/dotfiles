@@ -279,3 +279,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'joker1007/vim-ruby-heredoc-syntax'
+
+[[plugins]]
+repo = 'vim-scripts/moin.vim'
