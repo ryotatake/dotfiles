@@ -1,0 +1,34 @@
+snippet     br
+abbr        [[BR]]
+options     word
+	[[BR]]
+
+snippet     link
+abbr        [url title]
+options     word
+	[${1:#:url} ${2:#:title}]
+
+snippet     image
+abbr        [[Image(...)]]
+options     word
+	[[Image(${1:#:filename})]]
+
+snippet     h1
+abbr        = ... =
+options     head
+	= ${0} =
+
+snippet     h2
+abbr        == ... ==
+options     head
+	== ${0} ==
+
+snippet     h3
+abbr        === ... ===
+options     head
+	=== ${0} ===
+
+snippet     h4
+abbr        ==== ... ====
+options     head
+	==== ${0} ====
