@@ -24,3 +24,8 @@ options head
 	create_table :${1} do |t|
 		${0}
 	end
+
+snippet tap
+abbr	tap{|...| ... }
+options word
+	tap{|${1:#:variable}| ${0} }

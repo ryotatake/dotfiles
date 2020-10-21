@@ -48,6 +48,8 @@ options head
 	it { should ${0} }
 
 snippet stub
+abbr    receiver.stub(:method).and_return(...)
+options word
 	${1:#:receiver}.stub(:${2:#:method}).and_return($2)
 
 snippet Fabricate!
