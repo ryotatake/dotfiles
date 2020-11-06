@@ -63,9 +63,13 @@ end
 require 'rubygems'
 require 'wirble'
 require 'hirb'
+# 日本語を使っても表示が崩れないようにする
 require 'hirb-unicode'
 
+# TABで補完できるように
 Wirble.init
+# 出力を色付けする
 Wirble.colorize
 
+# レコードを表形式で表示
 Hirb.enable
