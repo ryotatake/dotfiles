@@ -105,7 +105,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'ryotatake/neosnippet-snippets'
 if   = '''has('lua')'''
 depends = ['neosnippet.vim']
 
