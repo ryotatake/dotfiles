@@ -27,6 +27,20 @@ abbr    let!(...) { ... }
 options head
 	let!(:${1:#:name}) { ${0} }
 
+snippet let_with_\n
+abbr    let(...) {\n ... \n}
+options head
+	let(:${1:#:name}) {
+		${0}
+	}
+
+snippet let!_with_\n
+abbr    let!(...) {\n ... \n}
+options head
+	let!(:${1:#:name}) {
+		${0}
+	}
+
 snippet before
 abbr    before do\n ...\n end
 options head
@@ -55,3 +69,9 @@ options word
 snippet Fabricate!
 abbr    Fabricate!(...)
 	Fabricate!(:${0:#:name})
+
+snippet Fabricate!_with_\n
+abbr    Fabricate!(\n ... \n)
+	Fabricate!(
+		:${0:#:name}
+	)
