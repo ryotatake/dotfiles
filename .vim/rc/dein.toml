@@ -58,6 +58,20 @@ hook_add = '''
   " save時のみチェックする
   let g:ale_lint_on_text_changed = 0
   let g:ale_lint_on_insert_leave = 0
+
+  " cf. ~/dotfiles/.textlintrc
+  let g:ale_linters = {
+  \   'markdown': ['textlint'],
+  \   'text':     ['textlint'],
+  \}
+
+  let g:ale_fixers = {
+  \   'markdown': ['textlint'],
+  \   'text':     ['textlint'],
+  \}
+
+  let g:ale_sign_error = "✗"
+  let g:ale_sign_warning = "!!"
 '''
 
 [[plugins]]
