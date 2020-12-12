@@ -53,7 +53,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
 hook_add = '''
   " save時のみチェックする
   let g:ale_lint_on_text_changed = 0
