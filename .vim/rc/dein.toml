@@ -135,6 +135,10 @@ build = './install --all'
 repo = 'junegunn/fzf.vim'
 
 [[plugins]]
+repo = 'laher/fuzzymenu.vim'
+depends = ['fzf.vim']
+
+[[plugins]]
 repo = 'dag/vim-fish'
 
 [[plugins]]
