@@ -61,13 +61,15 @@ hook_add = '''
 
   " cf. ~/dotfiles/.textlintrc
   let g:ale_linters = {
-  \   'markdown': ['textlint'],
-  \   'text':     ['textlint'],
+  \   'markdown':   ['textlint'],
+  \   'text':       ['textlint'],
+  \   'javascript': ['eslint'],
   \}
 
   let g:ale_fixers = {
-  \   'markdown': ['textlint'],
-  \   'text':     ['textlint'],
+  \   'markdown':   ['textlint'],
+  \   'text':       ['textlint'],
+  \   'javascript': ['eslint'],
   \}
 
   let g:ale_sign_error = "✗"
