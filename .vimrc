@@ -117,6 +117,7 @@ nnoremap <Leader>PP :<C-u>set nopaste<CR>
 
 " fzf.vim mappings
 nnoremap <silent> <Leader>f :<C-u>Files<CR>
+nnoremap <silent> <Leader>a :<C-u>Ag<CR>
 nnoremap <silent> <Leader>b :<C-u>Buffers<CR>
 nnoremap <silent> <Leader>* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
 vnoremap <silent> <Leader>* :<C-u>Ag <C-r>=SelectedWords()->escape('()')<CR><CR>
