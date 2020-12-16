@@ -418,7 +418,7 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-let $FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}' --bind ctrl-a:select-all"
+let $FZF_DEFAULT_OPTS = $FZF_DEFAULT_OPTS . " --bind ctrl-a:select-all"
 
 " Ag with preview
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
