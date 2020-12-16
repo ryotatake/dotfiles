@@ -6,6 +6,8 @@ set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
 # for jethrokuan/fzf
 set -x FZF_LEGACY_KEYBINDINGS 0
 set -x FZF_OPEN_COMMAND $FZF_DEFAULT_COMMAND
+set -x FZF_OPEN_OPTS "--preview 'bat --style=numbers --color=always {} | head -100'"
+set -x FZF_FIND_FILE_OPTS $FZF_OPEN_OPTS
 
 set -x PATH /usr/local/bin $HOME/bin /sbin /usr/sbin /usr/bin $PATH
 
