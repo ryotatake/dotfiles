@@ -326,6 +326,9 @@ function! CurrentRelativePath() abort
   return expand('%:~:.')
 endfunction
 
+function! CurrentAbsolutePath() abort
+  return expand('%:~')
+endfunction
 
 "----------------------------------------------------------
 " Pluginのための設定
