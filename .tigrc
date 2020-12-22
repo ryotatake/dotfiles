@@ -1,4 +1,11 @@
 set diff-highlight = true
 
+set main-view  = id date author commit-title:graph=yes,refs=yes
+
 bind generic g move-first-line
 bind generic G move-last-line
+
+bind main G move-last-line
+
+bind status C !git commit -v
+bind status p !git add --patch %(file)
