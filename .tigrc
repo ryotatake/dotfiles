@@ -5,6 +5,7 @@ set main-view  = id date author commit-title:graph=yes,refs=yes
 bind generic g move-first-line
 bind generic G move-last-line
 bind generic q quit
+bind generic S ?git stash save "%(prompt Enter stash comment: )"
 
 bind main G move-last-line
 
