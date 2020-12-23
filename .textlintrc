@@ -1,5 +1,5 @@
-# npm install textlint
-# npm install textlint-rule-prh textlint-rule-preset-jtf-style textlint-rule-preset-ja-technical-writing
+# npm install -g textlint
+# npm install -g textlint-rule-prh textlint-rule-preset-jtf-style textlint-rule-preset-ja-technical-writing
 {
   "filters": {},
   "rules": {
