@@ -309,8 +309,12 @@ repo = 'joker1007/vim-ruby-heredoc-syntax'
 repo = 'vim-scripts/moin.vim'
 
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
+repo = 'mhinz/vim-signify'
 hook_add = '''
-  " https://github.com/airblade/vim-gitgutter/blob/512e2999ed7ff367580e0d6bc4d2daa81663221f/doc/gitgutter.txt#L281-L284
   set updatetime=100
+
+  let g:signify_sign_add               = '+'
+  let g:signify_sign_delete            = '-'
+  let g:signify_sign_delete_first_line = '-'
+  let g:signify_sign_change            = 'c'
 '''
