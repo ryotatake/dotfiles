@@ -306,3 +306,10 @@ repo = 'joker1007/vim-ruby-heredoc-syntax'
 
 [[plugins]]
 repo = 'vim-scripts/moin.vim'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  " https://github.com/airblade/vim-gitgutter/blob/512e2999ed7ff367580e0d6bc4d2daa81663221f/doc/gitgutter.txt#L281-L284
+  set updatetime=100
+'''
