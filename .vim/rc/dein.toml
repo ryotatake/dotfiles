@@ -44,6 +44,7 @@ repo = 'tpope/vim-dispatch'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+depends  = ['vim-signify']
 hook_add = '''
   set laststatus=2
   set noshowmode
@@ -53,7 +54,7 @@ hook_add = '''
     \ 'colorscheme': 'wombat',
     \ 'mode_map': {'c': 'NORMAL'},
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'signify' ] ]
     \ },
     \ 'component_function': {
     \   'modified': 'LightlineModified',
@@ -63,7 +64,8 @@ hook_add = '''
     \   'fileformat': 'LightlineFileformat',
     \   'filetype': 'LightlineFiletype',
     \   'fileencoding': 'LightlineFileencoding',
-    \   'mode': 'LightlineMode'
+    \   'mode': 'LightlineMode',
+    \   'signify': 'LightlineSignify'
     \ }
     \}
 
@@ -106,6 +108,11 @@ hook_add = '''
 
   function! LightlineMode()
     return winwidth(0) > 60 ? lightline#mode() : ''
+  endfunction
+
+  " ref. :help signify-faq-01
+  function! LightlineSignify()
+    return sy#repo#get_stats_decorated()
   endfunction
 '''
 
