@@ -383,7 +383,7 @@ function! s:TracTableFormat() abort
   let l:pos = getpos('.')
   normal! {
   " Search instead of `normal! j` because of the table at beginning of file edge case.
-  call search('|')
+  call search('||')
   " gdefaultが1の場合は、flagにgを指定すると1番目だけが置換される。常に行全体を置換するためにこの判定を行う。
   let l:flags = (&gdefault ? '' : 'g')
   " Tabularize /||によって、||の前後に2スペース挿入される。
