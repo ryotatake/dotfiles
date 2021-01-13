@@ -378,6 +378,24 @@ if &filetype ==# "vim"
   setlocal keywordprg=:help
 endif
 
+" ref. https://github.com/plasticboy/vim-markdown/blob/8e5d86f7b85234d3d1b4207dceebc43a768ed5d4/ftplugin/markdown.vim#L537-L555
+function! s:TracTableFormat() abort
+  let l:pos = getpos('.')
+  normal! {
+  " Search instead of `normal! j` because of the table at beginning of file edge case.
+  call search('|')
+  " gdefaultが1の場合は、flagにgを指定すると1番目だけが置換される。常に行全体を置換するためにこの判定を行う。
+  let l:flags = (&gdefault ? '' : 'g')
+  " Tabularize /||によって、||の前後に2スペース挿入される。
+  " それによってTracTableFormatを呼び出す度にテーブルが横に伸びてしまうので、連続するスペースを事前に削除しておく。
+  execute 's/ \+/ /e' . l:flags
+  Tabularize /||
+  " 見出しにつける=の位置を調整する。
+  execute 's/||\( \+\)=/||=\1/e' . l:flags
+  execute 's/=\( \+\)||/\1=||/e' . l:flags
+  call setpos('.', l:pos)
+endfunction
+command! TracTableFormat call s:TracTableFormat()
 
 "----------------------------------------------------------
 " .vimrc以外の読み込み
