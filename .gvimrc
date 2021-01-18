@@ -3,6 +3,7 @@ set lines=55
 " ウィンドウの横幅
 set columns=180
 set guifont=HackGenNerdConsole-Regular:h14
+set linespace=4
 
 augroup vimrc-colorscheme
   autocmd!
