@@ -143,6 +143,8 @@ hook_add = '''
   \   'javascript': ['eslint'],
   \}
 
+  let g:ale_javascript_eslint_options = "--config=config/eslint/app.js"
+
   let g:ale_sign_error = "✗"
   let g:ale_sign_warning = "!!"
   let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -209,6 +211,10 @@ repo = 'junegunn/fzf.vim'
 [[plugins]]
 repo = 'laher/fuzzymenu.vim'
 depends = ['fzf.vim']
+hook_add = '''
+  call fuzzymenu#Add('Vim Plugin Update', {'exec': 'call dein#update()'}, {'after': 'echo dein#get_updates_log()'})
+  call fuzzymenu#Add('Fold by Indent', {'exec': 'set foldmethod=indent'})
+'''
 
 [[plugins]]
 repo = 'dag/vim-fish'
@@ -398,3 +404,9 @@ repo = 'inkarkat/vim-SyntaxRange'
 hook_add = '''
   source ~/.vim/plugins/vim-syntaxrange.rc.vim
 '''
+
+[[plugins]]
+repo = 'FooSoft/vim-argwrap'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
