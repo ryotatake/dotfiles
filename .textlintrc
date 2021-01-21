@@ -1,12 +1,12 @@
 # npm install -g textlint
-# npm install -g textlint-rule-preset-jtf-style textlint-rule-preset-ja-technical-writing
+# npm install -g textlint-rule-preset-jtf-style textlint-rule-preset-japanese
 {
   "filters": {},
   "rules": {
-    "preset-ja-technical-writing": {
-      "ja-no-weak-phrase": false,
-      "ja-no-mixed-period": false,
-      "no-exclamation-question-mark": false
+    "preset-japanese": {
+      "max-ten": {
+         "max": 4
+      }
     },
     "preset-jtf-style": true
   }
