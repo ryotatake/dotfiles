@@ -336,15 +336,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-hook_add = '''
-  let g:indent_guides_enable_on_vim_startup = 1
-  let g:indent_guides_guide_size = 1
-  let g:indent_guides_default_mapping = 0
-  nmap <silent> <Leader>ig <Plug>IndentGuidesToggle
-'''
-
-[[plugins]]
 # 色々な言語のシンタックスハイライト
 repo = 'sheerun/vim-polyglot'
 
@@ -408,3 +399,9 @@ repo = 'FooSoft/vim-argwrap'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+'''
