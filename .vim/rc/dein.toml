@@ -209,6 +209,10 @@ repo = 'junegunn/fzf.vim'
 [[plugins]]
 repo = 'laher/fuzzymenu.vim'
 depends = ['fzf.vim']
+hook_add = '''
+call fuzzymenu#Add('Vim Plugin Update', {'exec': 'call dein#update()'}, {'after': 'echo dein#get_updates_log()'})
+call fuzzymenu#Add('Fold by Indent', {'exec': 'set foldmethod=indent'})
+'''
 
 [[plugins]]
 repo = 'dag/vim-fish'
