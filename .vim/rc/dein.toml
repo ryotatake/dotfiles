@@ -120,8 +120,8 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = '''
-  " leader + sh で上にterminalを開く
-  nnoremap <Leader>sh :<C-u>Deol -split="horizontal"<CR>
+  nnoremap <Leader>sh :<C-u>Deol -split=farright<CR>
+  tnoremap <ESC> <C-\><C-n>
 '''
 
 [[plugins]]
