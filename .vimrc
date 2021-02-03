@@ -279,7 +279,7 @@ augroup END
 
 augroup vimrc-auto-save
   autocmd!
-  au InsertLeave,TextChanged * call s:auto_save()
+  au CursorHold * call s:auto_save()
 augroup END
 
 " ref. https://github.com/907th/vim-auto-save/blob/master/plugin/AutoSave.vim#L72-L80
