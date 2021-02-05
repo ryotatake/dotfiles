@@ -277,10 +277,10 @@ augroup vimrc-tag
   au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
 augroup END
 
-augroup vimrc-auto-save
-  autocmd!
-  au CursorHold * call s:auto_save()
-augroup END
+" augroup vimrc-auto-save
+"   autocmd!
+"   au CursorHold * call s:auto_save()
+" augroup END
 
 " ref. https://github.com/907th/vim-auto-save/blob/master/plugin/AutoSave.vim#L72-L80
 " Preserve marks that are used to remember start and
@@ -303,6 +303,19 @@ augroup vimrc-html-auto-close
   autocmd!
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup END
+
+augroup vimrc-change-cursorlinenumber-color
+  autocmd!
+  autocmd InsertLeave,TextChanged,WinEnter,BufWritePost * call s:change_cursorlinenumber_color()
+augroup END
+
+function! s:change_cursorlinenumber_color() abort
+  if &modified == 1
+    highlight CursorLineNr ctermbg=yellow
+  elseif &modified == 0
+    highlight CursorLineNr ctermbg=none
+  endif
+endfunction
 
 
 "----------------------------------------------------------
