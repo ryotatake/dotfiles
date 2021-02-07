@@ -418,3 +418,6 @@ repo = 'mhinz/vim-startify'
 hook_add = '''
 let g:startify_change_to_dir = 0
 '''
+
+[[plugins]]
+repo = 'pbrisbin/vim-mkdir'
