@@ -416,7 +416,7 @@ command! TracTableFormat call s:TracTableFormat()
 "----------------------------------------------------------
 " .vimrc以外の読み込み
 "----------------------------------------------------------
-let s:private_vimrc_path = expand("~/private_dotfiles/.vimrc")
-if filereadable(s:private_vimrc_path)
-  execute "source " . s:private_vimrc_path
+let s:local_vimrc_path = expand("~/dotfiles-local/.vimrc")
+if filereadable(s:local_vimrc_path)
+  execute "source " . s:local_vimrc_path
 endif

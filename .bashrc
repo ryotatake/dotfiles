@@ -38,7 +38,7 @@ export PS1="\[\033[01;32m\]\u@\H(development)\[\033[01;34m\] \W\$(parse_git_bran
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --inline-info --preview 'head -100 {}'"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
-[[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
+[[ -f ~/dotfiles-local/.bashrc ]] && source ~/dotfiles-local/.bashrc
 alias sudo="sudo env PATH=$PATH"
 
 # https://qiita.com/tak-onda/items/a90b63d9618d6b15c18c
