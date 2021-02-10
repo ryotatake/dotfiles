@@ -319,9 +319,9 @@ augroup END
 
 function! s:change_cursorlinenumber_color() abort
   if &modified == 1
-    highlight CursorLineNr ctermbg=yellow
+    highlight CursorLineNr ctermbg=yellow guibg=yellow
   elseif &modified == 0
-    highlight CursorLineNr ctermbg=none
+    highlight CursorLineNr ctermbg=NONE guibg=NONE
   endif
 endfunction
 
