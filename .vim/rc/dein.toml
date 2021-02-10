@@ -118,13 +118,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/deol.nvim'
-hook_add = '''
-  nnoremap <Leader>sh :<C-u>Deol -split=farright<CR>
-  tnoremap <ESC> <C-\><C-n>
-'''
-
-[[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = '''
   " save時のみチェックする
