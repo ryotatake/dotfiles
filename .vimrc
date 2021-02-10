@@ -98,15 +98,18 @@ set t_Co=256
 "----------------------------------------------------------
 " Leader系
 "----------------------------------------------------------
-nnoremap <Leader>w :<C-u>w<CR>    " leader + w で保存
-nnoremap <Leader>q :<C-u>q<CR>    " leader + q でファイルを閉じる
-nnoremap <Leader>v <C-w>v         " leader + v,s でwindow分割
+" leader + w で保存
+nnoremap <Leader>w :<C-u>w<CR>
+" leader + v,s でwindow分割
+nnoremap <Leader>q :<C-u>q<CR>
 nnoremap <Leader>s <C-w>s
-nnoremap <Leader>h <C-w>h         " leader + h,j,k,lでwindowの移動
+" leader + h,j,k,lでwindowの移動
+nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
-nnoremap <Leader>H <C-w>H         " leader + H,J,K,Lでwindowの位置を変える
+" leader + H,J,K,Lでwindowの位置を変える
+nnoremap <Leader>H <C-w>H
 nnoremap <Leader>J <C-w>J
 nnoremap <Leader>K <C-w>K
 nnoremap <Leader>L <C-w>L
