@@ -100,8 +100,10 @@ set t_Co=256
 "----------------------------------------------------------
 " leader + w で保存
 nnoremap <Leader>w :<C-u>w<CR>
-" leader + v,s でwindow分割
+" leader + q でファイルを閉じる
 nnoremap <Leader>q :<C-u>q<CR>
+" leader + v,s でwindow分割
+nnoremap <Leader>v <C-w>v
 nnoremap <Leader>s <C-w>s
 " leader + h,j,k,lでwindowの移動
 nnoremap <Leader>h <C-w>h
