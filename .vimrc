@@ -42,6 +42,9 @@ if dein#check_install()
   call dein#install()
 endif
 
+" https://github.com/Shougo/dein.vim/blob/772ae08cef5e712b2b31b4aaee908fc853accd94/doc/dein.txt#L907-L911
+autocmd VimEnter * call dein#call_hook('post_source')
+
 "----------------------------------------------------------
 " ファイル
 "----------------------------------------------------------
