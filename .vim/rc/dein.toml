@@ -161,7 +161,7 @@ hook_post_source = '''
   call deoplete#custom#option({
   \ 'smart_case': v:true,
   \ 'refresh_backspace': v:false,
-  \ )}
+  \ })
 '''
 
 [[plugins]]
