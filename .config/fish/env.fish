@@ -48,3 +48,12 @@ end
 if which yarn > /dev/null 2>&1
   set -x PATH (yarn global bin) $PATH
 end
+
+# WSLかどうかを判定する
+# ref. https://moyapro.com/2018/03/21/detect-wsl/
+if test -f /proc/sys/fs/binfmt_misc/WSLInterop
+  # WSL2のVimでWindowsとクリップボード連携する
+  # http://blog.calcurio.com/update-display.html
+  set LOCAL_IP (ipconfig.exe | awk 'BEGIN { RS="\r\n"  } /^[A-Z]/ { isWslSection=/WSL/;  }; { if (!isWslSection && /IPv4 Address/) { printf $NF; exit;  } }')
+  set -x DISPLAY $LOCAL_IP:0
+end
