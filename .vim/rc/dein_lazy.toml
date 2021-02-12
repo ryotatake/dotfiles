@@ -1,1 +1,8 @@
-# add plugins
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_event = 'InsertEnter'
+hook_post_source = '''
+  " lexima.vimはInsertEnterのタイミングでマッピングを上書きするため、自分の設定で上書きしたい場合はそれより後に行う。
+  " lexima.vimがマッピングを上書きするのを待ってから上書くため、timerを利用する。
+  call timer_start(100, { -> my_settings#mappings#define_cr_for_insert_mode() })
+'''
