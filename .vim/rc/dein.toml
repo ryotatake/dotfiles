@@ -95,7 +95,7 @@ hook_add = '''
       \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
       \  &ft == 'unite' ? unite#get_status_string() :
       \  &ft == 'vimshell' ? vimshell#get_status_string() :
-      \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+      \ '' != my_settings#utils#get_current_relative_path() ? my_settings#utils#get_current_relative_path() : '[No Name]') .
       \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
   endfunction
 
@@ -456,7 +456,7 @@ let s:menus.my_commands = {
   \ 'description': 'My commands'
   \ }
 let s:menus.my_commands.command_candidates = [
-  \ ['Echo Filename', 'echo CurrentRelativePath()'],
+  \ ['Echo Filename', 'echo my_settings#utils#get_current_relative_path()'],
   \ ['Open Denite menu', 'Denite menu'],
   \ ['Update Vim Plugins', 'call dein#update()'],
   \ ]
