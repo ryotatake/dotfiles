@@ -18,9 +18,6 @@ hook_done_update = '''
 '''
 
 [[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
   set background=dark
