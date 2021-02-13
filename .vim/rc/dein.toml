@@ -457,4 +457,16 @@ let s:menus.my_commands.command_candidates = [
   \ ]
 
 call denite#custom#var('menu', 'menus', s:menus)
+[[plugins]]
+repo = 'sillybun/vim-repl'
+hook_add = '''
+let g:sendtorepl_invoke_key = 'e'
+let g:repl_program = {
+  \ 'scheme': 'scheme',
+  \ 'default': 'fish',
+\}
+let g:repl_exit_commands = {
+  \ 'scheme': '(quit)',
+  \ 'fish': 'exit',
+\}
 '''
