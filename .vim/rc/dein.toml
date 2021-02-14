@@ -464,7 +464,7 @@ map <Leader>m :Denite menu:my_commands<CR>
 [[plugins]]
 repo = 'sillybun/vim-repl'
 hook_add = '''
-let g:sendtorepl_invoke_key = 'e'
+let g:sendtorepl_invoke_key = '!'
 let g:repl_program = {
   \ 'scheme': 'scheme',
   \ 'default': 'fish',
