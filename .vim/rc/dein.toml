@@ -453,6 +453,7 @@ let s:menus.my_commands = {
   \ }
 let s:menus.my_commands.command_candidates = [
   \ ['Toggle REPL', 'REPLToggle'],
+  \ ['Toggle paste', 'set invpaste'],
   \ ['Update Vim Plugins', 'call dein#update()'],
   \ ]
 

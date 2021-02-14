@@ -118,10 +118,7 @@ nnoremap <Leader>H <C-w>H
 nnoremap <Leader>J <C-w>J
 nnoremap <Leader>K <C-w>K
 nnoremap <Leader>L <C-w>L
-nnoremap <Leader>mm :<C-u>set nonumber<CR>
-nnoremap <Leader>MM :<C-u>set number<CR>
-nnoremap <Leader>pp :<C-u>set paste<CR>
-nnoremap <Leader>PP :<C-u>set nopaste<CR>
+nnoremap <Leader>NN :<C-u>set invnumber<CR>
 
 " fzf.vim mappings
 nnoremap <silent> <Leader>f :<C-u>Files<CR>
