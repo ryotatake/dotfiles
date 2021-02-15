@@ -468,10 +468,12 @@ hook_add = '''
 let g:sendtorepl_invoke_key = '!'
 let g:repl_program = {
   \ 'scheme': 'scheme',
+  \ 'ruby': 'irb',
   \ 'default': 'fish',
 \}
 let g:repl_exit_commands = {
   \ 'scheme': '(quit)',
+  \ 'ruby': 'exit',
   \ 'fish': 'exit',
 \}
 '''
