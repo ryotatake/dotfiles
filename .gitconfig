@@ -19,6 +19,7 @@
   swf = !git branch | fzf | xargs git switch
   d = diff
   l = log
+  b = branch
   graph = log --graph --decorate --oneline
 [push]
   default = matching
