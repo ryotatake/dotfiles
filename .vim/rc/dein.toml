@@ -475,3 +475,7 @@ let g:repl_exit_commands = {
   \ 'fish': 'exit',
 \}
 '''
+
+[[plugins]]
+# プロジェクトごとの.local.vimrcを自動で読み込んでくれる
+repo = 'thinca/vim-localrc'
