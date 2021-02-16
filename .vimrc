@@ -125,7 +125,7 @@ nnoremap <silent> <Leader>f :<C-u>Files<CR>
 nnoremap <silent> <Leader>a :<C-u>Ag<CR>
 nnoremap <silent> <Leader>b :<C-u>Buffers<CR>
 nnoremap <silent> <Leader>* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
-vnoremap <silent> <Leader>* :<C-u>Ag <C-r>=SelectedWords()->escape('()')<CR><CR>
+vnoremap <silent> <Leader>* :<C-u>Ag <C-r>=my_settings#utils#selected_words()->escape('()')<CR><CR>
 nnoremap <silent> <Leader>d :<C-u>Files ~/dotfiles<CR>
 nnoremap <silent> <Leader><Leader>m :<C-u>Files ~/.config/memo/_posts<CR>
 
@@ -339,43 +339,6 @@ nnoremap <silent> <Leader>z :call ToggleWindowSize()<CR>
 " Pluginのための設定
 "----------------------------------------------------------
 filetype plugin indent on "ファイル形式別のプラグインのロードを有効化
-
-" for previm
-if has('mac')
-  let g:previm_open_cmd = 'open -a Google\ Chrome'
-elseif system("uname -r") =~# 'Microsoft' " WSLを使っている場合
-  let g:previm_open_cmd = '/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
-  let g:previm_wsl_mode = 1
-endif
-
-" for fzf
-" C-a: select-all, C-q: open files in quickfix
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-let $FZF_DEFAULT_OPTS = $FZF_DEFAULT_OPTS . " --bind ctrl-a:select-all"
-
-" Ag with preview
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
-" Files with preview
-command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-function! SelectedWords() abort
-  let tmp = @@
-  silent normal gvy
-  let selected = @@
-  let @@ = tmp
-  return selected
-endfunction
 
 " for help Open vim help by K command
 if &filetype ==# "vim"

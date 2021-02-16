@@ -9,3 +9,11 @@ endfunction
 function! my_settings#utils#get_current_absolute_path() abort
   return expand('%:~')
 endfunction
+
+function! my_settings#utils#selected_words() abort
+  let tmp = @@
+  silent normal gvy
+  let selected = @@
+  let @@ = tmp
+  return selected
+endfunction
