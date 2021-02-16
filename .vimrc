@@ -277,11 +277,6 @@ augroup vimrc-filetype
   autocmd BufRead,BufNewFile *.txt set filetype=markdown
 augroup END
 
-augroup vimrc-tag
-  autocmd!
-  au BufNewFile,BufRead *.rb set tags+=$HOME/apps/lrms/current/tags
-augroup END
-
 " augroup vimrc-auto-save
 "   autocmd!
 "   au CursorHold * call s:auto_save()
