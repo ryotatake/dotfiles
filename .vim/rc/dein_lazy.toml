@@ -10,3 +10,7 @@ hook_post_source = '''
 [[plugins]]
 repo = 'rhysd/reply.vim'
 on_cmd = ['Repl', 'ReplAuto']
+hook_post_source = '''
+  nnoremap <silent> ! :ReplSend<CR>j
+  vnoremap <silent> ! :ReplSend<CR>
+'''
