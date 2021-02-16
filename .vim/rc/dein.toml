@@ -231,28 +231,28 @@ repo = 'tyru/caw.vim'
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 hook_add = '''
-" caw.vimでのコメントアウトの挙動に支障が出るので`- `や`=`に続くコードをrubyとして認識させない
-let g:context_filetype#filetypes = {
-\ 'haml': [
-\   {
-\    'start' : '^:javascript$',
-\    'end' : '^\S',
-\    'filetype' : 'javascript',
-\   },
-\   {
-\    'start' : '^:css$',
-\    'end' : '^\S',
-\    'filetype' : 'css',
-\   },
-\ ],
-\ 'ruby' : [
-\   {
-\     'start' : '<<.*SQL$',
-\     'end' : '^\s*SQL',
-\     'filetype' : 'sql',
-\   }
-\ ],
-\}
+  " caw.vimでのコメントアウトの挙動に支障が出るので`- `や`=`に続くコードをrubyとして認識させない
+  let g:context_filetype#filetypes = {
+  \ 'haml': [
+  \   {
+  \    'start' : '^:javascript$',
+  \    'end' : '^\S',
+  \    'filetype' : 'javascript',
+  \   },
+  \   {
+  \    'start' : '^:css$',
+  \    'end' : '^\S',
+  \    'filetype' : 'css',
+  \   },
+  \ ],
+  \ 'ruby' : [
+  \   {
+  \     'start' : '<<.*SQL$',
+  \     'end' : '^\s*SQL',
+  \     'filetype' : 'sql',
+  \   }
+  \ ],
+  \}
 '''
 
 [[plugins]]
@@ -420,20 +420,20 @@ repo = 'FooSoft/vim-argwrap'
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_exclude_filetypes = ['startify', 'help']
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=238
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_start_level = 2
+  let g:indent_guides_guide_size = 1
+  let g:indent_guides_auto_colors = 0
+  let g:indent_guides_exclude_filetypes = ['startify', 'help']
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=238
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
 '''
 
 [[plugins]]
 repo = 'mhinz/vim-startify'
 hook_add = '''
-let g:startify_change_to_dir = 0
-let g:startify_bookmarks = [ {'c': '~/.vimrc'}, {'d': '~/.vim/rc/dein.toml'} ]
+  let g:startify_change_to_dir = 0
+  let g:startify_bookmarks = [ {'c': '~/.vimrc'}, {'d': '~/.vim/rc/dein.toml'} ]
 '''
 
 [[plugins]]
@@ -444,38 +444,38 @@ repo     = 'Shougo/denite.nvim'
 if       = '''has('python3')'''
 depends  = ['nvim-yarp', 'vim-hug-neovim-rpc']
 hook_post_source = '''
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
-endfunction
+  autocmd FileType denite call s:denite_my_settings()
+  function! s:denite_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>
+    \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> d
+    \ denite#do_map('do_action', 'delete')
+    nnoremap <silent><buffer><expr> p
+    \ denite#do_map('do_action', 'preview')
+    nnoremap <silent><buffer><expr> q
+    \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> i
+    \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> <Space>
+    \ denite#do_map('toggle_select').'j'
+  endfunction
 
-" Add custom menus
-let s:menus = {}
+  " Add custom menus
+  let s:menus = {}
 
-let s:menus.my_commands = {
-  \ 'description': 'My commands'
-  \ }
-let s:menus.my_commands.command_candidates = [
-  \ ['Start REPL', 'Repl'],
-  \ ['Stop REPL', 'ReplStop'],
-  \ ['Toggle paste', 'set invpaste'],
-  \ ['Update Vim Plugins', 'call dein#update()'],
-  \ ]
+  let s:menus.my_commands = {
+    \ 'description': 'My commands'
+    \ }
+  let s:menus.my_commands.command_candidates = [
+    \ ['Start REPL', 'Repl'],
+    \ ['Stop REPL', 'ReplStop'],
+    \ ['Toggle paste', 'set invpaste'],
+    \ ['Update Vim Plugins', 'call dein#update()'],
+    \ ]
 
-call denite#custom#var('menu', 'menus', s:menus)
+  call denite#custom#var('menu', 'menus', s:menus)
 
-map <Leader>m :Denite menu:my_commands<CR>
+  map <Leader>m :Denite menu:my_commands<CR>
 '''
 
 [[plugins]]
