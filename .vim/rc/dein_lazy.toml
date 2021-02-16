@@ -6,3 +6,7 @@ hook_post_source = '''
   " lexima.vimがマッピングを上書きするのを待ってから上書くため、timerを利用する。
   call timer_start(100, { -> my_settings#mappings#define_cr_for_insert_mode() })
 '''
+
+[[plugins]]
+repo = 'rhysd/reply.vim'
+on_cmd = ['Repl', 'ReplAuto']
