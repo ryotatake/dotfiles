@@ -8,9 +8,19 @@ hook_post_source = '''
 '''
 
 [[plugins]]
-repo = 'rhysd/reply.vim'
-on_cmd = ['Repl', 'ReplAuto']
-hook_post_source = '''
-  nnoremap <silent> ! :ReplSend<CR>j
-  vnoremap <silent> ! :ReplSend<CR>
+repo = 'sillybun/vim-repl'
+on_cmd = ['REPLToggle']
+hook_add = '''
+  let g:sendtorepl_invoke_key = "!"
+  let g:repl_console_name = 'REPL'
+  let g:repl_program = {
+    \ 'scheme': 'scheme',
+    \ 'ruby': 'irb',
+    \ 'default': 'fish',
+  \}
+  let g:repl_exit_commands = {
+    \ 'scheme': '(quit)',
+    \ 'ruby': 'exit',
+    \ 'fish': 'exit',
+  \}
 '''

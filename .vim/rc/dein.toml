@@ -467,8 +467,7 @@ hook_post_source = '''
     \ 'description': 'My commands'
     \ }
   let s:menus.my_commands.command_candidates = [
-    \ ['Start REPL', 'Repl'],
-    \ ['Stop REPL', 'ReplStop'],
+    \ ['Toggle REPL', 'REPLToggle'],
     \ ['Toggle paste', 'set invpaste'],
     \ ['Update Vim Plugins', 'call dein#update()'],
     \ ]
