@@ -412,7 +412,7 @@ hook_add = '''
   # このプラグインはシンタックスファイルを読み込むだけ。
   # vim-preciousはfiletype自体を変更するのでfiletype特有の設定が有効になる。
 repo = 'inkarkat/vim-SyntaxRange'
-hook_post_source = '''
+hook_add = '''
   " ref. https://qiita.com/tmsanrinsha/items/9670628aef3144c7919b
   augroup vimrc-syntax-range
     autocmd!
