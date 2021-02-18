@@ -48,7 +48,6 @@ repo = 'tpope/vim-dispatch'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-depends  = ['vim-signify']
 hook_add = '''
   set laststatus=2
   set noshowmode
@@ -117,7 +116,11 @@ hook_add = '''
 
   " ref. :help signify-faq-01
   function! LightlineSignify()
-    return sy#repo#get_stats_decorated()
+    if exists('*sy#repo#get_stats_decorated')
+      return sy#repo#get_stats_decorated()
+    else
+      return ''
+    endif
   endfunction
 
   augroup vimrc-lightline
