@@ -304,19 +304,6 @@ augroup vimrc-html-auto-close
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
-augroup vimrc-change-cursorlinenumber-color
-  autocmd!
-  autocmd InsertLeave,TextChanged,WinEnter,BufWritePost * call s:change_cursorlinenumber_color()
-augroup END
-
-function! s:change_cursorlinenumber_color() abort
-  if &modified == 1
-    highlight CursorLineNr ctermbg=yellow guibg=yellow
-  elseif &modified == 0
-    highlight CursorLineNr ctermbg=NONE guibg=NONE
-  endif
-endfunction
-
 
 "----------------------------------------------------------
 " Utility Functions

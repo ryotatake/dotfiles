@@ -58,10 +58,9 @@ hook_add = '''
     \ 'colorscheme': 'wombat',
     \ 'mode_map': {'c': 'NORMAL'},
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'signify' ] ]
+    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'modified' ], [ 'signify' ] ]
     \ },
     \ 'component_function': {
-    \   'modified': 'LightlineModified',
     \   'readonly': 'LightlineReadonly',
     \   'fugitive': 'LightlineFugitive',
     \   'filename': 'LightlineFilename',
@@ -70,6 +69,12 @@ hook_add = '''
     \   'fileencoding': 'LightlineFileencoding',
     \   'mode': 'LightlineMode',
     \   'signify': 'LightlineSignify'
+    \ },
+    \ 'component_expand': {
+    \   'modified': 'LightlineModified',
+    \ },
+    \ 'component_type': {
+    \   'modified': 'error',
     \ }
     \}
 
@@ -86,8 +91,7 @@ hook_add = '''
       \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
       \  &ft == 'unite' ? unite#get_status_string() :
       \  &ft == 'vimshell' ? vimshell#get_status_string() :
-      \ '' != my_settings#utils#get_current_relative_path() ? my_settings#utils#get_current_relative_path() : '[No Name]') .
-      \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+      \ '' != my_settings#utils#get_current_relative_path() ? my_settings#utils#get_current_relative_path() : '[No Name]')
   endfunction
 
   function! LightlineFugitive()
@@ -118,6 +122,11 @@ hook_add = '''
   function! LightlineSignify()
     return sy#repo#get_stats_decorated()
   endfunction
+
+  augroup vimrc-lightline
+    autocmd!
+    autocmd InsertLeave,TextChanged,BufWritePost * call lightline#update()
+  augroup END
 '''
 
 [[plugins]]
