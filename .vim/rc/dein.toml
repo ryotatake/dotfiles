@@ -443,6 +443,13 @@ repo = 'mhinz/vim-startify'
 hook_add = '''
   let g:startify_change_to_dir = 0
   let g:startify_bookmarks = [ {'c': '~/.vimrc'}, {'d': '~/.vim/rc/dein.toml'} ]
+  let g:startify_lists = [
+        \ { 'type': 'sessions',  'header': ['   Sessions']       },
+        \ { 'type': 'files',     'header': ['   MRU']            },
+        \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': 'commands',  'header': ['   Commands']       },
+        \ ]
 '''
 
 [[plugins]]
