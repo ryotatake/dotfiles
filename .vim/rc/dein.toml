@@ -308,6 +308,7 @@ repo = 'simeji/winresizer'
 repo = 'lambdalisue/gina.vim'
 hook_post_source = '''
   call gina#custom#command#option('log', '--opener', 'vsplit')
+  call gina#custom#command#option('commit', '--verbose')
   call gina#custom#action#alias('log', 'show', 'show:right')
   call gina#custom#mapping#nmap(
   \  '/\%(diff\|show\)', '<CR>',
