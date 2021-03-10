@@ -26,6 +26,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-# .local.vimrcでg:dbにDBのURLを登録すると`:DB`コマンドだけで使えるようになって良い
+# .local.vimrcでg:dbにDBのURLを登録すると`DB`コマンドにURLを渡さなくてよくなる
 repo = 'tpope/vim-dadbod'
 on_cmd = ['DB']
