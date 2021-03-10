@@ -24,3 +24,8 @@ hook_add = '''
     \ 'fish': 'exit',
   \}
 '''
+
+[[plugins]]
+# .local.vimrcでg:dbにDBのURLを登録すると`:DB`コマンドだけで使えるようになって良い
+repo = 'tpope/vim-dadbod'
+on_cmd = ['DB']
