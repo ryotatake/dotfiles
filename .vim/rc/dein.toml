@@ -57,11 +57,11 @@ hook_add = '''
     \ 'colorscheme': 'wombat',
     \ 'mode_map': {'c': 'NORMAL'},
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'modified' ], [ 'signify' ] ]
+    \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch', 'filename', 'modified' ], [ 'signify' ] ]
     \ },
     \ 'component_function': {
     \   'readonly': 'LightlineReadonly',
-    \   'fugitive': 'LightlineFugitive',
+    \   'gitbranch': 'gina#component#repo#branch',
     \   'filename': 'LightlineFilename',
     \   'fileformat': 'LightlineFileformat',
     \   'filetype': 'LightlineFiletype',
@@ -88,14 +88,6 @@ hook_add = '''
   function! LightlineFilename()
     return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
       \ ('' != my_settings#utils#get_current_relative_path() ? my_settings#utils#get_current_relative_path() : '[No Name]')
-  endfunction
-
-  function! LightlineFugitive()
-    if exists('*fugitive#head')
-      return fugitive#head()
-    else
-      return ''
-    endif
   endfunction
 
   function! LightlineFileformat()
@@ -313,7 +305,15 @@ repo = 'kana/vim-textobj-entire'
 repo = 'simeji/winresizer'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'lambdalisue/gina.vim'
+hook_post_source = '''
+  call gina#custom#command#option('log', '--opener', 'vsplit')
+  call gina#custom#action#alias('log', 'show', 'show:right')
+  call gina#custom#mapping#nmap(
+  \  'show', '<CR>',
+  \  '<Plug>(gina-diff-jump-split)',
+  \)
+'''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
