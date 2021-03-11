@@ -469,44 +469,5 @@ hook_add = '''
 repo = 'pbrisbin/vim-mkdir'
 
 [[plugins]]
-repo     = 'Shougo/denite.nvim'
-if       = '''has('python3')'''
-depends  = ['nvim-yarp', 'vim-hug-neovim-rpc']
-hook_post_source = '''
-  autocmd FileType denite call s:denite_my_settings()
-  function! s:denite_my_settings() abort
-    nnoremap <silent><buffer><expr> <CR>
-    \ denite#do_map('do_action')
-    nnoremap <silent><buffer><expr> d
-    \ denite#do_map('do_action', 'delete')
-    nnoremap <silent><buffer><expr> p
-    \ denite#do_map('do_action', 'preview')
-    nnoremap <silent><buffer><expr> q
-    \ denite#do_map('quit')
-    nnoremap <silent><buffer><expr> i
-    \ denite#do_map('open_filter_buffer')
-    nnoremap <silent><buffer><expr> <Space>
-    \ denite#do_map('toggle_select').'j'
-  endfunction
-
-  " Add custom menus
-  let s:menus = {}
-
-  let s:menus.my_commands = {
-    \ 'description': 'My commands'
-    \ }
-  let s:menus.my_commands.command_candidates = [
-    \ ['Delete Blank Lines', 'v/./d'],
-    \ ['Toggle REPL', 'REPLToggle'],
-    \ ['Toggle paste', 'set invpaste'],
-    \ ['Update Vim Plugins', 'call dein#update()'],
-    \ ]
-
-  call denite#custom#var('menu', 'menus', s:menus)
-
-  map <Leader>m :Denite menu:my_commands<CR>
-'''
-
-[[plugins]]
 # プロジェクトごとの.local.vimrcを自動で読み込んでくれる
 repo = 'thinca/vim-localrc'

@@ -99,7 +99,7 @@ set t_Co=256
 
 
 "----------------------------------------------------------
-" Leader系
+" キーマッピング
 "----------------------------------------------------------
 " leader + w で保存
 nnoremap <Leader>w :<C-u>w<CR>
@@ -128,6 +128,9 @@ nnoremap <silent> <Leader>* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
 vnoremap <silent> <Leader>* :<C-u>Ag <C-r>=my_settings#utils#selected_words()->escape('()')<CR><CR>
 nnoremap <silent> <Leader>d :<C-u>Files ~/dotfiles<CR>
 nnoremap <silent> <Leader><Leader>m :<C-u>Files ~/.config/memo/_posts<CR>
+
+" denite.vim mappings
+map <Leader>m :Denite menu:my_commands<CR>
 
 "----------------------------------------------------------
 " 改行系
