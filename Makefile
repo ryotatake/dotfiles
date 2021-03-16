@@ -9,6 +9,7 @@ SOURCE_DIR         := $(HOME)/src
 DETECTOS           := $(shell $(DOTPATH)/bin/get_os_info.sh)
 
 GO_TOOLS := github.com/x-motemen/ghq github.com/mattn/memo
+CARGO_TOOLS := git-delta
 APT      := postgresql-common postgresql-10 libpq-dev
 
 .DEFAULT_GOAL = help
@@ -29,11 +30,11 @@ deploy: parents backup
 update:
 	git pull origin master
 
-tools-setup: goenv
+tools-setup: goenv cargo
 
-tools: package go-tools
+tools: package go-tools cargo-tools
 
-tools-update: package-update rbenv-update goenv-update go-tools-update
+tools-update: package-update rbenv-update goenv-update go-tools-update cargo-tools-update
 
 clean:
 	@echo '==> Remove the dot files and this repo'
@@ -84,6 +85,21 @@ go-tools:
 	$(foreach go, $(GO_TOOLS), go get -u $(go);)
 
 go-tools-update: go-tools
+
+cargo:
+	@echo '==> Start to install Rust and Cargo'
+	@if [ ! -d ${HOME}/.cargo ]; then \
+		curl https://sh.rustup.rs -sSf | sh; \
+		source ${HOME}/.cargo/env; \
+	else \
+		echo 'already installed!'; \
+	fi
+
+cargo-tools:
+	@echo '==> Start to install Cargo tools'
+	$(foreach tool, $(CARGO_TOOLS), cargo install $(tool);)
+
+cargo-tools-update: cargo-tools
 
 parents:
 	@echo '==> Start to make parent directories'
