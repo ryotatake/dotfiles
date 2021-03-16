@@ -32,8 +32,22 @@ sudo ./configure \
   --with-ruby-command="$(which ruby)" \
   --enable-python3interp
 
-  # if ubuntu
-  # --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu
+  # To see configure options
+  #   $VIM_DIR/configure --help
+
+  # If error occurs like below
+  #   checking Python's configuration directory...
+  #   can't find it!
+  #   configure: error: could not configure python3
+  #
+  # Use this option
+  #   --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu
+  #   or
+  #   --with-python3-config-dir=/usr/lib64/python3.6/config-3.6m-x86_64-linux-gnu
+
+  # If error occurs like below,
+  #   if compile and link flags for Python 3 are sane... no: PYTHON3 DISABLED
+  # install python3-devel
 
   # If not installed lua
   #   @CentOS run `$ sudo yum install lua-devel ncurses-devel`
