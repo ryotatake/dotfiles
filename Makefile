@@ -8,9 +8,10 @@ BACKUP_DIR         := $(HOME)/.backup
 SOURCE_DIR         := $(HOME)/src
 DETECTOS           := $(shell $(DOTPATH)/bin/get_os_info.sh)
 
-GO_TOOLS := github.com/x-motemen/ghq github.com/mattn/memo
+GO_TOOLS    := github.com/x-motemen/ghq github.com/mattn/memo
 CARGO_TOOLS := git-delta
-APT      := postgresql-common postgresql-10 libpq-dev
+APT         := postgresql-common postgresql-10 libpq-dev
+YUM         := the_silver_searcher --enablerepo=epel
 
 .DEFAULT_GOAL = help
 
@@ -49,6 +50,9 @@ package:
 	@echo '==> Start to install packages'
 ifeq ($(DETECTOS), ubuntu)
 	sudo apt install $(APT)
+endif
+ifeq ($(DETECTOS), centos)
+	sudo yum install $(YUM)
 endif
 
 package-update:
