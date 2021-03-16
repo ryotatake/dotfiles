@@ -11,7 +11,7 @@ DETECTOS           := $(shell $(DOTPATH)/bin/get_os_info.sh)
 GO_TOOLS    := github.com/x-motemen/ghq github.com/mattn/memo
 CARGO_TOOLS := git-delta
 APT         := postgresql-common postgresql-10 libpq-dev
-YUM         := the_silver_searcher --enablerepo=epel
+YUM         := the_silver_searcher
 
 .DEFAULT_GOAL = help
 
@@ -52,7 +52,7 @@ ifeq ($(DETECTOS), ubuntu)
 	sudo apt install $(APT)
 endif
 ifeq ($(DETECTOS), centos)
-	sudo yum install $(YUM)
+	sudo yum install --enablerepo=epel $(YUM)
 endif
 
 package-update:
