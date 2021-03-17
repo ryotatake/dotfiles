@@ -44,6 +44,8 @@ sudo ./configure \
   #   --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu
   #   or
   #   --with-python3-config-dir=/usr/lib64/python3.6/config-3.6m-x86_64-linux-gnu
+  #
+  #   If can't find these file, installing python3-dev may be required.
 
   # If error occurs like below,
   #   if compile and link flags for Python 3 are sane... no: PYTHON3 DISABLED
