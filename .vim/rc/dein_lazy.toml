@@ -59,10 +59,12 @@ hook_post_source = '''
     \ 'description': 'My commands'
     \ }
   let s:menus.my_commands.command_candidates = [
-    \ ['Delete Blank Lines', 'v/./d'],
-    \ ['Toggle REPL', 'REPLToggle'],
-    \ ['Toggle paste', 'set invpaste'],
-    \ ['Update Vim Plugins', 'call dein#update()'],
+    \ ['Edit Lines:    Delete Blank Lines',           'v/./d'],
+    \ ['Edit Lines:    snake_case to camelCase',      's#_\(\l\)#\u\1#g'],
+    \ ['Edit Lines:    snake_case to UpperCamelCase', 's#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g'],
+    \ ['REPL:          Toggle REPL',                  'REPLToggle'],
+    \ ['Dein:          Update Vim Plugins',           'call dein#update()'],
+    \ ['Misc:          Toggle paste',                 'set invpaste'],
     \ ]
 
   call denite#custom#var('menu', 'menus', s:menus)
