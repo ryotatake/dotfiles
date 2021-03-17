@@ -310,7 +310,7 @@ hook_post_source = '''
   call gina#custom#command#option('log', '--opener', 'vsplit')
   call gina#custom#action#alias('log', 'show', 'show:right')
   call gina#custom#mapping#nmap(
-  \  'show', '<CR>',
+  \  '/\%(diff\|show\)', '<CR>',
   \  '<Plug>(gina-diff-jump-split)',
   \)
 '''
