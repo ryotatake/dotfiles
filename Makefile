@@ -94,7 +94,6 @@ cargo:
 	@echo '==> Start to install Rust and Cargo'
 	@if [ ! -d ${HOME}/.cargo ]; then \
 		curl https://sh.rustup.rs -sSf | sh; \
-		source ${HOME}/.cargo/env; \
 	else \
 		echo 'already installed!'; \
 	fi
