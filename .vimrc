@@ -135,6 +135,7 @@ nnoremap <silent> <Leader>A :<C-u>Ack "\b<C-r>=expand("<cword>")<CR>\b"<CR>
 
 " カーソル下の単語を簡単に一括置換できるようにする
 nnoremap <Leader>R :<C-u>%s/\v<(<C-r>=expand("<cword>")<CR>)>/
+vnoremap <Leader>R :<C-u>%s/\v(<C-r>=my_settings#utils#selected_words()->fnameescape()<CR>)/
 
 " denite.vim mappings
 map <Leader>m :Denite menu:my_commands<CR>
