@@ -1,4 +1,5 @@
 set -x EDITOR vim
+set -x SHELL (which fish)
 
 set -x FZF_DEFAULT_OPTS "--height 40% --layout=reverse --border --inline-info"
 set -x FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
