@@ -134,7 +134,7 @@ nnoremap <silent> <Leader><Leader>m :<C-u>Files ~/.config/memo/_posts<CR>
 nnoremap <silent> <Leader>A :<C-u>Ack "\b<C-r>=expand("<cword>")<CR>\b"<CR>
 
 " カーソル下の単語を簡単に一括置換できるようにする
-nnoremap <silent> <Leader>R :<C-u>%s/\v<(<C-r>=expand("<cword>")<CR>)>/
+nnoremap <Leader>R :<C-u>%s/\v<(<C-r>=expand("<cword>")<CR>)>/
 
 " denite.vim mappings
 map <Leader>m :Denite menu:my_commands<CR>
