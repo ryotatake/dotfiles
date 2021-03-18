@@ -3,7 +3,7 @@
 ## vimのinstall
 
 ```
-sh vim_setup.sh
+./vim_setup.sh
 ```
 
 ## fish shell
