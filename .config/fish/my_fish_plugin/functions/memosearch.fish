@@ -11,4 +11,3 @@ if which memo > /dev/null 2>&1
     end
   end
 end
-alias memos="memosearch"
