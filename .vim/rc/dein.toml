@@ -318,12 +318,12 @@ hook_post_source = '''
   \  'status', '<CR>',
   \  '<Plug>(gina-diff-split)',
   \)
-	call gina#custom#mapping#nmap(
-  \  'status', 'C',
+  call gina#custom#mapping#nmap(
+  \  'status', '<C-c>',
   \  ':<C-u>Gina commit -v<CR>',
   \)
-	call gina#custom#mapping#nmap(
-  \  'commit', 'C',
+  call gina#custom#mapping#nmap(
+  \  'commit', '<C-c>',
   \  ':<C-u>Gina status<CR>',
   \)
 '''
