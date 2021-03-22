@@ -1,3 +1,4 @@
+# Defining an abbreviation with global scope is slightly faster than universal scope.
 abbr --add --global ll  "ls -lh --time-style=long-iso"
 abbr --add --global la  "ll -a"
 abbr --add --global rm  "rm -i"
