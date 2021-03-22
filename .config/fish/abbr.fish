@@ -17,7 +17,7 @@ abbr --add --global gd    "git diff"
 abbr --add --global gl    "git log"
 abbr --add --global gb    "git branch -v"
 abbr --add --global gco   "git checkout"
-abbr --add --global gcof  "git branch -v | fzf | xargs git checkout"
+abbr --add --global gcof  "git branch -v | fzf | awk '{ print \$1 }' | xargs git checkout"
 
 abbr --add --global agl   'ag --pager="less -R"'
 abbr --add --global mux   'sh ~/.local/tmux_setup.sh'
