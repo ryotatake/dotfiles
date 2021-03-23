@@ -1,6 +1,6 @@
 # https://qiita.com/b4b4r07/items/b70178e021bef12cd4a2
 DOTPATH            := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-DOTFILES_EXCLUDES  := .git .config .gitignore .gitmodules
+DOTFILES_EXCLUDES  := .git .config .gitignore .gitmodules .gitconfig.local
 DOTDIRECTORIES     := .config/fish .config/atcoder-cli-nodejs/cpp .vim
 DOTFILES_TARGET    := $(wildcard .??*)
 DOTFILES           := $(filter-out $(DOTFILES_EXCLUDES) $(DOTDIRECTORIES), $(DOTFILES_TARGET))

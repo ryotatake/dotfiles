@@ -53,3 +53,9 @@
 [delta "decorations"]
   file-decoration-style = bold blue box ul
   commit-decoration-style = bold yellow box ul
+
+[include]
+  path = ~/dotfiles-local/.gitconfig
+
+[includeIf "gitdir:~/dotfiles/.git"]
+  path = ~/dotfiles/.gitconfig.local
