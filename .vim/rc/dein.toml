@@ -326,6 +326,14 @@ hook_post_source = '''
   \  'commit', '<C-c>',
   \  ':<C-u>Gina status<CR>',
   \)
+
+  cabbrev gap Gina!! add --patch
+  cabbrev gc  Gina commit -v
+  cabbrev gca Gina commit -va
+  cabbrev gs  Gina status
+  cabbrev gd  Gina diff
+  cabbrev gl  Gina log
+  cabbrev gbl Gina blame
 '''
 
 [[plugins]]
