@@ -288,28 +288,6 @@ augroup vimrc-filetype
   autocmd BufRead,BufNewFile *.txt set filetype=markdown
 augroup END
 
-" augroup vimrc-auto-save
-"   autocmd!
-"   au CursorHold * call s:auto_save()
-" augroup END
-
-" ref. https://github.com/907th/vim-auto-save/blob/master/plugin/AutoSave.vim#L72-L80
-" Preserve marks that are used to remember start and
-" end position of the last changed or yanked text (`:h '[`).
-function! s:auto_save() abort
-  let first_char_pos = getpos("'[")
-  let last_char_pos = getpos("']")
-
-  try
-    write
-  catch
-    echo "not saved"
-  endtry
-
-  call setpos("'[", first_char_pos)
-  call setpos("']", last_char_pos)
-endfunction
-
 augroup vimrc-html-auto-close
   autocmd!
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
