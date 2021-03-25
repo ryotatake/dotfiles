@@ -1,8 +1,9 @@
 # Defining an abbreviation with global scope is slightly faster than universal scope.
 abbr --add --global ,r    "source ~/.config/fish/config.fish"
 
-abbr --add --global ll    "ls -lh --time-style=long-iso"
-abbr --add --global la    "ls -lah --time-style=long-iso"
+abbr --add --global ls    "ls --color=auto"
+abbr --add --global ll    "ls -lh --color=auto --time-style=long-iso"
+abbr --add --global la    "ls -lah --color=auto --time-style=long-iso"
 abbr --add --global rm    "rm -i"
 abbr --add --global cp    "cp -i"
 abbr --add --global mv    "mv -i"
