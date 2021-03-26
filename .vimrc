@@ -128,6 +128,20 @@ nnoremap <S-Tab> <<
 vnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
 
+" 直前に選択していた範囲を選択
+nnoremap gV `[v`]
+nnoremap q: :<C-u>q<CR>
+nnoremap + <C-a>                                      " increment & decrement number
+nnoremap - <C-x>
+nnoremap ,r :source $MYVIMRC<CR>                      " ,rで.vimrcを再読み込み
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR> " ESCキー2度押しでハイライトの切り替え
+nnoremap <C-]> g<C-]>                                 " tagsジャンプの時に複数ある時は一覧表示
+nnoremap Gf <C-w><C-f>                                " カーソル下のファイルをウィンドウを分割して開く
+nnoremap cie ciw
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 " fzf.vim mappings
 nnoremap <silent> <Leader>f :<C-u>Files<CR>
 nnoremap <silent> <Leader>a :<C-u>Ag<CR>
@@ -161,20 +175,6 @@ set notextmode                    " 改行コードを LF (UNIX 風)にする
 "----------------------------------------------------------
 set belloff=all
 
-"----------------------------------------------------------
-" normal mode
-"----------------------------------------------------------
-" 直前に選択していた範囲を選択
-nnoremap gV `[v`]
-nnoremap q: :<C-u>q<CR>
-nnoremap + <C-a>                                      " increment & decrement number
-nnoremap - <C-x>
-nnoremap ,r :source $MYVIMRC<CR>                      " ,rで.vimrcを再読み込み
-nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR> " ESCキー2度押しでハイライトの切り替え
-nnoremap <C-]> g<C-]>                                 " tagsジャンプの時に複数ある時は一覧表示
-nnoremap Gf <C-w><C-f>                                " カーソル下のファイルをウィンドウを分割して開く
-nnoremap cie ciw
-
 
 "----------------------------------------------------------
 " insert mode
@@ -191,13 +191,6 @@ if has('mac')
 else
   inoremap <silent> df <Esc>
 endif
-
-
-"----------------------------------------------------------
-" visual mode
-"----------------------------------------------------------
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
 
 "----------------------------------------------------------
