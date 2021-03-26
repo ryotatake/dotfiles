@@ -131,12 +131,17 @@ inoremap <S-Tab> <C-d>
 " 直前に選択していた範囲を選択
 nnoremap gV `[v`]
 nnoremap q: :<C-u>q<CR>
-nnoremap + <C-a>                                      " increment & decrement number
+" increment & decrement number
+nnoremap + <C-a>
 nnoremap - <C-x>
-nnoremap ,r :source $MYVIMRC<CR>                      " ,rで.vimrcを再読み込み
-nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR> " ESCキー2度押しでハイライトの切り替え
-nnoremap <C-]> g<C-]>                                 " tagsジャンプの時に複数ある時は一覧表示
-nnoremap Gf <C-w><C-f>                                " カーソル下のファイルをウィンドウを分割して開く
+" ,rで.vimrcを再読み込み
+nnoremap ,r :source $MYVIMRC<CR>
+" ESCキー2度押しでハイライトの切り替え
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
+" カーソル下のファイルをウィンドウを分割して開く
+nnoremap Gf <C-w><C-f>
 nnoremap cie ciw
 
 vmap v <Plug>(expand_region_expand)
