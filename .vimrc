@@ -144,6 +144,12 @@ nnoremap <C-]> g<C-]>
 nnoremap Gf <C-w><C-f>
 nnoremap cie ciw
 
+" 行頭や行末への移動を簡単にする
+nnoremap <C-l> $
+vnoremap <C-l> $
+nnoremap <C-h> ^
+vnoremap <C-h> ^
+
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
