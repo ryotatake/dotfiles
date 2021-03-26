@@ -120,6 +120,14 @@ nnoremap <Leader>K <C-w>K
 nnoremap <Leader>L <C-w>L
 nnoremap <Leader>NN :<C-u>set invnumber<CR>
 
+" Tab/Shift+Tabでインデントさせる
+nnoremap <Tab> >>
+vnoremap <Tab> >>
+inoremap <Tab> <C-t>
+nnoremap <S-Tab> <<
+vnoremap <S-Tab> <<
+inoremap <S-Tab> <C-d>
+
 " fzf.vim mappings
 nnoremap <silent> <Leader>f :<C-u>Files<CR>
 nnoremap <silent> <Leader>a :<C-u>Ag<CR>
