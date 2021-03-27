@@ -123,7 +123,12 @@ nnoremap <Leader>NN :<C-u>set invnumber<CR>
 " Tab/Shift+Tabでインデントさせる
 nnoremap <Tab> >>
 vnoremap <Tab> >>
-inoremap <Tab> <C-t>
+if dein#is_sourced('neosnippet.vim')
+  imap <expr><TAB> pumvisible() ?
+    \ "<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "<C-t>"
+else
+  inoremap <Tab> <C-t>
+endif
 nnoremap <S-Tab> <<
 vnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
