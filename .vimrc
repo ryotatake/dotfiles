@@ -125,13 +125,12 @@ nnoremap <Tab> >>
 vnoremap <Tab> >>
 if dein#is_sourced('neosnippet.vim')
   imap <expr><TAB> pumvisible() ?
-    \ "<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "<C-t>"
+    \ "<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "<Tab>"
 else
   inoremap <Tab> <C-t>
 endif
 nnoremap <S-Tab> <<
 vnoremap <S-Tab> <<
-inoremap <S-Tab> <C-d>
 
 " 直前に選択していた範囲を選択
 nnoremap gV `[v`]
