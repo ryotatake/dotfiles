@@ -391,12 +391,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'preservim/nerdtree'
-hook_add = '''
-  nnoremap <C-n> :NERDTreeToggle<CR>
-'''
-
-[[plugins]]
 repo = 'kg8m/vim-fzf-tjump'
 merged = 0
 hook_add = '''
