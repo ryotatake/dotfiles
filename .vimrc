@@ -121,6 +121,7 @@ nnoremap <Leader>L <C-w>L
 nnoremap <Leader>NN :<C-u>set invnumber<CR>
 
 " Tab/Shift+Tabでインデントさせる
+" in insert mode, use <C-t>/<C-d>
 nnoremap <Tab> >>
 vnoremap <Tab> >>
 if dein#is_sourced('neosnippet.vim')
