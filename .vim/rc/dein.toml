@@ -215,7 +215,7 @@ hook_add = '''
   let $FZF_DEFAULT_OPTS = $FZF_DEFAULT_OPTS . " --bind ctrl-a:select-all"
 
   " Ag with preview
-  command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
+  command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--hidden', fzf#vim#with_preview(), <bang>0)
   " Files with preview
   command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 '''
