@@ -24,7 +24,7 @@
   b = branch
   graph = log --graph --decorate --oneline
 [push]
-  default = matching
+  default = simple
 [fetch]
   prune = true
 [diff]
