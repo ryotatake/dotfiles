@@ -17,3 +17,8 @@ snippet link
 abbr	[title](url)
 options	word
 	[${1:#:title}](${2:#:url})
+
+snippet	title
+abbr	# filename
+options	head
+	# `substitute(expand('%:t'), '.md$', '', '')`
