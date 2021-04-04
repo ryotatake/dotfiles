@@ -178,6 +178,10 @@ vnoremap <Leader>R :<C-u>%s/\v(<C-r>=my_settings#utils#selected_words()->fnamees
 " denite.vim mappings
 map <Leader>m :Denite menu:my_commands<CR>
 
+" fern.vim mappings
+let g:notebooks_dir = expand("~/notebooks")
+nnoremap <silent> <Leader>N :<C-u>Fern <C-r>=g:notebooks_dir<CR> -drawer<CR>
+
 "----------------------------------------------------------
 " 改行系
 "----------------------------------------------------------
@@ -361,7 +365,6 @@ command! TracTableFormat call s:TracTableFormat()
 " settings for notebooks
 "----------------------------------------------------------
 
-let s:notebooks_dir = expand("~/notebooks")
 let s:journals_dir = expand("~/notebooks/journals")
 let s:new_journal_title = "# " . strftime("%Y-%m-%d")
 let s:new_journal_template_path = expand("~/notebooks/journals/template.md")
