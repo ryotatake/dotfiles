@@ -463,6 +463,9 @@ hook_add = '''
         \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
+  function! StartifyEntryFormat()
+      return 'nerdfont#find(absolute_path) ." ". entry_path'
+  endfunction
 '''
 
 [[plugins]]
