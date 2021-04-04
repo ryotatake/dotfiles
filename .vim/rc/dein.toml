@@ -496,3 +496,9 @@ hook_add = '''
     autocmd FileType startify call glyph_palette#apply()
   augroup END
 '''
+
+[[plugins]]
+repo = 'mattn/vim-findroot'
+hook_add = '''
+  let g:findroot_not_for_subdir = 0
+'''
