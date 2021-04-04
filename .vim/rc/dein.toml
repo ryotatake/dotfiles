@@ -476,9 +476,6 @@ repo = 'pbrisbin/vim-mkdir'
 repo = 'thinca/vim-localrc'
 
 [[plugins]]
-repo = 'vimplugin/project.vim'
-
-[[plugins]]
 repo = 'lambdalisue/fern.vim'
 
 [[plugins]]
