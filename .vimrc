@@ -358,6 +358,48 @@ endfunction
 command! TracTableFormat call s:TracTableFormat()
 
 "----------------------------------------------------------
+" settings for notebooks
+"----------------------------------------------------------
+
+let s:notebooks_dir = expand("~/notebooks")
+let s:journals_dir = expand("~/notebooks/journals")
+let s:new_journal_title = "# " . strftime("%Y-%m-%d")
+let s:new_journal_template_path = expand("~/notebooks/journals/template.md")
+
+function! s:journal_path() abort
+  return s:journals_dir . "/" . strftime("%Y-%m-%d") . ".md"
+endfunction
+
+function! s:new_or_edit_journal() abort
+  execute "edit " . s:journal_path()
+
+  if s:is_blank_file()
+    call s:add_journal_title()
+    call s:add_blank_line()
+    call s:add_from_journal_template()
+  endif
+endfunction
+command! Journal call s:new_or_edit_journal()
+
+function! s:add_journal_title() abort
+  execute "normal i" . s:new_journal_title
+endfunction
+
+function! s:add_blank_line() abort
+  " ref. https://vim-jp.org/vim-users-jp/2009/08/15/Hack-57.html
+  call append(expand('.'), '')
+  normal j
+endfunction
+
+function! s:add_from_journal_template() abort
+  execute "silent read " . fnameescape(s:new_journal_template_path)
+endfunction
+
+function! s:is_blank_file() abort
+  return line('$') == 1 && getline(1) == ''
+endfunction
+
+"----------------------------------------------------------
 " .vimrc以外の読み込み
 "----------------------------------------------------------
 let s:local_vimrc_path = expand("~/dotfiles-local/.vimrc")
