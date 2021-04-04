@@ -471,3 +471,6 @@ repo = 'pbrisbin/vim-mkdir'
 [[plugins]]
 # プロジェクトごとの.local.vimrcを自動で読み込んでくれる
 repo = 'thinca/vim-localrc'
+
+[[plugins]]
+repo = 'vimplugin/project.vim'
