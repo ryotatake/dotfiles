@@ -180,6 +180,7 @@ map <Leader>m :Denite menu:my_commands<CR>
 " fern.vim mappings
 let g:notebooks_dir = expand("~/notebooks")
 nnoremap <silent> <Leader>N :<C-u>Fern <C-r>=g:notebooks_dir<CR> -drawer<CR>
+nnoremap <silent> <Leader>F :<C-u>Fern . -drawer<CR>
 
 "----------------------------------------------------------
 " 改行系
