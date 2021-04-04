@@ -118,7 +118,6 @@ nnoremap <Leader>H <C-w>H
 nnoremap <Leader>J <C-w>J
 nnoremap <Leader>K <C-w>K
 nnoremap <Leader>L <C-w>L
-nnoremap <Leader>NN :<C-u>set invnumber<CR>
 
 " Tab/Shift+Tabでインデントさせる
 " in insert mode, use <C-t>/<C-d>
