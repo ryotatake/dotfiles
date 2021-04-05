@@ -477,6 +477,13 @@ repo = 'thinca/vim-localrc'
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
+hook_add = '''
+  let g:fern#default_hidden = 1
+
+  augroup vimrc-fern
+    autocmd FileType fern nmap <buffer> <C-r> <Plug>(fern-action-remove)
+  augroup END
+'''
 
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
