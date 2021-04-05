@@ -366,11 +366,12 @@ command! TracTableFormat call s:TracTableFormat()
 "----------------------------------------------------------
 
 let s:journals_dir = expand("~/notebooks/journals")
+let s:journal_filename = strftime("%Y-%m-%d") . ".md"
 let s:new_journal_title = "# " . strftime("%Y-%m-%d")
 let s:new_journal_template_path = expand("~/notebooks/journals/template.md")
 
 function! s:journal_path() abort
-  return s:journals_dir . "/" . strftime("%Y-%m-%d") . ".md"
+  return s:journals_dir . "/" . s:journal_filename
 endfunction
 
 function! s:new_or_edit_journal() abort
