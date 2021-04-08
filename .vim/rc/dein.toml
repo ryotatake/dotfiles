@@ -220,10 +220,15 @@ hook_add = '''
   command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
   "Find by filename under current directory
-  command! -bang -nargs=* FileNameAg
-    \ call fzf#vim#grep(
-    \   'ag --hidden --ignore-dir .git -g '.shellescape(<q-args>), 0,
-    \   fzf#vim#with_preview(), <bang>0)
+  function! FindByCursorFilename() abort
+    let filename = expand("<cfile>")
+    call s:fzf_filename_grep(filename)
+  endfunction
+
+  function! s:fzf_filename_grep(query) abort
+    let query = empty(a:query) ? '^(?=.)' : a:query
+    return fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'ag --hidden --ignore-dir .git -g ' . fzf#shellescape(query), 'options': '--prompt File\>\ '})))
+  endfunction
 '''
 
 [[plugins]]
