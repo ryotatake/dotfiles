@@ -1,6 +1,6 @@
-/* diff-highlightを使うには、例えば次のようにパスを通す必要がある。                                          */
-/* sudo chmod +x /usr/share/doc/git-1.8.3.1/contrib/diff-highlight/diff-highlight                            */
-/* sudo ln -s /usr/share/doc/git-1.8.3.1/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight */
+# diff-highlightを使うには、例えば次のようにパスを通す必要がある。
+# sudo chmod +x /usr/share/doc/git-1.8.3.1/contrib/diff-highlight/diff-highlight
+# sudo ln -s /usr/share/doc/git-1.8.3.1/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 set diff-highlight = true
 
 set main-view  = id date author commit-title:graph=yes,refs=yes
