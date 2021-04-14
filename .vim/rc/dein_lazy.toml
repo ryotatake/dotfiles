@@ -5,6 +5,14 @@ hook_post_source = '''
   " lexima.vimはInsertEnterのタイミングでマッピングを上書きするため、自分の設定で上書きしたい場合はそれより後に行う。
   " lexima.vimがマッピングを上書きするのを待ってから上書くため、timerを利用する。
   call timer_start(100, { -> my_settings#mappings#define_cr_for_insert_mode() })
+
+  " 直後にアルファベットや数字がある場合は補完しない。VSCodeの挙動を参考にした。
+  call lexima#add_rule({'char': '"', 'at': '\%#\w'})
+  call lexima#add_rule({'char': "'", 'at': '\%#\w'})
+  call lexima#add_rule({'char': "(", 'at': '\%#\w'})
+  call lexima#add_rule({'char': "{", 'at': '\%#\w'})
+  call lexima#add_rule({'char': "[", 'at': '\%#\w'})
+  call lexima#add_rule({'char': "`", 'at': '\%#\w'})
 '''
 
 [[plugins]]
