@@ -3,8 +3,8 @@ function my_settings#mappings#define_cr_for_insert_mode() abort
 endfunction
 
 function s:cr_expr_for_insert_mode() abort
-  if neosnippet#expandable()
-    return "\<Plug>(neosnippet_expand)"
+  if neosnippet#expandable_or_jumpable()
+    return "\<Plug>(neosnippet_expand_or_jump)"
   elseif pumvisible()
     return "\<C-y>"
   else
