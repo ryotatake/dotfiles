@@ -6,40 +6,7 @@ hook_post_source = '''
   " lexima.vimがマッピングを上書きするのを待ってから上書くため、timerを利用する。
   call timer_start(100, { -> my_settings#mappings#define_cr_for_insert_mode() })
 
-  " 直後にアルファベットや数字がある場合は補完しない。VSCodeの挙動を参考にした。
-  " Before        Input         After
-  " ------------------------------------
-  " |foo          "             "|foo
-  " ------------------------------------
-  " |foo          '             '|foo
-  " ------------------------------------
-  " |foo          (             (|foo
-  " ------------------------------------
-  " |foo          {             {|foo
-  " ------------------------------------
-  " |foo          [             [|foo
-  " ------------------------------------
-  " |foo          `             `|foo
-  " ------------------------------------
-  " (the cursor position is represented by |)
-  call lexima#add_rule({'char': '"', 'at': '\%#\w'})
-  call lexima#add_rule({'char': "'", 'at': '\%#\w'})
-  call lexima#add_rule({'char': "(", 'at': '\%#\w'})
-  call lexima#add_rule({'char': "{", 'at': '\%#\w'})
-  call lexima#add_rule({'char': "[", 'at': '\%#\w'})
-  call lexima#add_rule({'char': "`", 'at': '\%#\w'})
-
-  " 直前にアルファベットや数字がある場合は補完しない。
-  " Before        Input         After
-  " ------------------------------------
-  " foo|          "             foo"|
-  " ------------------------------------
-  " foo|          '             foo'|
-  " ------------------------------------
-  " foo|          `             foo`|
-  call lexima#add_rule({'char': '"', 'at': '\w\%#'})
-  call lexima#add_rule({'char': "'", 'at': '\w\%#'})
-  call lexima#add_rule({'char': "`", 'at': '\w\%#'})
+  call my_settings#plugins#lexima_rules()
 '''
 
 [[plugins]]
