@@ -123,14 +123,18 @@ nnoremap <Leader>L <C-w>L
 " in insert mode, use <C-t>/<C-d>
 nnoremap <Tab> >>
 vnoremap <Tab> >>
+nnoremap <S-Tab> <<
+vnoremap <S-Tab> <<
+
 if dein#is_sourced('neosnippet.vim')
-  imap <expr><TAB> pumvisible() ?
-    \ "<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "<Tab>"
+  imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "<Tab>"
 else
   inoremap <Tab> <C-t>
 endif
-nnoremap <S-Tab> <<
-vnoremap <S-Tab> <<
+
+" Ctrl+j,kでポップアップメニューから選択
+imap <expr><C-j> pumvisible() ? "<C-n>" : "<C-j>"
+imap <expr><C-k> pumvisible() ? "<C-p>" : "<C-k>"
 
 " 直前に選択していた範囲を選択
 nnoremap gV `[v`]

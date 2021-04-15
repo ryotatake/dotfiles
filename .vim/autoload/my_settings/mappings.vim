@@ -4,7 +4,7 @@ endfunction
 
 function s:cr_expr_for_insert_mode() abort
   if neosnippet#expandable()
-    return "\<Plug>(neosnippet_expand_or_jump)"
+    return "\<Plug>(neosnippet_expand)"
   elseif pumvisible()
     return "\<C-y>"
   else
