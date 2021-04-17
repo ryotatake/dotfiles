@@ -38,9 +38,12 @@ hook_add = '''
     let g:test#ruby#rspec#executable = 'notify spec'
   endif
   let g:test#strategy = "dispatch"
-  map <Leader>t :TestFile<CR>
-  map <Leader>n :TestNearest<CR>
-  map <Leader>r :TestLast<CR>
+
+  nnoremap [test] <Nop>
+  nmap     <Leader>t [test]
+  nnoremap [test]t :TestFile<CR>
+  nnoremap [test]n :TestNearest<CR>
+  nnoremap [test]r :TestLast<CR>
 '''
 
 [[plugins]]
