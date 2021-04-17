@@ -156,13 +156,18 @@ vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
 " fzf.vim mappings
-nnoremap <silent> <Leader>f :<C-u>Files<CR>
-nnoremap <silent> <Leader>a :<C-u>Ag<CR>
-nnoremap <silent> <Leader>b :<C-u>Buffers<CR>
-nnoremap <silent> <Leader>* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
-vnoremap <silent> <Leader>* :<C-u>Ag <C-r>=my_settings#utils#selected_words()->escape('()')<CR><CR>
-nnoremap <silent> <Leader>d :<C-u>Files ~/dotfiles<CR>
-nnoremap <silent> <Leader><Leader>m :<C-u>Files ~/.config/memo/_posts<CR>
+" http://deris.hatenablog.jp/entry/2013/05/02/192415
+nnoremap [fzf] <Nop>
+vnoremap [fzf] <Nop>
+nmap     <Leader>f [fzf]
+vmap     <Leader>f [fzf]
+nnoremap <silent> [fzf]f :<C-u>Files<CR>
+nnoremap <silent> [fzf]a :<C-u>Ag<CR>
+nnoremap <silent> [fzf]b :<C-u>Buffers<CR>
+nnoremap <silent> [fzf]* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
+vnoremap <silent> [fzf]* :<C-u>Ag <C-r>=my_settings#utils#selected_words()->escape('()')<CR><CR>
+nnoremap <silent> [fzf]d :<C-u>Files ~/dotfiles<CR>
+nnoremap <silent> [fzf]m :<C-u>Files ~/.config/memo/_posts<CR>
 
 " ack.vim mappings
 " カーソル下の単語をAckで検索する
