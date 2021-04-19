@@ -168,6 +168,7 @@ nnoremap <silent> [fzf]* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
 vnoremap <silent> [fzf]* :<C-u>Ag <C-r>=my_settings#utils#selected_words()->escape('()')<CR><CR>
 nnoremap <silent> [fzf]d :<C-u>Files ~/dotfiles<CR>
 nnoremap <silent> [fzf]m :<C-u>Files ~/.config/memo/_posts<CR>
+nnoremap <silent> [fzf]l :call FindByCursorFilename()<CR>
 
 " ack.vim mappings
 " カーソル下の単語をAckで検索する
