@@ -18,7 +18,7 @@ abbr --add --global gd    "git diff"
 abbr --add --global gl    "git log"
 abbr --add --global gb    "git branch -v"
 abbr --add --global gco   "git checkout"
-abbr --add --global gcof  'git for-each-ref --format="%(refname:short)🤢%(authordate:short)🤢%(authorname)🤢%(contents:subject)" refs/remotes refs/heads | column -ts "🤢" | fzf --prompt "CHECKOUT BRANCH> " --preview "git log --color=always {1}" --nth=1,3,4 | awk \'{ print $1 }\' | xargs git checkout'
+abbr --add --global gcof  'git for-each-ref --format="%(refname:short)🤢%(authordate:short)🤢%(authorname)🤢%(contents:subject)" refs/remotes refs/heads | column -ts "🤢" | fzf --prompt "CHECKOUT BRANCH> " --preview "git log --color=always {1}" --nth=1,3 --delimiter="  " | awk \'{ print $1 }\' | xargs git checkout'
 
 abbr --add --global agl   'ag --pager="less -R"'
 abbr --add --global mux   'sh ~/.local/tmux_setup.sh'
