@@ -224,6 +224,7 @@ set ignorecase                    " 検索時に大/小文字を区別しない
 set smartcase                     " 検索パターンに大文字を含んでいたら大/小を区別
 
 set wildmenu                      " コマンド補完を強化
+set wildmode=list:longest         " 補完候補を全て表示する & 補完候補の全てに共通する部分だけ自動で補完される
 set incsearch                     " インクリメンタルサーチ
 
 
