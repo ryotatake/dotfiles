@@ -249,6 +249,25 @@ hook_add = '''
     \ 'options': '--prompt Functions\>\ '
     \}))
   endfunction
+
+  " descriptionを追加した際には、printf()を使って縦のラインは調整すると良さそう。
+  let g:fzf_menu_list = [
+  \  "call FindByCursorFilename()",
+  \  "set invpaste",
+  \  "REPLToggle"
+  \]
+
+  function! s:menu_sink(menu) abort
+    execute a:menu
+  endfunction
+
+  function! Menu()
+    return fzf#run(fzf#wrap({
+    \ 'source': g:fzf_menu_list,
+    \ 'sink': function('s:menu_sink'),
+    \ 'options': '--prompt Menu\>\ '
+    \}))
+  endfunction
 '''
 
 [[plugins]]
