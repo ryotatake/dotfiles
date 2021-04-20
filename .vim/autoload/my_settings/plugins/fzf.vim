@@ -48,7 +48,7 @@ endfunction
 " Functions
 " ------------------------------------------------------------------
 function! s:format_function(line) abort
-  return substitute(a:line, '^function \([^ ]*\).*$', '\1', '')
+  return substitute(a:line, '^function \(.\{-1,}\)\( abort\)\?$', '\1', '')
 endfunction
 
 function! s:sink_function(function) abort
