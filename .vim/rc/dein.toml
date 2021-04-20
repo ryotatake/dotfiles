@@ -250,24 +250,17 @@ hook_add = '''
     \}))
   endfunction
 
-  " descriptionを追加した際には、printf()を使って縦のラインは調整すると良さそう。
+  command! -bang Menu call my_settings#plugins#fzf#menu(<bang>0)
+
   let g:fzf_menu_list = [
-  \  "call FindByCursorFilename()",
-  \  "set invpaste",
-  \  "REPLToggle"
+  \  ["[fzf] Find by Filename under cursor",       "call FindByCursorFilename()"],
+  \  ["[option] Toggle Paste",                     "set invpaste"],
+  \  ['[substitute] Delete Blank Lines',           'v/./d'],
+  \  ['[substitute] snake_case to camelCase',      's#_\(\l\)#\u\1#g'],
+  \  ['[substitute] snake_case to UpperCamelCase', 's#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g'],
+  \  ["[repl] Toggle REPL",                        "REPLToggle"],
+  \  ["[dein] Update Vim Plugins",                 "call dein#update()"],
   \]
-
-  function! s:menu_sink(menu) abort
-    execute a:menu
-  endfunction
-
-  function! Menu()
-    return fzf#run(fzf#wrap({
-    \ 'source': g:fzf_menu_list,
-    \ 'sink': function('s:menu_sink'),
-    \ 'options': '--prompt Menu\>\ '
-    \}))
-  endfunction
 '''
 
 [[plugins]]

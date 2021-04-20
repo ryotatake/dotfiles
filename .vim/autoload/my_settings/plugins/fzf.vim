@@ -1,19 +1,17 @@
 let s:marker = nr2char(0x2007)
 
-let g:fzf_menu_list = [
-\  ["Description",                               "Command"],
-\  ["[fzf] Find by Filename under cursor",       "call FindByCursorFilename()"],
-\  ["[option] Toggle Paste",                     "set invpaste"],
-\  ['[substitute] Delete Blank Lines',           'v/./d'],
-\  ['[substitute] snake_case to camelCase',      's#_\(\l\)#\u\1#g'],
-\  ['[substitute] snake_case to UpperCamelCase', 's#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g'],
-\  ["[repl] Toggle REPL",                        "REPLToggle"],
-\]
+if exists("g:fzf_menu_list")
+else
+  let g:fzf_menu_list = []
+endif
+
+let s:header = ["Description", "Command"]
+let s:fzf_menu_list_with_header = extend([s:header], g:fzf_menu_list)
 
 function! s:description_max_length() abort
   let l:max_length = 0
 
-  for [description, _] in g:fzf_menu_list
+  for [description, _] in s:fzf_menu_list_with_header
     let l:max_length = max([l:max_length, len(description)])
   endfor
 
@@ -27,7 +25,7 @@ function! s:menu_format(idx, list) abort
 endfunction
 
 function! s:menu_source() abort
-  return g:fzf_menu_list->map(function('s:menu_format'))
+  return s:fzf_menu_list_with_header->copy()->map(function('s:menu_format'))
 endfunction
 
 function! s:menu_sink(menu) abort
@@ -35,12 +33,10 @@ function! s:menu_sink(menu) abort
   execute cmd
 endfunction
 
-function! Menu()
+function! my_settings#plugins#fzf#menu(bang=0)
   return fzf#run(fzf#wrap({
   \ 'source': s:menu_source(),
   \ 'sink': function('s:menu_sink'),
   \ 'options': '--prompt Menu\>\  --header-lines=1'
-  \}))
+  \}, a:bang))
 endfunction
-
-call Menu()
