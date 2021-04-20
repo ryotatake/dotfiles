@@ -235,21 +235,7 @@ hook_add = '''
     return fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'ag --hidden --ignore-dir .git -g ' . fzf#shellescape(query), 'options': '--prompt File\>\ '})))
   endfunction
 
-  function! s:format_function(line) abort
-    return substitute(a:line, '^function \([^ ]*\).*$', '\1', '')
-  endfunction
-
-  function! Functions(...)
-    redir => cout
-    silent function
-    redir END
-    let list = split(cout, "\n")
-    return fzf#run(fzf#wrap({
-    \ 'source': list->map('s:format_function(v:val)'),
-    \ 'options': '--prompt Functions\>\ '
-    \}))
-  endfunction
-
+  command! -bang Functions call my_settings#plugins#fzf#functions(<bang>0)
   command! -bang Menu call my_settings#plugins#fzf#menu(<bang>0)
 
   let g:fzf_menu_list = [

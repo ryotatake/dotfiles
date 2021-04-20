@@ -1,3 +1,6 @@
+" ------------------------------------------------------------------
+" Menu
+" ------------------------------------------------------------------
 let s:marker = nr2char(0x2007)
 
 if exists("g:fzf_menu_list")
@@ -38,5 +41,28 @@ function! my_settings#plugins#fzf#menu(bang=0)
   \ 'source': s:menu_source(),
   \ 'sink': function('s:menu_sink'),
   \ 'options': '--prompt Menu\>\  --header-lines=1'
+  \}, a:bang))
+endfunction
+
+" ------------------------------------------------------------------
+" Functions
+" ------------------------------------------------------------------
+function! s:format_function(line) abort
+  return substitute(a:line, '^function \([^ ]*\).*$', '\1', '')
+endfunction
+
+function! s:sink_function(function) abort
+  echo a:function
+endfunction
+
+function! my_settings#plugins#fzf#functions(bang=0)
+  redir => cout
+  silent function
+  redir END
+  let list = split(cout, "\n")
+  return fzf#run(fzf#wrap({
+  \ 'source': list->map('s:format_function(v:val)'),
+  \ 'sink': function('s:sink_function'),
+  \ 'options': '--prompt Functions\>\ '
   \}, a:bang))
 endfunction
