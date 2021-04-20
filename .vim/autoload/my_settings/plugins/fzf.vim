@@ -52,7 +52,7 @@ function! s:format_function(line) abort
 endfunction
 
 function! s:sink_function(function) abort
-  echo a:function
+  execute feedkeys(":call ".a:function)
 endfunction
 
 function! my_settings#plugins#fzf#functions(bang=0)
