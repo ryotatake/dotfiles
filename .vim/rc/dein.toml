@@ -155,6 +155,9 @@ repo = 'kana/vim-operator-user'
 
 [[plugins]]
 repo = 'kana/vim-operator-replace'
+hook_add = '''
+  map _ <Plug>(operator-replace)
+'''
 
 [[plugins]]
 repo     = 'Shougo/deoplete.nvim'
@@ -398,9 +401,6 @@ repo = 'ryotatake/vim-md-checkbox'
 
 [[plugins]]
 repo = 'thinca/vim-qfreplace'
-hook_add = '''
-  map _ <Plug>(operator-replace)
-'''
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
