@@ -242,13 +242,14 @@ hook_add = '''
   command! -bang Menu call my_settings#plugins#fzf#menu(<bang>0)
 
   let g:fzf_menu_list = [
-  \  ["[fzf] Find by Filename under cursor",       "call FindByCursorFilename()"],
-  \  ["[option] Toggle Paste",                     "set invpaste"],
-  \  ['[substitute] Delete Blank Lines',           'v/./d'],
-  \  ['[substitute] snake_case to camelCase',      's#_\(\l\)#\u\1#g'],
-  \  ['[substitute] snake_case to UpperCamelCase', 's#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g'],
-  \  ["[repl] Toggle REPL",                        "REPLToggle"],
-  \  ["[dein] Update Vim Plugins",                 "call dein#update()"],
+  \  ["[fzf] Find by Filename under cursor",           "call FindByCursorFilename()"],
+  \  ["[option] Toggle Paste",                         "set invpaste"],
+  \  ['[substitute] Delete Blank Lines',               'v/./d'],
+  \  ['[substitute] snake_case to camelCase',          's#_\(\l\)#\u\1#g'],
+  \  ['[substitute] snake_case to UpperCamelCase',     's#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g'],
+  \  ["[repl] Toggle REPL",                            "REPLToggle"],
+  \  ["[dein] Update Vim Plugins",                     "call dein#update()"],
+  \  ["[copy] Remote copy current relative file path", "call RemoteCopy(my_settings#utils#get_current_relative_path())"],
   \]
 '''
 
