@@ -169,6 +169,7 @@ vnoremap <silent> [fzf]* :<C-u>Ag <C-r>=my_settings#utils#selected_words()->esca
 nnoremap <silent> [fzf]d :<C-u>Files ~/dotfiles<CR>
 nnoremap <silent> [fzf]m :<C-u>Files ~/.config/memo/_posts<CR>
 nnoremap <silent> [fzf]l :call FindByCursorFilename()<CR>
+nnoremap <Leader>m :Menu<CR>
 
 " ack.vim mappings
 " カーソル下の単語をAckで検索する
@@ -177,9 +178,6 @@ nnoremap <silent> <Leader>A :<C-u>Ack "\b<C-r>=expand("<cword>")<CR>\b"<CR>
 " カーソル下の単語を簡単に一括置換できるようにする
 nnoremap <Leader>R :<C-u>%s/\v<(<C-r>=expand("<cword>")<CR>)>/
 vnoremap <Leader>R :<C-u>%s/\v(<C-r>=my_settings#utils#selected_words()->fnameescape()<CR>)/
-
-" denite.vim mappings
-map <Leader>m :Denite menu:my_commands<CR>
 
 " fern.vim mappings
 let g:notebooks_dir = expand("~/notebooks")
