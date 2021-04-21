@@ -257,6 +257,7 @@ set title                      " タイトルをウィンドウ枠に表示
 set scrolloff=2
 set cursorline
 set signcolumn=yes             " aleやvim-signify用に常にsignカラムを表示する
+set shortmess=atTI
 
 
 "----------------------------------------------------------
