@@ -245,6 +245,7 @@ hook_add = '''
   command! -bang Menu call my_settings#plugins#fzf#menu(<bang>0)
 
   let g:fzf_menu_list = [
+  \  ["[fzf] Commands",                                "Commands"],
   \  ["[fzf] Find by Filename under cursor",           "call FindByCursorFilename()"],
   \  ["[option] Toggle Paste",                         "set invpaste"],
   \  ['[substitute] Delete Blank Lines',               'v/./d'],
