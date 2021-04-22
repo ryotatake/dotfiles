@@ -410,6 +410,8 @@ endfunction
 "----------------------------------------------------------
 " .vimrc以外の読み込み
 "----------------------------------------------------------
+call localrc#load(g:localrc_filename)
+
 let s:local_vimrc_path = expand("~/dotfiles-local/.vimrc")
 if filereadable(s:local_vimrc_path)
   execute "source " . s:local_vimrc_path

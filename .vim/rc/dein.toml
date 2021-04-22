@@ -508,6 +508,9 @@ repo = 'pbrisbin/vim-mkdir'
 [[plugins]]
 # プロジェクトごとの.local.vimrcを自動で読み込んでくれる
 repo = 'thinca/vim-localrc'
+hook_add = '''
+  let g:localrc_filename = '.local.vimrc'
+'''
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
