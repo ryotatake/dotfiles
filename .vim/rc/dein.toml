@@ -242,8 +242,12 @@ hook_add = '''
   endfunction
 
   command! -bang Functions call my_settings#plugins#fzf#functions(<bang>0)
-  command! -bang Menu call my_settings#plugins#fzf#menu(<bang>0)
+'''
 
+[[plugins]]
+repo = 'ryotatake/vim-fzf-menu'
+depends  = ['fzf']
+hook_add = '''
   let g:fzf_menu_list = [
   \  ["[fzf] Commands",                                "Commands"],
   \  ["[fzf] Find by Filename under cursor",           "call FindByCursorFilename()"],
@@ -255,6 +259,8 @@ hook_add = '''
   \  ["[dein] Update Vim Plugins",                     "call dein#update()"],
   \  ["[copy] Remote copy current relative file path", "call RemoteCopy(my_settings#utils#get_current_relative_path())"],
   \]
+
+  nmap <Leader>m <Plug>(fzf_menu)
 '''
 
 [[plugins]]
