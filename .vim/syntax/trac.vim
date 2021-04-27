@@ -1,4 +1,4 @@
-" expired by https://github.com/vim-scripts/trac.vim/blob/master/syntax/trac.vim
+" inspired by https://github.com/vim-scripts/trac.vim/blob/master/syntax/trac.vim
 
 if exists("b:current_syntax")
     finish
