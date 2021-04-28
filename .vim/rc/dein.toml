@@ -355,9 +355,6 @@ depends = ['vim-lsp']
 merged = 0
 
 [[plugins]]
-repo =  'prabirshrestha/async.vim'
-
-[[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
 
 [[plugins]]
