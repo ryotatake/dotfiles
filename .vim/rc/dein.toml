@@ -219,6 +219,7 @@ hook_add = '''
   \  ['[substitute] snake_case to UpperCamelCase',     's#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g'],
   \  ["[repl] Toggle REPL",                            "REPLToggle"],
   \  ["[dein] Update Vim Plugins",                     "call dein#update()"],
+  \  ["[dein] Remove unused Vim Plugins",              "call map(dein#check_clean(), \"delete(v:val, 'rf')\") | call dein#recache_runtimepath()"],
   \  ["[copy] Remote copy current relative file path", "call RemoteCopy(my_settings#utils#get_current_relative_path())"],
   \]
 
