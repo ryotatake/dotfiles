@@ -89,6 +89,7 @@ augroup vimrc-colorscheme
   " ターミナルの背景色に合わせるための設定
   autocmd ColorScheme * highlight Normal ctermbg=none
   autocmd ColorScheme * highlight LineNr ctermbg=none
+  autocmd ColorScheme * highlight SignColumn ctermbg=none
   autocmd ColorScheme * highlight EndOfBuffer ctermbg=none
 augroup END
 
