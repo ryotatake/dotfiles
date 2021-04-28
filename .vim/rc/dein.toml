@@ -124,34 +124,34 @@ hook_add = '''
   augroup END
 '''
 
-[[plugins]]
-repo = 'dense-analysis/ale'
-hook_add = '''
-  " 編集中は重たくなるのでチェックしない
-  let g:ale_lint_on_enter = 1
-  let g:ale_lint_on_filetype_changed = 1
-  let g:ale_lint_on_save = 1
-  let g:ale_lint_on_text_changed = 0
-  let g:ale_lint_on_insert_leave = 0
-
-  " cf. ~/dotfiles/.textlintrc
-  let g:ale_linters = {
-  \   'markdown':   ['textlint'],
-  \   'text':       ['textlint'],
-  \   'javascript': ['eslint'],
-  \}
-
-  let g:ale_fixers = {
-  \   'markdown':   ['textlint'],
-  \   'text':       ['textlint'],
-  \   'javascript': ['eslint'],
-  \}
-
-  let g:ale_sign_error = "✗"
-  let g:ale_sign_warning = "!!"
-  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-  let g:ale_set_highlights = 0
-'''
+# [[plugins]]
+# repo = 'dense-analysis/ale'
+# hook_add = '''
+#   " 編集中は重たくなるのでチェックしない
+#   let g:ale_lint_on_enter = 1
+#   let g:ale_lint_on_filetype_changed = 1
+#   let g:ale_lint_on_save = 1
+#   let g:ale_lint_on_text_changed = 0
+#   let g:ale_lint_on_insert_leave = 0
+# 
+#   " cf. ~/dotfiles/.textlintrc
+#   let g:ale_linters = {
+#   \   'markdown':   ['textlint'],
+#   \   'text':       ['textlint'],
+#   \   'javascript': ['eslint'],
+#   \}
+# 
+#   let g:ale_fixers = {
+#   \   'markdown':   ['textlint'],
+#   \   'text':       ['textlint'],
+#   \   'javascript': ['eslint'],
+#   \}
+# 
+#   let g:ale_sign_error = "✗"
+#   let g:ale_sign_warning = "!!"
+#   let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+#   let g:ale_set_highlights = 0
+# '''
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
@@ -347,6 +347,9 @@ repo = 'thinca/vim-quickrun'
 repo =  'prabirshrestha/vim-lsp'
 hook_add = '''
   let g:lsp_diagnostics_float_cursor = 1
+  let g:lsp_diagnostics_signs_error = {'text': '✗'}
+  let g:lsp_diagnostics_signs_warning = {'text': '‼'}
+  let g:lsp_document_code_action_signs_hint = {'text': 'AH'}
 '''
 
 [[plugins]]
