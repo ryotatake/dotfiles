@@ -556,3 +556,9 @@ repo = 'mattn/vim-findroot'
 hook_add = '''
   let g:findroot_not_for_subdir = 0
 '''
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+  let g:EasyMotion_leader_key = '<Leader>em'
+'''
