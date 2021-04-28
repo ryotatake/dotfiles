@@ -163,27 +163,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo     = 'Shougo/deoplete.nvim'
-if       = '''has('python3')'''
-depends  = ['nvim-yarp', 'vim-hug-neovim-rpc']
-hook_add = '''
-  " Vim起動時にdeopleteを有効にする
-  let g:deoplete#enable_at_startup = 1
-'''
-hook_post_source = '''
-  call deoplete#custom#option({
-  \ 'smart_case': v:true,
-  \ 'refresh_backspace': v:false,
-  \ })
-'''
-
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-
-[[plugins]]
 repo = 'Shougo/neosnippet.vim'
 if   = '''has('lua')'''
 hook_add = '''
@@ -389,6 +368,13 @@ repo = 'prabirshrestha/asyncomplete.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
+depends = ['neosnippet.vim']
+hook_add = '''
+  call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({}))
+'''
 
 [[plugins]]
 repo =  'prabirshrestha/vim-lsp'
