@@ -162,23 +162,6 @@ hook_add = '''
   map _ <Plug>(operator-replace)
 '''
 
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-if   = '''has('lua')'''
-hook_add = '''
-  " スニペットファイルのディレクトリを指定
-  let s:snippets_dir = expand('~/.vim/snippets')
-  let g:neosnippet#snippets_directory = s:snippets_dir
-  " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
-  call my_settings#mappings#define_cr_for_insert_mode()
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-'''
-
-[[plugins]]
-repo = 'ryotatake/neosnippet-snippets'
-if   = '''has('lua')'''
-depends = ['neosnippet.vim']
-
 # fzfの導入
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -361,6 +344,17 @@ hook_post_source = '''
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
+repo =  'prabirshrestha/vim-lsp'
+hook_add = '''
+  let g:lsp_diagnostics_float_cursor = 1
+'''
+
+[[plugins]]
+repo =  'mattn/vim-lsp-settings'
+depends = ['vim-lsp']
+merged = 0
+
+[[plugins]]
 repo =  'prabirshrestha/async.vim'
 
 [[plugins]]
@@ -377,15 +371,21 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo =  'prabirshrestha/vim-lsp'
+repo = 'Shougo/neosnippet.vim'
+if   = '''has('lua')'''
 hook_add = '''
-  let g:lsp_diagnostics_float_cursor = 1
+  " スニペットファイルのディレクトリを指定
+  let s:snippets_dir = expand('~/.vim/snippets')
+  let g:neosnippet#snippets_directory = s:snippets_dir
+  " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
+  call my_settings#mappings#define_cr_for_insert_mode()
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
 '''
 
 [[plugins]]
-repo =  'mattn/vim-lsp-settings'
-depends = ['vim-lsp']
-merged = 0
+repo = 'ryotatake/neosnippet-snippets'
+if   = '''has('lua')'''
+depends = ['neosnippet.vim']
 
 [[plugins]]
 repo =  'thinca/vim-zenspace'
