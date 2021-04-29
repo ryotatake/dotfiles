@@ -358,6 +358,17 @@ depends = ['vim-lsp']
 merged = 0
 
 [[plugins]]
+# require https://github.com/mattn/efm-langserver
+repo = 'tsuyoshicho/vim-efm-langserver-settings'
+depends = ['vim-lsp']
+hook_add = '''
+  " efm-langserverの設定は、vim-lsp-settings側ではなくてこちらで行ったものが反映される。より後にサーバーの登録処理が実行されるため。
+  " ref. https://github.com/tsuyoshicho/vim-efm-langserver-settings/blob/c27b29fb4a57d5788638dff650f0df786419765d/after/plugin/lsp/efm_langserver_settings.vim
+  let g:efm_langserver_settings#customlist = 1
+  let g:efm_langserver_settings#filetype_whitelist = ["markdown"]
+'''
+
+[[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
 
 [[plugins]]
