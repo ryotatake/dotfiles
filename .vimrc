@@ -311,7 +311,6 @@ augroup END
 augroup vimrc-filetype
   autocmd!
   autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
-  autocmd BufRead,BufNewFile *.txt set filetype=markdown
 augroup END
 
 augroup vimrc-html-auto-close
