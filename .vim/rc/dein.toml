@@ -404,7 +404,7 @@ hook_add = '''
 repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
 depends = ['neosnippet.vim', 'asyncomplete-lsp.vim']
 hook_add = '''
-  call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({}))
+  autocmd my_vimrc User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({}))
 '''
 
 [[plugins]]
