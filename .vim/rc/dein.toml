@@ -414,6 +414,7 @@ hook_add = '''
   let g:neosnippet#snippets_directory = s:snippets_dir
   " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
   call my_settings#mappings#define_cr_for_insert_mode()
+  call my_settings#mappings#define_tab_for_insert_mode()
   imap <C-k> <Plug>(neosnippet_expand_or_jump)
 '''
 
