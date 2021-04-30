@@ -48,7 +48,7 @@ if dein#check_install()
 endif
 
 " https://github.com/Shougo/dein.vim/blob/772ae08cef5e712b2b31b4aaee908fc853accd94/doc/dein.txt#L907-L911
-autocmd VimEnter * call dein#call_hook('post_source')
+autocmd my_vimrc VimEnter * call dein#call_hook('post_source')
 
 "----------------------------------------------------------
 " ファイル
@@ -85,8 +85,7 @@ endif
 " :so $VIMRUNTIME/syntax/colortest.vim で色のリストを確認できる。
 command! Colorlist :source $VIMRUNTIME/syntax/colortest.vim
 
-augroup vimrc-colorscheme
-  autocmd!
+augroup my_vimrc
   autocmd ColorScheme * highlight String ctermfg=175
   autocmd ColorScheme * highlight Comment ctermfg=gray
   autocmd ColorScheme * highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
@@ -307,19 +306,13 @@ let g:rails_level = 4
 "----------------------------------------------------------
 " auto commands
 "----------------------------------------------------------
-augroup vimrc-number
-  autocmd!
+augroup my_vimrc
   autocmd WinLeave,BufLeave * set nonumber
   autocmd WinEnter,BufEnter * set number
-augroup END
 
-augroup vimrc-filetype
-  autocmd!
   autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
-augroup END
 
-augroup vimrc-html-auto-close
-  autocmd!
+  " html auto close
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup END
 

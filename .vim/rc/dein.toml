@@ -118,10 +118,7 @@ hook_add = '''
     endif
   endfunction
 
-  augroup vimrc-lightline
-    autocmd!
-    autocmd InsertLeave,TextChanged,BufWritePost * call lightline#update()
-  augroup END
+  autocmd my_vimrc InsertLeave,TextChanged,BufWritePost * call lightline#update()
 '''
 
 # [[plugins]]
@@ -495,10 +492,7 @@ hook_add = '''
 repo = 'inkarkat/vim-SyntaxRange'
 hook_add = '''
   " ref. https://qiita.com/tmsanrinsha/items/9670628aef3144c7919b
-  augroup vimrc-syntax-range
-    autocmd!
-    autocmd BufEnter dein*.toml call my_settings#plugins#syntax_range_dein()
-  augroup END
+  autocmd my_vimrc BufEnter dein*.toml call my_settings#plugins#syntax_range_dein()
 '''
 
 [[plugins]]
@@ -512,8 +506,9 @@ hook_add = '''
   let g:indent_guides_guide_size = 1
   let g:indent_guides_auto_colors = 0
   let g:indent_guides_exclude_filetypes = ['startify', 'help']
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=238
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
+
+  autocmd my_vimrc VimEnter,Colorscheme * highlight IndentGuidesEven ctermbg=238
+  autocmd my_vimrc VimEnter,Colorscheme * highlight IndentGuidesOdd ctermbg=235
 '''
 
 [[plugins]]
@@ -548,7 +543,7 @@ repo = 'lambdalisue/fern.vim'
 hook_add = '''
   let g:fern#default_hidden = 1
 
-  augroup vimrc-fern
+  augroup my_vimrc
     autocmd FileType fern nmap <buffer> <C-r> <Plug>(fern-action-remove)
     autocmd FileType fern nmap <buffer> <CR>  <Plug>(fern-action-open-or-expand)
     autocmd FileType fern nmap <buffer> l     <Plug>(fern-action-expand)
@@ -568,8 +563,7 @@ hook_add = '''
 [[plugins]]
 repo = 'lambdalisue/glyph-palette.vim'
 hook_add = '''
-  augroup my-glyph-palette
-    autocmd! *
+  augroup my_vimrc
     autocmd FileType fern call glyph_palette#apply()
     autocmd FileType startify call glyph_palette#apply()
   augroup END
