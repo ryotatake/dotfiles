@@ -399,6 +399,18 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'prabirshrestha/asyncomplete-file.vim'
+depends = ['asyncomplete.vim']
+hook_add = '''
+  autocmd my_vimrc User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+  \ 'name': 'file',
+  \ 'allowlist': ['*'],
+  \ 'priority': 10,
+  \ 'completor': function('asyncomplete#sources#file#completor')
+  \}))
+'''
+
+[[plugins]]
 repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
 depends = ['neosnippet.vim', 'asyncomplete-lsp.vim']
 hook_add = '''
