@@ -1,5 +1,11 @@
 let mapleader = "\<Space>"
 
+" https://secret-garden.hatenablog.com/entry/2017/12/03/000628
+augroup my_vimrc
+  autocmd!
+augroup END
+command! -nargs=* MyAutocmd autocmd my_vimrc <args>
+
 "----------------------------------------------------------
 " Pluginの準備
 "----------------------------------------------------------

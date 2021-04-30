@@ -377,6 +377,21 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 depends = ['vim-lsp', 'asyncomplete.vim']
 
 [[plugins]]
+repo = 'prabirshrestha/asyncomplete-buffer.vim'
+depends = ['asyncomplete.vim']
+hook_add = '''
+  MyAutocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+  \ 'name': 'buffer',
+  \ 'allowlist': ['*'],
+  \ 'blocklist': ['go'],
+  \ 'completor': function('asyncomplete#sources#buffer#completor'),
+  \ 'config': {
+  \    'max_buffer_size': 5000000,
+  \  },
+  \}))
+'''
+
+[[plugins]]
 repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
 depends = ['neosnippet.vim', 'asyncomplete-lsp.vim']
 hook_add = '''
