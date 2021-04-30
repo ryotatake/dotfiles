@@ -4,7 +4,6 @@ let mapleader = "\<Space>"
 augroup my_vimrc
   autocmd!
 augroup END
-command! -nargs=* MyAutocmd autocmd my_vimrc <args>
 
 "----------------------------------------------------------
 " Pluginの準備

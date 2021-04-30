@@ -389,7 +389,7 @@ depends = ['vim-lsp', 'asyncomplete.vim']
 repo = 'prabirshrestha/asyncomplete-buffer.vim'
 depends = ['asyncomplete.vim']
 hook_add = '''
-  MyAutocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+  autocmd my_vimrc User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
   \ 'name': 'buffer',
   \ 'allowlist': ['*'],
   \ 'blocklist': ['go'],
