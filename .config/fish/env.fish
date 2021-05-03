@@ -58,3 +58,7 @@ if test -f /proc/sys/fs/binfmt_misc/WSLInterop
   set LOCAL_IP (ipconfig.exe | awk 'BEGIN { RS="\r\n"  } /^[A-Z]/ { isWslSection=/WSL/;  }; { if (!isWslSection && /IPv4 Address/) { printf $NF; exit;  } }')
   set -x DISPLAY $LOCAL_IP:0
 end
+
+if which snap > /dev/null 2>&1
+  set -x PATH /snap/bin $PATH
+end
