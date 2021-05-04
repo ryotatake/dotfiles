@@ -48,5 +48,5 @@ function! my_settings#plugins#lexima_rules() abort
   call lexima#add_rule({'char': "'", 'at': '\w\%#'})
   call lexima#add_rule({'char': "'", 'at': '\w\%#''', 'leave': 1})
   call lexima#add_rule({'char': "`", 'at': '\w\%#'})
-  call lexima#add_rule({'char': "`", 'at': '\w\%#`', 'leave': 1'})
+  call lexima#add_rule({'char': "`", 'at': '\w\%#`', 'leave': 1})
 endfunction
