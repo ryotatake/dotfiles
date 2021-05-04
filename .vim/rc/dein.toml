@@ -28,6 +28,10 @@ repo = 'tpope/vim-rails'
 
 [[plugins]]
 repo = 'ludovicchabant/vim-gutentags'
+hook_add = '''
+  " uncomment when debugging
+  " let g:gutentags_trace = 1
+'''
 
 [[plugins]]
 repo = 'janko/vim-test'
