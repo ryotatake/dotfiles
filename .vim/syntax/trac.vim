@@ -1,4 +1,4 @@
-" inspired by https://github.com/vim-scripts/trac.vim/blob/master/syntax/trac.vim
+" inspired by https://github.com/vim-scripts/moin.vim/blob/master/syntax/moin.vim
 
 if exists("b:current_syntax")
     finish
