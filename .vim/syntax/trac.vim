@@ -46,6 +46,9 @@ syn match       tracRule                /^-\{4,}/
 syn match       tracComment             /^##.*$/
 syn match       tracPragma              /^#\w\+.*$/
 
+" Discussion Citations
+syn match       tracDiscussionCitation  /^>.*$/
+
 " Define the default highlighting.
 command -nargs=+ HiLink hi def link <args>
 
@@ -80,6 +83,7 @@ HiLink      tracDescriptionlist     Type
 HiLink      tracRule                Special
 
 HiLink      tracComment             Comment
+HiLink      tracDiscussionCitation  Comment
 
 delcommand HiLink
 
