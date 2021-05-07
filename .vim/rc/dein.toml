@@ -331,12 +331,14 @@ hook_add = '''
   \   'markdown':   ['textlint'],
   \   'text':       ['textlint'],
   \   'javascript': ['eslint'],
+  \   'typescript': ['eslint'],
   \}
 
   let g:ale_fixers = {
   \   'markdown':   ['textlint'],
   \   'text':       ['textlint'],
   \   'javascript': ['eslint'],
+  \   'typescript': ['eslint'],
   \}
 
   let g:ale_sign_error = "✗"
