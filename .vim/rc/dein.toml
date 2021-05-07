@@ -125,35 +125,6 @@ hook_add = '''
   autocmd my_vimrc InsertLeave,TextChanged,BufWritePost * call lightline#update()
 '''
 
-# [[plugins]]
-# repo = 'dense-analysis/ale'
-# hook_add = '''
-#   " 編集中は重たくなるのでチェックしない
-#   let g:ale_lint_on_enter = 1
-#   let g:ale_lint_on_filetype_changed = 1
-#   let g:ale_lint_on_save = 1
-#   let g:ale_lint_on_text_changed = 0
-#   let g:ale_lint_on_insert_leave = 0
-# 
-#   " cf. ~/dotfiles/.textlintrc
-#   let g:ale_linters = {
-#   \   'markdown':   ['textlint'],
-#   \   'text':       ['textlint'],
-#   \   'javascript': ['eslint'],
-#   \}
-# 
-#   let g:ale_fixers = {
-#   \   'markdown':   ['textlint'],
-#   \   'text':       ['textlint'],
-#   \   'javascript': ['eslint'],
-#   \}
-# 
-#   let g:ale_sign_error = "✗"
-#   let g:ale_sign_warning = "!!"
-#   let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-#   let g:ale_set_highlights = 0
-# '''
-
 [[plugins]]
 repo = 'kana/vim-operator-user'
 
@@ -346,15 +317,37 @@ hook_post_source = '''
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+  " 編集中は重たくなるのでチェックしない
+  let g:ale_lint_on_enter = 1
+  let g:ale_lint_on_filetype_changed = 1
+  let g:ale_lint_on_save = 1
+  let g:ale_lint_on_text_changed = 0
+  let g:ale_lint_on_insert_leave = 0
+
+  " cf. ~/dotfiles/.textlintrc
+  let g:ale_linters = {
+  \   'markdown':   ['textlint'],
+  \   'text':       ['textlint'],
+  \   'javascript': ['eslint'],
+  \}
+
+  let g:ale_fixers = {
+  \   'markdown':   ['textlint'],
+  \   'text':       ['textlint'],
+  \   'javascript': ['eslint'],
+  \}
+
+  let g:ale_sign_error = "✗"
+  let g:ale_sign_warning = "!!"
+  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+  let g:ale_set_highlights = 0
+'''
+
+[[plugins]]
 repo =  'prabirshrestha/vim-lsp'
 hook_add = '''
-  " signのデフォルトは10。他のプラグインのsignより優先して表示したいため、値を10より大きくしておく。
-  let g:lsp_diagnostics_signs_priority = 11
-  let g:lsp_diagnostics_float_cursor = 1
-  let g:lsp_diagnostics_signs_error = {'text': '✗'}
-  let g:lsp_diagnostics_signs_warning = {'text': '‼'}
-  let g:lsp_document_code_action_signs_enabled = 0
-
   function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
@@ -364,6 +357,11 @@ hook_add = '''
 
   autocmd my_vimrc User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 '''
+
+# diagnosticなどのLSPの機能はvim-lspに任せ、lintやformatはaleに任せる
+[[plugins]]
+repo = 'rhysd/vim-lsp-ale'
+depends = ['vim-lsp', 'ale']
 
 [[plugins]]
 repo =  'mattn/vim-lsp-settings'
