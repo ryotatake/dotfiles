@@ -600,3 +600,13 @@ repo = 'easymotion/vim-easymotion'
 hook_add = '''
   let g:EasyMotion_leader_key = '<Leader>em'
 '''
+
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+hook_add = '''
+  let g:splitjoin_align = 1
+  let g:splitjoin_ruby_curly_braces = 0
+  let g:splitjoin_ruby_hanging_args = 0
+  let g:splitjoin_ruby_do_block_split = 0
+  let g:splitjoin_ruby_options_as_arguments = 1
+'''
