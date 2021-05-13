@@ -387,6 +387,9 @@ merged = 0
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
+hook_add = '''
+  let g:asyncomplete_matchfuzzy = 0
+'''
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
