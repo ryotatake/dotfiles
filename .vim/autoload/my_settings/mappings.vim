@@ -7,17 +7,15 @@ function my_settings#mappings#define_tab_for_insert_mode() abort
 endfunction
 
 function s:cr_expr_for_insert_mode() abort
-  if pumvisible()
-    return "\<C-y>"
-  else
-    " <C-g>u: Break undo sequence when a new line is inserted
-    return "\<C-g>u" .. lexima#expand("<CR>", "i")
-  endif
+  " <C-g>u: Break undo sequence when a new line is inserted
+  return "\<C-g>u" .. lexima#expand("<CR>", "i")
 endfunction
 
 function s:tab_expr_for_insert_mode() abort
   if neosnippet#expandable_or_jumpable()
     return "\<Plug>(neosnippet_expand_or_jump)"
+  elseif pumvisible()
+    return "\<C-y>"
   else
     return "\<TAB>"
   endif
