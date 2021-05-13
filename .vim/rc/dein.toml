@@ -399,6 +399,9 @@ depends = ['vim-lsp', 'asyncomplete.vim']
 repo = 'prabirshrestha/asyncomplete-buffer.vim'
 depends = ['asyncomplete.vim']
 hook_add = '''
+  " バッファを閉じてもそのバッファの内容で補完できるようにする
+  let g:asyncomplete_buffer_clear_cache = 0
+
   autocmd my_vimrc User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
   \ 'name': 'buffer',
   \ 'allowlist': ['*'],
