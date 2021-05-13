@@ -170,6 +170,7 @@ vmap     <Leader>f [fzf]
 nnoremap <silent> [fzf]f :<C-u>Files<CR>
 nnoremap <silent> [fzf]a :<C-u>Ag<CR>
 nnoremap <silent> [fzf]b :<C-u>Buffers<CR>
+nnoremap <silent> [fzf]h :<C-u>History<CR>
 nnoremap <silent> [fzf]* :<C-u>Ag <C-r>=expand("<cword>")<CR><CR>
 vnoremap <silent> [fzf]* :<C-u>Ag <C-r>=my_settings#utils#selected_words()->escape('()')<CR><CR>
 nnoremap <silent> [fzf]d :<C-u>Files ~/dotfiles<CR>
