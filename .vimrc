@@ -155,8 +155,10 @@ nnoremap cie ciw
 " 行頭や行末への移動を簡単にする
 nnoremap <C-l> $
 vnoremap <C-l> $
+inoremap <C-l> <C-o>$
 nnoremap <C-h> ^
 vnoremap <C-h> ^
+inoremap <C-h> <C-o>^
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
