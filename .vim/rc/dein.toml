@@ -33,9 +33,9 @@ hook_add = '''
 
   nnoremap [test] <Nop>
   nmap     <Leader>t [test]
-  nnoremap [test]t :TestFile<CR>
-  nnoremap [test]n :TestNearest<CR>
-  nnoremap [test]r :TestLast<CR>
+  nnoremap <silent> [test]t :TestFile<CR>
+  nnoremap <silent> [test]n :TestNearest<CR>
+  nnoremap <silent> [test]r :TestLast<CR>
 '''
 
 [[plugins]]
