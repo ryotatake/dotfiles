@@ -40,6 +40,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'tpope/vim-dispatch'
+hook_add = '''
+  let g:dispatch_no_maps = 1
+'''
 
 [[plugins]]
 repo = 'maximbaz/lightline-ale'
