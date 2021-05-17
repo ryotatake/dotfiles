@@ -22,7 +22,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'janko/vim-test'
+repo = 'vim-test/vim-test'
 hook_add = '''
   if executable('spec')
     " テストが完了したら通知でお知らせするためnotifyコマンドを使う
