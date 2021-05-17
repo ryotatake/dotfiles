@@ -1,4 +1,4 @@
-let s:update_log_file = expand("~/vim_plugin_updates.log")
+let s:update_log_file = expand("~/tmp/vim_plugin_updates.log")
 
 function! my_settings#plugins#dein#output_update_logs() abort
   execute ":redir >> " . s:update_log_file
