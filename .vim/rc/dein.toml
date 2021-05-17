@@ -4,18 +4,6 @@ repo = 'Shougo/dein.vim'
 hook_add = '''
   let g:dein#install_github_api_token = $GITHUB_API_TOKEN_FOR_DEIN_VIM
 '''
-hook_done_update = '''
-  echom "plugin update completed"
-  function! OutputDeinUpdatesLog() abort
-    let outputfile = "$HOME/vim_plugin_updates.log"
-    execute ":redir! > " . outputfile
-    silent! echo dein#get_updates_log()
-    silent! echo "hogehogefugafuga"
-    redir END
-  endfunction
-
-  call OutputDeinUpdatesLog()
-'''
 
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
@@ -207,6 +195,7 @@ hook_add = '''
   \  ["[repl] Toggle REPL",                            "REPLToggle"],
   \  ["[dein] Update Vim Plugins",                     "call dein#update()"],
   \  ["[dein] Remove unused Vim Plugins",              "call map(dein#check_clean(), \"delete(v:val, 'rf')\") | call dein#recache_runtimepath()"],
+  \  ["[dein] Get Update Logs",                        "call my_settings#plugins#dein#output_update_logs() | call my_settings#plugins#dein#open_log_file()"],
   \  ["[copy] Remote copy current relative file path", "call RemoteCopy(my_settings#utils#get_current_relative_path())"],
   \]
 
