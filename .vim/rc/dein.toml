@@ -271,7 +271,7 @@ hook_add = '''
 repo = 'markonm/traces.vim'
 
 [[plugins]]
-repo = 'tpope/vim-surround'
+repo = 'machakann/vim-sandwich'
 
 [[plugins]]
 repo = 'terryma/vim-expand-region'
