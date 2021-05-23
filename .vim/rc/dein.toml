@@ -274,9 +274,6 @@ repo = 'markonm/traces.vim'
 repo = 'machakann/vim-sandwich'
 
 [[plugins]]
-repo = 'terryma/vim-expand-region'
-
-[[plugins]]
 repo = 'kana/vim-textobj-user'
 
 [[plugins]]
