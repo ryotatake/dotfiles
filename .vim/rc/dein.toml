@@ -277,10 +277,12 @@ repo = 'machakann/vim-sandwich'
 repo = 'kana/vim-textobj-user'
 
 [[plugins]]
+# al, ilでカーソル行を選択
 depends = ['vim-textobj-user']
 repo = 'kana/vim-textobj-line'
 
 [[plugins]]
+# ae, ieでバッファ全体を選択
 depends = ['vim-textobj-user']
 repo = 'kana/vim-textobj-entire'
 
