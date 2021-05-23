@@ -280,9 +280,11 @@ repo = 'terryma/vim-expand-region'
 repo = 'kana/vim-textobj-user'
 
 [[plugins]]
+depends = ['vim-textobj-user']
 repo = 'kana/vim-textobj-line'
 
 [[plugins]]
+depends = ['vim-textobj-user']
 repo = 'kana/vim-textobj-entire'
 
 [[plugins]]
