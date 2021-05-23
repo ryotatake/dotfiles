@@ -432,6 +432,10 @@ hook_add = '''
   " スニペットファイルのディレクトリを指定
   let s:snippets_dir = expand('~/.vim/snippets')
   let g:neosnippet#snippets_directory = s:snippets_dir
+
+  " 自動保存時にマーカーが消えないようにする
+  let g:neosnippet#enable_auto_clear_markers = 0
+
   " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
   call my_settings#mappings#define_cr_for_insert_mode()
   call my_settings#mappings#define_tab_for_insert_mode()
