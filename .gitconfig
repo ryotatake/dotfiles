@@ -30,6 +30,8 @@
 [diff]
   tool = vimdiff
   colorMoved = dimmed-zebra
+[commit]
+  verbose = true
 [difftool]
   prompt = false
 [merge]
