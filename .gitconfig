@@ -14,7 +14,7 @@
 [alias]
   s = status
   a = add
-  c = commit -v
+  c = commit
   co = checkout
   cof = !git branch | fzf | xargs git checkout
   sw = switch
