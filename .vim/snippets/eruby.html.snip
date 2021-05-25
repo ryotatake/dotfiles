@@ -19,3 +19,7 @@ snippet     end
 abbr        <% end %>
 options     head
 	<% end %>
+
+snippet     html
+abbr        jQuery().html();
+	jQuery( '${1}' ).html( '<%= escape_javascript render(:partial => '${2}', :locals => {${3}}) %>' );
