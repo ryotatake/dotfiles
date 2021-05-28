@@ -257,6 +257,8 @@ hook_add = '''
   elseif system("uname -r") =~# 'Microsoft' " WSLを使っている場合
     let g:previm_open_cmd = '/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
     let g:previm_wsl_mode = 1
+  else
+    let g:previm_open_cmd = 'open'
   endif
 '''
 
