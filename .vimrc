@@ -90,6 +90,7 @@ augroup my_vimrc
   autocmd ColorScheme * highlight Comment ctermfg=gray
   autocmd ColorScheme * highlight Visual ctermbg=gray  " 選択モードで選択された部分の背景色を指定
   autocmd ColorScheme * highlight CursorLineNr ctermfg=lightred
+  autocmd Colorscheme * highlight Pmenu ctermbg=black
   " ターミナルの背景色に合わせるための設定
   autocmd ColorScheme * highlight Normal ctermbg=none
   autocmd ColorScheme * highlight LineNr ctermbg=none
