@@ -12,6 +12,7 @@ syn match       tracHeader              /^\(=\{1,5}\).*$/
 
 " inline markup
 syn match       tracItalic              /\('\{2}\)[^']\+\1/
+syn match       tracItalic              /\(\/\{2}\)[^\/]\+\1/
 syn match       tracBold                /\('\{3}\)[^']\+\1/
 syn match       tracBold                /\(\*\{2}\)[^*]\+\1/
 syn match       tracBoldItalic          /\('\{5}\)[^']\+\1/
@@ -27,7 +28,6 @@ syn region      tracPreformatted        start=/{{{/ end=/}}}/
 " Links
 syn match       tracWikiWord            /\(\w\+:\)\?\u[a-z0-9]\+\u[a-z0-9]\+\(\u[a-z0-9]\+\)*/
 syn match       tracBracketLink         /\[[^[\]]\+\]/
-syn match       tracSubLink             /\(\w\+\|\.\.\)\?\// nextgroup=tracWikiWord
 syn match       tracNormalURL           /\w\+:\/\/\S\+/
 syn match       tracEmail               /\S\+@\S\+/
 
@@ -70,7 +70,6 @@ HiLink      tracPreformatted        String
 HiLink      tracWikiWord            Statement
 HiLink      tracBracketLink         Statement
 HiLink      tracNormalURL           Statement
-HiLink      tracSubLink             Statement
 HiLink      tracInterLink           Statement
 HiLink      tracEmail               Statement
 
