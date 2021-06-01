@@ -13,6 +13,7 @@ syn match       tracHeader              /^\(=\{1,5}\).*$/
 " inline markup
 syn match       tracItalic              /\('\{2}\)[^']\+\1/
 syn match       tracBold                /\('\{3}\)[^']\+\1/
+syn match       tracBold                /\(\*\{2}\)[^*]\+\1/
 syn match       tracBoldItalic          /\('\{5}\)[^']\+\1/
 syn match       tracUnderline           /\(_\{2}\).\{-}\1/
 syn match       tracSubscript           /\(,\{2}\).\{-}\1/
