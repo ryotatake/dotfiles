@@ -646,3 +646,9 @@ repo = 'easymotion/vim-easymotion'
 hook_add = '''
   let g:EasyMotion_leader_key = '<Leader>em'
 '''
+
+[[plugins]]
+repo = 'dkarter/bullets.vim'
+hook_add = '''
+  let g:bullets_checkbox_markers = ' x'
+'''
