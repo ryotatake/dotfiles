@@ -605,6 +605,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'yuki-yano/fern-preview.vim'
+depends = ['fern.vim']
 hook_add = '''
   function! s:fern_preview_settings() abort
     nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
