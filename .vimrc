@@ -126,13 +126,6 @@ nnoremap <Leader>J <C-w>J
 nnoremap <Leader>K <C-w>K
 nnoremap <Leader>L <C-w>L
 
-" Tab/Shift+Tabでインデントさせる
-" in insert mode, use <C-t>/<C-d>
-nnoremap <Tab> >>
-vnoremap <Tab> >>
-nnoremap <S-Tab> <<
-vnoremap <S-Tab> <<
-
 " Ctrl+j,kでポップアップメニューから選択
 imap <expr><C-j> pumvisible() ? "<C-n>" : "<C-j>"
 imap <expr><C-k> pumvisible() ? "<C-p>" : "<C-k>"
