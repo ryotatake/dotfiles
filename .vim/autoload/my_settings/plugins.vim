@@ -49,4 +49,20 @@ function! my_settings#plugins#lexima_rules() abort
   call lexima#add_rule({'char': "'", 'at': '\w\%#''', 'leave': 1})
   call lexima#add_rule({'char': "`", 'at': '\w\%#'})
   call lexima#add_rule({'char': "`", 'at': '\w\%#`', 'leave': 1})
+
+  " SPACE RULES
+  " デフォルトでは[]にも適用されるが、それは外したい。
+  " Before        Input         After
+  " ------------------------------------
+  " {|}           <Space>       { | }
+  " ------------------------------------
+  " {|            <Space>       { | }
+  " ------------------------------------
+  "  Same as ()
+  call lexima#add_rule({'char': '<Space>', 'at': '(\%#)', 'input_after': '<Space>'})
+  call lexima#add_rule({'char': ')', 'at': '\%# )', 'leave': 2})
+  call lexima#add_rule({'char': '<BS>', 'at': '( \%# )', 'delete': 1})
+  call lexima#add_rule({'char': '<Space>', 'at': '{\%#}', 'input_after': '<Space>'})
+  call lexima#add_rule({'char': '}', 'at': '\%# }', 'leave': 2})
+  call lexima#add_rule({'char': '<BS>', 'at': '{ \%# }', 'delete': 1})
 endfunction
