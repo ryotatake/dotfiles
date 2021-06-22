@@ -405,6 +405,10 @@ endfunction
 function! s:is_blank_file() abort
   return line('$') == 1 && getline(1) == ''
 endfunction
+"----------------------------------------------------------
+" save_timer
+"----------------------------------------------------------
+let g:save_timer_disable_filetypes = ["fern-replacer"]
 
 "----------------------------------------------------------
 " .vimrc以外の読み込み
