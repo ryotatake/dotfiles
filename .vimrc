@@ -307,8 +307,6 @@ augroup my_vimrc
   autocmd WinLeave,BufLeave * set nonumber
   autocmd WinEnter,BufEnter * set number
 
-  autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
-
   " html auto close
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup END
