@@ -306,9 +306,6 @@ let g:rails_level = 4
 augroup my_vimrc
   autocmd WinLeave,BufLeave * set nonumber
   autocmd WinEnter,BufEnter * set number
-
-  " html auto close
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
 

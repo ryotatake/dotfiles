@@ -660,3 +660,6 @@ hook_add = '''
 # show rspec outline
 # keymapping: <Leader>?
 repo = 'emilsoman/spec-outline.vim'
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
