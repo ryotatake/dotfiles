@@ -655,3 +655,8 @@ hook_add = '''
   let g:bullets_checkbox_markers = ' x'
   let g:bullets_outline_levels = ['ROM', 'ABC', 'num', 'abc', 'rom', 'std-', 'std*']
 '''
+
+[[plugins]]
+# show rspec outline
+# keymapping: <Leader>?
+repo = 'emilsoman/spec-outline.vim'
