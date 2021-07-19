@@ -646,7 +646,7 @@ hook_add = '''
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-  let g:EasyMotion_leader_key = '<Leader>em'
+  let g:EasyMotion_leader_key = '<Leader><Leader>'
 '''
 
 [[plugins]]
