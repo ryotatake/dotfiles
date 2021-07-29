@@ -375,6 +375,8 @@ hook_add = '''
 [[plugins]]
 repo =  'prabirshrestha/vim-lsp'
 hook_add = '''
+  let g:lsp_document_code_action_signs_enabled = 0
+
   function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
