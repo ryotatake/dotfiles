@@ -16,6 +16,7 @@ abbr --add --global gc    "git commit"
 abbr --add --global gca   "git commit --all"
 abbr --add --global gd    "git diff"
 abbr --add --global gl    "git log"
+abbr --add --global glp   "git log --patch"
 abbr --add --global gb    "git branch -v"
 abbr --add --global gco   "git checkout"
 abbr --add --global gcof  'git for-each-ref --format="%(refname:short)|||%(authordate:short)|||%(authorname)|||%(contents:subject)" --sort=-authordate refs/heads | column -ts "|||" | fzf --prompt "CHECKOUT BRANCH> " --preview "git log --color=always {1}" --nth=1,3 --delimiter=" {2,}" | awk \'{ print $1 }\' | xargs git checkout'
