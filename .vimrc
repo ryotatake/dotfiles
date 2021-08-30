@@ -215,6 +215,7 @@ if has('mac')
 else
   inoremap <silent> df <Esc>
 endif
+set timeoutlen=500
 
 
 "----------------------------------------------------------
