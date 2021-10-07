@@ -672,6 +672,3 @@ repo = 'emilsoman/spec-outline.vim'
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
-
-[[plugins]]
-repo = 'thinca/vim-qfhl'
