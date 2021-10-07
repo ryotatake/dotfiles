@@ -22,6 +22,5 @@ abbr --add --global gco   "git checkout"
 abbr --add --global gcof  'git for-each-ref --format="%(refname:short)|||%(authordate:short)|||%(authorname)|||%(contents:subject)" --sort=-authordate refs/heads | column -ts "|||" | fzf --prompt "CHECKOUT BRANCH> " --preview "git log --color=always {1}" --nth=1,3 --delimiter=" {2,}" | awk \'{ print $1 }\' | xargs git checkout'
 abbr --add --global gcofr 'git for-each-ref --format="%(refname:short)|||%(authordate:short)|||%(authorname)|||%(contents:subject)" --sort=-authordate refs/heads refs/remotes | column -ts "|||" | fzf --prompt "CHECKOUT BRANCH> " --preview "git log --color=always {1}" --nth=1,3 --delimiter=" {2,}" | awk \'{ print $1 }\' | xargs git checkout'
 
-abbr --add --global agl   'ag --pager="less -R"'
 abbr --add --global mux   'sh ~/.local/tmux_setup.sh'
 abbr --add --global memos 'memosearch'
