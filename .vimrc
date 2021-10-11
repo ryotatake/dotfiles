@@ -126,6 +126,10 @@ nnoremap <Leader>J <C-w>J
 nnoremap <Leader>K <C-w>K
 nnoremap <Leader>L <C-w>L
 
+" xとsで削除した文字はyankしない。削除しつつyankしたい場合はdを使う
+nnoremap x "_x
+nnoremap s "_s
+
 " Ctrl+j,kでポップアップメニューから選択
 imap <expr><C-j> pumvisible() ? "<C-n>" : "<C-j>"
 imap <expr><C-k> pumvisible() ? "<C-p>" : "<C-k>"
