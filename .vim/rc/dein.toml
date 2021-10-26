@@ -478,10 +478,9 @@ repo = 'ryotatake/vim-md-checkbox'
 repo = 'thinca/vim-qfreplace'
 
 [[plugins]]
-repo = 'junegunn/vim-easy-align'
+repo = 'kg8m/vim-simple-align'
 hook_add = '''
-  xmap <Leader>ea <Plug>(EasyAlign)
-  nmap <Leader>ea <Plug>(EasyAlign)
+  xmap <Leader>ea :SimpleAlign
 '''
 
 [[plugins]]
