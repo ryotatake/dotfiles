@@ -161,7 +161,7 @@ hook_add = '''
     \ 'ctrl-s': 'split',
     \ 'ctrl-v': 'vsplit' }
 
-  let $FZF_DEFAULT_OPTS = $FZF_DEFAULT_OPTS . " --bind ctrl-a:select-all"
+  let $FZF_DEFAULT_OPTS = $FZF_DEFAULT_OPTS . " --bind ctrl-a:select-all --scroll-off=999"
 
   " Ag with preview
   " delimiterを指定してAgでの検索の際にファイル名を除外する
