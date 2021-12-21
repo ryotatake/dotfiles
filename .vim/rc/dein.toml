@@ -189,17 +189,18 @@ repo = 'ryotatake/vim-fzf-menu'
 depends  = ['fzf']
 hook_add = '''
   let g:fzf_menu_list = [
-  \  ["[fzf] Commands",                                "Commands"],
-  \  ["[fzf] Find by Filename under cursor",           "call FindByCursorFilename()"],
-  \  ["[option] Toggle Paste",                         "set invpaste"],
-  \  ['[substitute] Delete Blank Lines',               'v/./d'],
-  \  ['[substitute] snake_case to camelCase',          's#_\(\l\)#\u\1#g'],
-  \  ['[substitute] snake_case to UpperCamelCase',     's#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g'],
-  \  ["[repl] Toggle REPL",                            "REPLToggle"],
-  \  ["[dein] Update Vim Plugins",                     "call dein#update()"],
-  \  ["[dein] Remove unused Vim Plugins",              "call map(dein#check_clean(), \"delete(v:val, 'rf')\") | call dein#recache_runtimepath()"],
-  \  ["[dein] Get Update Logs",                        "call my_settings#plugins#dein#output_update_logs() | call my_settings#plugins#dein#open_log_file()"],
-  \  ["[copy] Remote copy current relative file path", "call RemoteCopy(my_settings#utils#get_current_relative_path())"],
+  \  ["[fzf] Commands",                                        "Commands"],
+  \  ["[fzf] Find by Filename under cursor",                   "call FindByCursorFilename()"],
+  \  ["[option] Toggle Paste",                                 "set invpaste"],
+  \  ['[substitute] Delete Blank Lines',                       'v/./d'],
+  \  ['[substitute] snake_case to camelCase',                  's#_\(\l\)#\u\1#g'],
+  \  ['[substitute] snake_case to UpperCamelCase',             's#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g'],
+  \  ['[cd local] Move current directory to current file directory', 'lcd %:h'],
+  \  ["[repl] Toggle REPL",                                    "REPLToggle"],
+  \  ["[dein] Update Vim Plugins",                             "call dein#update()"],
+  \  ["[dein] Remove unused Vim Plugins",                      "call map(dein#check_clean(), \"delete(v:val, 'rf')\") | call dein#recache_runtimepath()"],
+  \  ["[dein] Get Update Logs",                                "call my_settings#plugins#dein#output_update_logs() | call my_settings#plugins#dein#open_log_file()"],
+  \  ["[copy] Remote copy current relative file path",         "call RemoteCopy(my_settings#utils#get_current_relative_path())"],
   \]
 
   nmap <Leader>m <Plug>(fzf_menu)
