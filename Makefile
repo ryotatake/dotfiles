@@ -16,15 +16,15 @@ YUM         := the_silver_searcher
 .DEFAULT_GOAL = help
 
 help:
-	@echo "deploy       : add symlinks"
+	@echo "symlinks     : add symlinks"
 	@echo "update       : update dotfiles"
 	@echo "tools-setup  : setup tools"
 	@echo "tools        : install tools"
 	@echo "tools-update : update tools"
 	@echo "clean        : delete all dotfiles and this repository"
 
-deploy: parents backup
-	@echo '==> Start to deploy dotfiles to home directory.'
+symlinks: parents backup
+	@echo '==> Start to add symlinks to home directory.'
 	@$(foreach val, $(DOTFILES),       ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 	@$(foreach val, $(DOTDIRECTORIES), ln -sfnv $(abspath $(val)) $(HOME)/$(dir $(val));)
 
