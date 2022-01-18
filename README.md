@@ -26,7 +26,7 @@ fisher update
 
 ```
 git clone https://github.com/ryotatake/dotfiles.git ~/dotfiles
-make deploy
+make symlinks
 ```
 
 ## ツールのインストール
