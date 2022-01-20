@@ -6,4 +6,4 @@ sudo wget -P /etc/yum.repos.d/ https://download.opensuse.org/repositories/shells
 sudo yum install fish util-linux-user -y
 curl -sL https://git.io/fisher | source
 fisher update
-sudo chsh -s `which fish`
+# sudo chsh admin -s `which fish`
