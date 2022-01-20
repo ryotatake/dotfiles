@@ -6,27 +6,23 @@
 ./vim_setup.sh
 ```
 
+## 設定ファイルの反映
+
+```sh
+git clone https://github.com/ryotatake/dotfiles.git ~/dotfiles
+make symlinks
+```
+
 ## fish shell
 
 ### fish shellのinstall
 
 [fish shell](<https://fishshell.com/>)にインストール方法が記載されているのでそれを参考に対応する。
 
-### fisherのinstall
+### [fisher](<https://github.com/jorgebucaran/fisher>)とfisherプラグインのinstall
 
-[jorgebucaran/fisher: A plugin manager for Fish.](<https://github.com/jorgebucaran/fisher>)を参考にインストール。
-
-### fisherプラグインのinstall
-
-```
-fisher update
-```
-
-## 設定ファイルの反映
-
-```
-git clone https://github.com/ryotatake/dotfiles.git ~/dotfiles
-make symlinks
+```sh
+curl -sL https://git.io/fisher | source && fisher update
 ```
 
 ## ツールのインストール
