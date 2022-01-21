@@ -7,7 +7,7 @@ cd ~/tmp
 wget -P ~/tmp https://github.com/sharkdp/bat/releases/download/v0.19.0/bat-v0.19.0-x86_64-unknown-linux-gnu.tar.gz
 tar xzvf ~/tmp/bat-v0.19.0-x86_64-unknown-linux-gnu.tar.gz
 mv ~/tmp/bat-v0.19.0-x86_64-unknown-linux-gnu/bat ~/bin/bat
-rm -rf ~/tmp/bat-v0.19.0-x86_64-unknown-linux-gnu.tar.gz ~/tmp/bat-v0.19.0-x86_64-unknown-linux-gnu
+rm -rf ~/tmp/bat-v0.19.0-x86_64-unknown-linux-gnu*
 
 wget -P ~/tmp https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
 tar xzvf ~/tmp/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
