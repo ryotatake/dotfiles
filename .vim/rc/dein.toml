@@ -516,9 +516,6 @@ hook_add = '''
 repo = 'joker1007/vim-ruby-heredoc-syntax'
 
 [[plugins]]
-repo = 'vim-scripts/moin.vim'
-
-[[plugins]]
 repo = 'mhinz/vim-signify'
 hook_add = '''
   set updatetime=100
