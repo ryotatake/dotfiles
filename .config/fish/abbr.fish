@@ -7,6 +7,8 @@ abbr --add --global la    "ls -lah --color=auto --time-style=long-iso"
 abbr --add --global rm    "rm -i"
 abbr --add --global cp    "cp -i"
 abbr --add --global mv    "mv -i"
+# https://qiita.com/yone098@github/items/bba8a42de6b06e40983b
+abbr --add --global tree  'pwd;find . | sort | sed \'1d;s/^\.//;s/\/\([^/]*\)$/|--\1/;s/\/[^/|]*/|  /g\''
 
 abbr --add --global g     "git"
 abbr --add --global gs    "git status"
