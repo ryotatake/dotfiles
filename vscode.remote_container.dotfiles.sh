@@ -18,3 +18,8 @@ wget -P ~/tmp https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/rip
 tar xzvf ~/tmp/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
 mv ~/tmp/ripgrep-13.0.0-x86_64-unknown-linux-musl/rg ~/bin/rg
 rm -rf ~/tmp/ripgrep-13.0.0-x86_64-unknown-linux-musl*
+
+wget -P ~/tmp https://github.com/dandavison/delta/releases/download/0.12.1/delta-0.12.1-x86_64-unknown-linux-musl.tar.gz
+tar xzvf ~/tmp/delta-0.12.1-x86_64-unknown-linux-musl.tar.gz
+mv ~/tmp/delta-0.12.1-x86_64-unknown-linux-musl/delta ~/bin/delta
+rm -rf ~/tmp/delta-*
