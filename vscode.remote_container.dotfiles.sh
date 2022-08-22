@@ -9,6 +9,7 @@ sudo make install
 sudo yum install the_silver_searcher -y
 
 cd ~/tmp
+mkdir -p ~/bin
 wget -P ~/tmp https://github.com/sharkdp/bat/releases/download/v0.19.0/bat-v0.19.0-x86_64-unknown-linux-gnu.tar.gz
 tar xzvf ~/tmp/bat-v0.19.0-x86_64-unknown-linux-gnu.tar.gz
 mv ~/tmp/bat-v0.19.0-x86_64-unknown-linux-gnu/bat ~/bin/bat
