@@ -10,6 +10,10 @@ set -x FZF_OPEN_COMMAND $FZF_DEFAULT_COMMAND
 set -x FZF_OPEN_OPTS "--preview 'bat --style=numbers --color=always {} | head -100'"
 set -x FZF_FIND_FILE_OPTS $FZF_OPEN_OPTS
 
+# for bobthefish
+set -x theme_display_date no
+set -x theme_display_cmd_duration no
+
 set -x PATH /usr/local/bin $HOME/bin /sbin /usr/sbin /usr/bin $PATH
 
 if test -d $HOME/.local/bin
