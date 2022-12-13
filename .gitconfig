@@ -26,12 +26,14 @@
 [fetch]
   prune = true
 [diff]
-  tool = vimdiff
+  tool = vscode
   colorMoved = dimmed-zebra
 [commit]
   verbose = true
 [difftool]
   prompt = false
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
   tool = vimdiff
 [mergetool]
