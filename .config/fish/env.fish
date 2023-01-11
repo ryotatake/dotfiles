@@ -48,7 +48,10 @@ end
 if test -d /usr/local/lib/nodenv
   set -x NODENV_ROOT /usr/local/lib/nodenv
   set -x PATH $NODENV_ROOT/bin $PATH
-  nodenv init - fish | source
+end
+
+if which nodenv > /dev/null 2>&1
+  status --is-interactive; and source (nodenv init -|psub)
 end
 
 if which yarn > /dev/null 2>&1
