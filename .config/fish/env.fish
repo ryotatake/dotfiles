@@ -42,7 +42,7 @@ if test -d /usr/local/lib/rbenv
 end
 
 if which rbenv > /dev/null 2>&1
-  status --is-interactive; and source (rbenv init -|psub)
+  status --is-interactive; and source (rbenv init - fish |psub)
 end
 
 if test -d /usr/local/lib/nodenv
@@ -51,7 +51,7 @@ if test -d /usr/local/lib/nodenv
 end
 
 if which nodenv > /dev/null 2>&1
-  status --is-interactive; and source (nodenv init -|psub)
+  status --is-interactive; and source (nodenv init - fish |psub)
 end
 
 if which yarn > /dev/null 2>&1
