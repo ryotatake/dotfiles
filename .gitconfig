@@ -26,6 +26,7 @@
   prune = true
 [diff]
   tool = vscode
+  algorithm = histogram
   colorMoved = dimmed-zebra
 [commit]
   verbose = true
