@@ -4,7 +4,6 @@
 
 [core]
   editor = vim
-  pager = delta
   excludesfile = ~/.gitignore_global
   quotepath = false
 
@@ -44,18 +43,6 @@
   root = ~/dev/src
 [pull]
   rebase = true
-
-; for delta
-[delta]
-  features = decorations
-  plus-style = 'syntax auto'
-  minus-style = 'syntax auto'
-  syntax-theme = Monokai Extended
-[interactive]
-  diffFilter = delta --color-only
-[delta "decorations"]
-  file-decoration-style = bold blue box ul
-  commit-decoration-style = bold yellow box ul
 
 [include]
   path = ~/dotfiles-local/.gitconfig

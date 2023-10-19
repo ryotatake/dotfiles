@@ -9,7 +9,7 @@ SOURCE_DIR         := $(HOME)/src
 DETECTOS           := $(shell $(DOTPATH)/bin/get_os_info.sh)
 
 GO_TOOLS    := github.com/x-motemen/ghq github.com/mattn/memo
-CARGO_TOOLS := git-delta bat
+CARGO_TOOLS := bat
 APT         := silversearcher-ag postgresql-common postgresql-10 libpq-dev
 YUM         := the_silver_searcher
 
