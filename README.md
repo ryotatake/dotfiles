@@ -31,3 +31,7 @@ curl -sL https://git.io/fisher | source && fisher update
 make tools-setup
 make tools
 ```
+
+## 個別でインストールするツール
+
+- [Zellij](https://zellij.dev/) 
