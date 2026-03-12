@@ -64,7 +64,7 @@ hook_add = '''
     \ },
     \ 'component_function': {
     \   'readonly': 'LightlineReadonly',
-    \   'gitbranch': 'gina#component#repo#branch',
+    \   'gitbranch': 'LightlineGitbranch',
     \   'filename': 'LightlineFilename',
     \   'fileformat': 'LightlineFileformat',
     \   'filetype': 'LightlineFiletype',
@@ -92,6 +92,14 @@ hook_add = '''
 
   function! LightlineModified()
     return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  endfunction
+
+  function! LightlineGitbranch()
+    try
+      return gina#component#repo#branch()
+    catch
+      return ''
+    endtry
   endfunction
 
   function! LightlineReadonly()
