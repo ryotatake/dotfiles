@@ -31,8 +31,6 @@ brew "fzf"
 brew "gh"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node"
 # Run gitlab pipelines locally as shell executor or docker executor
 brew "gitlab-ci-local"
 # Official GitLab CI runner
@@ -53,16 +51,12 @@ brew "lazygit"
 brew "libfido2"
 # Powerful, lightweight programming language
 brew "lua"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Open source relational database management system
 brew "mysql@8.0", link: true
-# Platform built on V8 to build network applications
-brew "node@16"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node@18"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node@20"
 # Libraries for security-enabled client and server applications
 brew "nss"
 # Cryptography and SSL/TLS Toolkit
@@ -77,20 +71,10 @@ brew "pstree"
 brew "python@3.11"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.14"
-# Install various Ruby versions and implementations
-brew "ruby-build"
-# Ruby version manager
-brew "rbenv"
-# Powerful, clean, object-oriented scripting language
-brew "ruby", link: false
 # SOcket CAT: netcat on steroids
 brew "socat"
 # SOund eXchange: universal sound sample translator
 brew "sox"
-# Tool to build, change, and version infrastructure
-brew "terraform", link: false
-# Terraform version manager inspired by rbenv
-brew "tfenv"
 # Code-search similar to ack
 brew "the_silver_searcher"
 # Extremely fast Python package installer and resolver, written in Rust

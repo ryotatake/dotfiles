@@ -1,0 +1,10 @@
+[settings]
+# .ruby-version / .nvmrc / .tool-versions の golang などプロジェクト側の指定ファイルを読む
+idiomatic_version_file_enable_tools = ["ruby", "node", "go"]
+
+[tools]
+ruby = "3.4.11"
+node = "24"
+go = "1.27.1"
+# 1.16 以降だと required_version = "~> 1.14.0" のプロジェクトで弾かれる
+terraform = "1.14.9"

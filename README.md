@@ -33,7 +33,13 @@ Homebrew で入れるものは `Brewfile` にまとめてある。
 brew bundle
 ```
 
-Go / Rust のツールは Makefile から:
+ruby / node / go / terraform は [mise](https://mise.jdx.dev/) で入れる。バージョンは `.config/mise/config.toml` にある。
+
+```sh
+mise install
+```
+
+Rust のツールは Makefile から:
 
 ```
 make tools-setup

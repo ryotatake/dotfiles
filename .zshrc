@@ -120,16 +120,11 @@ path=(
   $path
 )
 
-if [[ -d ${HOME}/.goenv ]]; then
-  export GOENV_ROOT=${HOME}/.goenv
-  path=(${GOENV_ROOT}/bin $path)
-  eval "$(goenv init -)"
-  [[ -n ${GOPATH} ]] && path=(${GOPATH}/bin $path)
-fi
-if (( ${+commands[rbenv]} )) eval "$(rbenv init - zsh)"
-
 [[ -f ${HOME}/google-cloud-sdk/path.zsh.inc ]] && source ${HOME}/google-cloud-sdk/path.zsh.inc
 [[ -f ${HOME}/google-cloud-sdk/completion.zsh.inc ]] && source ${HOME}/google-cloud-sdk/completion.zsh.inc
+
+# mise が入れるパスを先頭に保つため、PATH をいじる設定より後で activate する
+if (( ${+commands[mise]} )) eval "$(mise activate zsh)"
 
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --inline-info --scroll-off=999"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
