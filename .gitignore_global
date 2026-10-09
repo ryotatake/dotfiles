@@ -2,4 +2,6 @@ tags
 .tags
 .vscode
 .obsidian
+
+**/.claude/settings.local.json
 .claude/worktrees/
