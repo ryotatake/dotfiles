@@ -24,11 +24,6 @@ hook_add = '''
 [[plugins]]
 repo = 'vim-test/vim-test'
 hook_add = '''
-  if executable('spec')
-    " テストが完了したら通知でお知らせするためnotifyコマンドを使う
-    " see https://github.com/ryotatake/dotfiles/blob/master/.config/fish/functions/notify.fish
-    let g:test#ruby#rspec#executable = 'notify spec'
-  endif
   let g:test#strategy = "dispatch"
 
   nnoremap [test] <Nop>
@@ -214,9 +209,6 @@ hook_add = '''
 
   nmap <Leader>m <Plug>(fzf_menu)
 '''
-
-[[plugins]]
-repo = 'dag/vim-fish'
 
 [[plugins]]
 repo = 'tyru/caw.vim'

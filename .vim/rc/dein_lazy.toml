@@ -21,12 +21,12 @@ hook_add = '''
   let g:repl_program = {
     \ 'scheme': 'scheme',
     \ 'ruby': 'irb',
-    \ 'default': 'fish',
+    \ 'default': 'zsh',
   \}
   let g:repl_exit_commands = {
     \ 'scheme': '(quit)',
     \ 'ruby': 'exit',
-    \ 'fish': 'exit',
+    \ 'zsh': 'exit',
   \}
 '''
 
