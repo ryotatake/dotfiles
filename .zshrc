@@ -109,6 +109,10 @@ source ${ZIM_HOME}/init.zsh
 HISTSIZE=100000
 SAVEHIST=100000
 
+# environment モジュールの NO_CLOBBER 下では >> も未作成のファイルに失敗し、
+# cmux のターミナル別履歴の追記が毎回エラーになるため、>> だけは「なければ作る」に戻す
+setopt APPEND_CREATE
+
 export EDITOR=vim
 
 typeset -U path
