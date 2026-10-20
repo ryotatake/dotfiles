@@ -109,9 +109,9 @@ source ${ZIM_HOME}/init.zsh
 HISTSIZE=100000
 SAVEHIST=100000
 
-# environment モジュールの NO_CLOBBER 下では >> も未作成のファイルに失敗し、
-# cmux のターミナル別履歴の追記が毎回エラーになるため、>> だけは「なければ作る」に戻す
-setopt APPEND_CREATE
+# environment モジュールの NO_CLOBBER は `cmd > log` の上書きや未作成ファイルへの >> を
+# 毎回止めて、人も AI エージェントも都度 >| に書き直す羽目になるので、fish/bash と同じ挙動に戻す
+setopt CLOBBER
 
 export EDITOR=vim
 
