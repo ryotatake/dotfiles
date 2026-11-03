@@ -119,7 +119,6 @@ typeset -U path
 path=(
   ${HOME}/.local/bin
   ${HOME}/bin
-  ${HOME}/.cargo/bin
   ${HOME}/.yarn/bin
   $path
 )

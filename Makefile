@@ -9,7 +9,6 @@ SOURCE_DIR         := $(HOME)/src
 DETECTOS           := $(shell $(DOTPATH)/bin/get_os_info.sh)
 
 GO_TOOLS    := github.com/x-motemen/ghq github.com/mattn/memo
-CARGO_TOOLS := bat
 APT         := silversearcher-ag postgresql-common postgresql-10 libpq-dev
 YUM         := the_silver_searcher
 
@@ -18,7 +17,6 @@ YUM         := the_silver_searcher
 help:
 	@echo "symlinks     : add symlinks"
 	@echo "update       : update dotfiles"
-	@echo "tools-setup  : setup tools"
 	@echo "tools        : install tools"
 	@echo "tools-update : update tools"
 	@echo "clean        : delete all dotfiles and this repository"
@@ -31,11 +29,9 @@ symlinks: parents backup
 update:
 	git pull origin master
 
-tools-setup: cargo
+tools: package go-tools
 
-tools: package go-tools cargo-tools
-
-tools-update: package-update go-tools-update cargo-tools-update
+tools-update: package-update go-tools-update
 
 clean:
 	@echo '==> Remove the dot files and this repo'
@@ -67,20 +63,6 @@ go-tools:
 	$(foreach go, $(GO_TOOLS), go get -u $(go);)
 
 go-tools-update: go-tools
-
-cargo:
-	@echo '==> Start to install Rust and Cargo'
-	@if [ ! -d ${HOME}/.cargo ]; then \
-		curl https://sh.rustup.rs -sSf | sh; \
-	else \
-		echo 'already installed!'; \
-	fi
-
-cargo-tools:
-	@echo '==> Start to install Cargo tools'
-	$(foreach tool, $(CARGO_TOOLS), cargo install $(tool);)
-
-cargo-tools-update: cargo-tools
 
 parents:
 	@echo '==> Start to make parent directories'

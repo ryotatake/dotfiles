@@ -16,6 +16,8 @@ brew "ansible"
 brew "zstd"
 # CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM
 brew "aws-sam-cli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # High performance key/value database
 brew "berkeley-db"
 # Your feedback loop with the agent: review plans and code locally

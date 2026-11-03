@@ -39,13 +39,6 @@ ruby / node / go / terraform は [mise](https://mise.jdx.dev/) で入れる。�
 mise install
 ```
 
-Rust のツールは Makefile から:
-
-```
-make tools-setup
-make tools
-```
-
 ## 個別でインストールするツール
 
 - [Zellij](https://zellij.dev/) 
