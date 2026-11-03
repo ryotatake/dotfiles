@@ -47,3 +47,4 @@ alias sudo="sudo env PATH=$PATH"
 #    *i*) exec fish;;
 #      *) return;;
 #esac
+. "$HOME/.cargo/env"
