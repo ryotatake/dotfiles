@@ -10,14 +10,14 @@
 
 ```sh
 git clone https://github.com/ryotatake/dotfiles.git ~/dotfiles
-make symlinks
+~/dotfiles/link.sh
 ```
 
 ## zsh
 
 シェルの基本設定は [zimfw](https://zimfw.sh/) に任せている。
 `.zshrc` が初回起動時に zimfw 本体と `.zimrc` のモジュールを `~/.zim` へ自動で取得するので、
-`make symlinks` のあと zsh を起動するだけでよい。
+`link.sh` のあと zsh を起動するだけでよい。
 
 モジュールの更新:
 
