@@ -136,9 +136,12 @@ export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always {} | head 
 if (( ${+commands[fzf]} )) source <(fzf --zsh)
 
 alias la='ls -lah'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+# Claude Code の Bash ツールには確認に答える端末がなく、-i だと上書きが黙って取りやめになるか入力待ちで止まる
+if [[ -z "$CLAUDECODE" ]]; then
+  alias rm='rm -i'
+  alias cp='cp -i'
+  alias mv='mv -i'
+fi
 
 journal() {
   vim "${HOME}/notebooks/journals/$(date +%Y-%m-%d).md"
